@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using src.elements.effectors;
 using src.misc;
-using UnityEngine;
 
 namespace src.time {
     
@@ -9,32 +9,37 @@ namespace src.time {
     /// </summary>
     public class Timeline : UnitySingleton<Timeline> {
 
-        private float _currentTime;
+        private readonly List<TimedEffectorEvent> _effectors = new List<TimedEffectorEvent>();
+        private List<TimedEffectorEvent> _activeEffectors = new List<TimedEffectorEvent>();
 
-        private readonly List<EffectorEvent> _effectors = new List<EffectorEvent>();
-        private List<EffectorEvent> _activeEffectors = new List<EffectorEvent>();
-        
-        private void FixedUpdate() {
-            advance(Time.fixedDeltaTime);
+        private void Start() {
+            TimeManager.Instance.onNewTime += onNewTime;
+            reset();
         }
 
-        public void addEffector(EffectorEvent effector) {
-            _effectors.Add(effector);
+        public void addEffector(TimedEffectorEvent effectorEvent) {
+            _effectors.Add(effectorEvent);
         }
 
+        /// <summary>
+        /// Resets the effectors 
+        /// </summary>
         public void reset() {
             foreach (var effector in _effectors) {
                 effector.reset();
             }
-            _activeEffectors = new List<EffectorEvent>(_effectors);
+            _activeEffectors = new List<TimedEffectorEvent>(_effectors);
         }
 
-        private void advance(float deltaTime) {
-            _currentTime += deltaTime;
-
+        /// <summary>
+        /// Executes effectorEvents when present for the currentTime
+        /// </summary>
+        /// <param name="currentTime">The current time in seconds</param>
+        /// <param name="_">Ignored deltaTime</param>
+        private void onNewTime(float currentTime, float _) {
             for(int i = _activeEffectors.Count-1; i >= 0; i--) {
                 var effector = _activeEffectors[i];
-                if (!(effector.ExecutionTime < _currentTime))  continue;
+                if (!(effector.ExecutionTime < currentTime))  continue;
 
                 effector.execute();
                 _activeEffectors.Remove(effector);

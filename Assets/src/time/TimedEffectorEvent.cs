@@ -1,16 +1,20 @@
+using src.elements.effectors;
+
 namespace src.time {
     
     /// <summary>
     /// Represents a event that changes a effector at a given time point
     /// </summary>
-    public class EffectorEvent {
+    public class TimedEffectorEvent {
         
         public float ExecutionTime { set; get; }
         private bool _alreadyExecuted;
 
-        public EffectorEvent(float executionTime, bool alreadyExecuted) {
+        private readonly TriggerEffectorEvent _effectorEvent;
+
+        public TimedEffectorEvent(float executionTime, TriggerEffectorEvent effectorEvent) {
             ExecutionTime = executionTime;
-            _alreadyExecuted = alreadyExecuted;
+            _effectorEvent = effectorEvent;
         }
         
         public bool wasAlreadyExecuted() {
@@ -22,7 +26,9 @@ namespace src.time {
         }
 
         public void execute() {
+            _effectorEvent.Invoke();
             _alreadyExecuted = true;
         }
+        
     }
 }
