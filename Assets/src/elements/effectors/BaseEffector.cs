@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using src.misc;
+using src.simulation;
 using src.time;
+using src.time.time_managers;
 using UnityEngine;
 
 namespace src.elements.effectors {
@@ -14,9 +16,16 @@ namespace src.elements.effectors {
         public float touchHitBox = .5f;
 
         protected readonly List<EffectorEvent> effectorEvents = new List<EffectorEvent>();
+        
+        protected Collider2D[] collisionBuffer;
 
         protected virtual void Start() {
-            TimeManager.Instance.onNewTime += effectorUpdate;
+            SimulationTimeManager.Instance.onNewFixedTime += effectorUpdate;
+            SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
+        }
+
+        protected virtual void onCalculationStarted() {
+            collisionBuffer = new Collider2D[ColliderBodysInfo.Instance.ColliderBodyCount];
         }
 
         private void Update() {

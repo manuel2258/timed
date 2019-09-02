@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
+using src.simulation;
 using UnityEngine;
 
 namespace src.elements.effectors {
     public class RadialGravityEffector : BaseEffector {
+
+        private float _radius = 4;
 
         private float _force = 2500;
         private bool _enabled = true;
 
         private bool _invertAble = true;
         private bool _disableAble = true;
-
-        private readonly List<Rigidbody2D> _inRangeGameObjects = new List<Rigidbody2D>();
 
         protected override void Start() {
             base.Start();
@@ -38,23 +37,22 @@ namespace src.elements.effectors {
                 effectorEvents.Add(new EffectorEvent("Invert Force", () => _force *= -1));
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
-            var otherRigidBody = other.GetComponent<Rigidbody2D>();
-            if (!_inRangeGameObjects.Contains(otherRigidBody)) {
-                _inRangeGameObjects.Add(otherRigidBody);
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other) {
-            var otherRigidBody = other.GetComponent<Rigidbody2D>();
-            _inRangeGameObjects.Remove(otherRigidBody);
-        }
-
+        private int _forceApplyCounter;
+        
         protected override void effectorUpdate(float currentTime, float deltaTime) {
             if (!_enabled) return;
-            foreach (var rigidbody in _inRangeGameObjects) {
-                var diff = transform.position - rigidbody.gameObject.transform.position;
-                rigidbody.AddForce(diff.normalized / diff.magnitude * _force * deltaTime);
+
+            Physics2D.OverlapCircleNonAlloc(transform.position, _radius, collisionBuffer);
+            
+            for (int i = 0; i < collisionBuffer.Length; i++) {
+                var currentCollider = collisionBuffer[i];
+                if(currentCollider == null) continue;
+                var otherRigidBody = currentCollider.gameObject.GetComponent<Rigidbody2D>();
+                if(otherRigidBody == null) continue;
+                var diff = transform.position - otherRigidBody.gameObject.transform.position;
+                _forceApplyCounter++;
+                var force = _force * deltaTime;
+                otherRigidBody.AddForce(diff.normalized / diff.magnitude * force);
             }
         }
 

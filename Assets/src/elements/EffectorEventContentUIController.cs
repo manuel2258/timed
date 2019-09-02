@@ -1,5 +1,7 @@
 using src.elements.effectors;
 using src.time;
+using src.time.time_managers;
+using src.time.timeline;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +23,7 @@ namespace src.elements {
         public void setup(EffectorEvent effectorEvent) {
             nameText.text = effectorEvent.name;
             addEventButton.onClick.AddListener(() => {
-                Timeline.Instance.addEffector(new TimedEffectorEvent(TimeManager.Instance.CurrentTime, 
+                Timeline.Instance.addEffector(new TimedEffectorEvent(SimulationTimeManager.Instance.CurrentTime, 
                     effectorEvent.effectorEvent));
             });
         }

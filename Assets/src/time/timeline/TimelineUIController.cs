@@ -1,7 +1,8 @@
 using src.misc;
+using src.time.time_managers;
 using UnityEngine;
 
-namespace src.time {
+namespace src.time.timeline {
     
     /// <summary>
     /// A Singleton UI Controller that visualize the CurrentTime and its advancement
@@ -15,7 +16,7 @@ namespace src.time {
         public float TotalTime { get; set; } = 30;
 
         private void Start() {
-            TimeManager.Instance.onNewTime += onNewTime;
+            ReplayTimeManager.Instance.onNewTime += onNewTime;
             _rectTransform = GetComponent<RectTransform>();
         }
 

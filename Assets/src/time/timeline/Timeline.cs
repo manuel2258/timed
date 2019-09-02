@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using src.elements.effectors;
 using src.misc;
+using src.time.time_managers;
 
-namespace src.time {
+namespace src.time.timeline {
     
     /// <summary>
     /// A Singleton representing a series of EffectorEvents
@@ -13,7 +13,7 @@ namespace src.time {
         private List<TimedEffectorEvent> _activeEffectors = new List<TimedEffectorEvent>();
 
         private void Start() {
-            TimeManager.Instance.onNewTime += onNewTime;
+            SimulationTimeManager.Instance.onNewTime += onNewTime;
             reset();
         }
 
