@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using src.misc;
+using src.simulation.reseting;
 using src.time.time_managers;
+using src.time.timeline;
 using UnityEngine;
 
 namespace src.simulation {
@@ -25,24 +28,28 @@ namespace src.simulation {
 
         private void Start() {
             Physics2D.autoSimulation = false;
-            calculateSimulation(SIMULATION_LENGTH, SIMULATION_STEPS);
+            calculateSimulation();
+            Timeline.Instance.onEffectorEventChanged += _ => calculateSimulation();
         }
         
-        private void calculateSimulation(float timeLength, float deltaTime) {
+        private void calculateSimulation() {
             onCalculationStarted?.Invoke();
             var rigidBodys = FindObjectsOfType<Rigidbody2D>();
             var trackers = new List<GameObjectTracker>();
 
             foreach (var rigidBody in rigidBodys) {
+                if (rigidBody.GetComponent<IResetable>() == null) {
+                    throw new Exception($"Tried to track a non resetAble gameObject!: {rigidBody.name}");
+                }
                 trackers.Add(new GameObjectTracker(rigidBody.gameObject));
             }
 
             var simulationTimeManger = SimulationTimeManager.Instance;
             
             
-            while (simulationTimeManger.CurrentTime < timeLength) {
-                SimulationTimeManager.Instance.advanceTime(deltaTime);
-                Physics2D.Simulate(deltaTime);
+            while (simulationTimeManger.CurrentTime < SIMULATION_LENGTH) {
+                SimulationTimeManager.Instance.advanceTime(SIMULATION_STEPS);
+                Physics2D.Simulate(SIMULATION_STEPS);
                 foreach (var tracker in trackers) {
                     tracker.track(simulationTimeManger.CurrentTime);
                 }

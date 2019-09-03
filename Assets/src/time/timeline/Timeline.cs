@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using src.misc;
+using src.simulation;
+using src.simulation.reseting;
 using src.time.time_managers;
 
 namespace src.time.timeline {
@@ -7,18 +10,29 @@ namespace src.time.timeline {
     /// <summary>
     /// A Singleton representing a series of EffectorEvents
     /// </summary>
-    public class Timeline : UnitySingleton<Timeline> {
+    public class Timeline : UnitySingleton<Timeline>, IResetable {
 
         private readonly List<TimedEffectorEvent> _effectors = new List<TimedEffectorEvent>();
         private List<TimedEffectorEvent> _activeEffectors = new List<TimedEffectorEvent>();
 
+        public OnEffectorEventChanged onEffectorEventChanged;
+
         private void Start() {
             SimulationTimeManager.Instance.onNewTime += onNewTime;
+            SimulationManager.Instance.onCalculationStarted += reset;
             reset();
         }
 
-        public void addEffector(TimedEffectorEvent effectorEvent) {
+        public void addEffectorEvent(TimedEffectorEvent effectorEvent) {
             _effectors.Add(effectorEvent);
+            _effectors.Sort((x, y) => Math.Sign(x.ExecutionTime - y.ExecutionTime));
+            onEffectorEventChanged?.Invoke(_effectors);
+        }
+
+        public void removeEffectorEvent(TimedEffectorEvent effectorEvent) {
+            _effectors.Remove(effectorEvent);
+            _effectors.Sort((x, y) => Math.Sign(x.ExecutionTime - y.ExecutionTime));
+            onEffectorEventChanged?.Invoke(_effectors);
         }
 
         /// <summary>
@@ -46,4 +60,6 @@ namespace src.time.timeline {
             }
         }
     }
+
+    public delegate void OnEffectorEventChanged(List<TimedEffectorEvent> events);
 }

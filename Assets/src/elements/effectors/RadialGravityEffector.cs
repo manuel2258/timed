@@ -1,20 +1,25 @@
+using System;
 using src.simulation;
+using src.simulation.reseting;
 using UnityEngine;
 
 namespace src.elements.effectors {
-    public class RadialGravityEffector : BaseEffector {
+    public class RadialGravityEffector : BaseEffector, IResetable {
 
         private float _radius = 4;
 
-        private float _force = 2500;
-        private bool _enabled = true;
+        private float _force ;
+        private bool _enabled;
 
+        private float _initialForce;
+        private bool _initialEnabled;
+        
         private bool _invertAble = true;
         private bool _disableAble = true;
 
         protected override void Start() {
             base.Start();
-            setup("2500", "true", "true");
+            setup("5000", "true", "true");
         }
 
         public void setup(string force, string invertAble, string disableAble) {
@@ -35,9 +40,11 @@ namespace src.elements.effectors {
             
             if(_invertAble)
                 effectorEvents.Add(new EffectorEvent("Invert Force", () => _force *= -1));
+            
+            _initialForce = _force;
+            _initialEnabled = _enabled;
         }
-
-        private int _forceApplyCounter;
+        
         
         protected override void effectorUpdate(float currentTime, float deltaTime) {
             if (!_enabled) return;
@@ -50,14 +57,17 @@ namespace src.elements.effectors {
                 var otherRigidBody = currentCollider.gameObject.GetComponent<Rigidbody2D>();
                 if(otherRigidBody == null) continue;
                 var diff = transform.position - otherRigidBody.gameObject.transform.position;
-                _forceApplyCounter++;
-                var force = _force * deltaTime;
-                otherRigidBody.AddForce(diff.normalized / diff.magnitude * force);
+                otherRigidBody.AddForce(diff.normalized * _force * deltaTime / diff.magnitude);
             }
         }
 
         public override string getEffectorName() {
             return "Radial Gravity Field";
+        }
+
+        public void reset() {
+            _force = _initialForce;
+            _enabled = _initialEnabled;
         }
     }
 }

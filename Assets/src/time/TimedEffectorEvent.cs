@@ -10,9 +10,9 @@ namespace src.time {
         public float ExecutionTime { set; get; }
         private bool _alreadyExecuted;
 
-        private readonly TriggerEffectorEvent _effectorEvent;
+        private readonly EffectorEvent _effectorEvent;
 
-        public TimedEffectorEvent(float executionTime, TriggerEffectorEvent effectorEvent) {
+        public TimedEffectorEvent(float executionTime, EffectorEvent effectorEvent) {
             ExecutionTime = executionTime;
             _effectorEvent = effectorEvent;
         }
@@ -26,8 +26,12 @@ namespace src.time {
         }
 
         public void execute() {
-            _effectorEvent.Invoke();
+            _effectorEvent.effectorEvent.Invoke();
             _alreadyExecuted = true;
+        }
+
+        public string getName() {
+            return _effectorEvent.name;
         }
         
     }

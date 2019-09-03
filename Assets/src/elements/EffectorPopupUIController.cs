@@ -2,15 +2,18 @@ using src.elements.effectors;
 using src.misc;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace src.elements {
     
     /// <summary>
     /// A Singleton UI Controller that manages the Effector Event Selection
     /// </summary>
-    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController> {
+    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController>, IPointerEnterHandler, IPointerExitHandler {
 
         private Canvas _canvas;
+
+        private bool _pointerInside;
         
         /// <summary>
         /// The parent RectTransform that hosts the event children
@@ -30,7 +33,7 @@ namespace src.elements {
         }
 
         private void Update() {
-            if (Input.touchCount > 0 || Input.GetMouseButtonDown(0)) {
+            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && !_pointerInside) {
                 _canvas.enabled = false;
             }
         }
@@ -57,6 +60,14 @@ namespace src.elements {
             contentParent.anchoredPosition = contentParentAnchoredPosition;
 
             effectorNameText.text = effector.getEffectorName();
+        }
+
+        public void OnPointerEnter(PointerEventData eventData) {
+            _pointerInside = true;
+        }
+
+        public void OnPointerExit(PointerEventData eventData) {
+            _pointerInside = false;
         }
     }
 }

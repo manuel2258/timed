@@ -41,19 +41,12 @@ namespace src.simulation {
                     Math.Abs(x - timestamp) < Math.Abs(y - timestamp) ? x : y);
             }
 
-            if (!_positions.TryGetValue(timestamp, out var currentPosition)) {
-                throw new TrackedTimestampNotCalculateAbleException("Could not find a fitting timestamp for: " + timestamp);
+            if (!_positions.TryGetValue(timestamp, out var currentPosition) || 
+                !_rotations.TryGetValue(timestamp, out var currentRotation)) {
+                throw new Exception("Could not find a fitting timestamp for: " + timestamp);
             }
             _transform.position = currentPosition;
-            
-            if (!_rotations.TryGetValue(timestamp, out var currentRotation)) {
-                throw new TrackedTimestampNotCalculateAbleException("Could not find a fitting timestamp for: " + timestamp);
-            }
             _transform.rotation = currentRotation;
         }
-    }
-
-    public class TrackedTimestampNotCalculateAbleException : Exception {
-        public TrackedTimestampNotCalculateAbleException(string message) : base(message) { }
     }
 }

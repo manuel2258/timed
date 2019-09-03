@@ -23,8 +23,8 @@ namespace src.elements {
         public void setup(EffectorEvent effectorEvent) {
             nameText.text = effectorEvent.name;
             addEventButton.onClick.AddListener(() => {
-                Timeline.Instance.addEffector(new TimedEffectorEvent(SimulationTimeManager.Instance.CurrentTime, 
-                    effectorEvent.effectorEvent));
+                Timeline.Instance.addEffectorEvent(new TimedEffectorEvent(ReplayTimeManager.Instance.CurrentTime, 
+                    effectorEvent));
             });
         }
 
