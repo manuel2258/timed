@@ -1,7 +1,7 @@
 using src.simulation.reseting;
 using UnityEngine;
 
-namespace src.elements {
+namespace src.element.collider_body {
     public class ColliderBody : MonoBehaviour, IResetable {
 
         private Vector2 _initialPosition;

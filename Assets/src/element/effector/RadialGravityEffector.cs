@@ -1,9 +1,7 @@
-using System;
-using src.simulation;
 using src.simulation.reseting;
 using UnityEngine;
 
-namespace src.elements.effectors {
+namespace src.element.effector {
     public class RadialGravityEffector : BaseEffector, IResetable {
 
         private float _radius = 4;
@@ -45,8 +43,6 @@ namespace src.elements.effectors {
             _initialEnabled = _enabled;
         }
 
-        private bool debugFirstForce;
-        
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
             if (!_enabled) return;
 
@@ -59,10 +55,6 @@ namespace src.elements.effectors {
                 if(otherRigidBody == null) continue;
                 var diff = transform.position - otherRigidBody.gameObject.transform.position;
                 otherRigidBody.AddForce(diff.normalized * _force * (float)deltaTime / diff.magnitude);
-                if (!debugFirstForce) {
-                    debugFirstForce = true;
-                    Debug.Log("Applied first force at: " + currentTime);
-                }
             }
         }
 
@@ -73,7 +65,6 @@ namespace src.elements.effectors {
         public void reset() {
             _force = _initialForce;
             _enabled = _initialEnabled;
-            debugFirstForce = false;
         }
     }
 }

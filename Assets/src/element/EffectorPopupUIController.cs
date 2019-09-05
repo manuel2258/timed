@@ -1,10 +1,10 @@
-using src.elements.effectors;
+using src.element.effector;
 using src.misc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace src.elements {
+namespace src.element {
     
     /// <summary>
     /// A Singleton UI Controller that manages the Effector Event Selection

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using src.misc;
+using src.time;
 using src.time.time_managers;
+using src.time.timeline;
 
 namespace src.simulation {
     
@@ -10,7 +12,7 @@ namespace src.simulation {
     public class ReplayManager : UnitySingleton<ReplayManager> {
         
         private List<GameObjectTracker> _currentTrackers = new List<GameObjectTracker>();
-        
+
         private void Start() {
             ReplayTimeManager.Instance.onNewTime += onNewTime;
             SimulationManager.Instance.onCalculationFinished += newTrackers => {
@@ -25,6 +27,5 @@ namespace src.simulation {
                 tracker.replayTimestamp(currentTime);
             }
         }
-        
     }
 }

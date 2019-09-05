@@ -24,6 +24,11 @@ namespace src.time.timeline {
             reset();
         }
 
+        public void effectorTimeChanged() {
+            _effectors.Sort((x, y) => Math.Sign(x.ExecutionTime - y.ExecutionTime));
+            onEffectorEventChanged?.Invoke(_effectors);
+        }
+
         public void addEffectorEvent(TimedEffectorEvent effectorEvent) {
             _effectors.Add(effectorEvent);
             _effectors.Sort((x, y) => Math.Sign(x.ExecutionTime - y.ExecutionTime));
@@ -54,7 +59,6 @@ namespace src.time.timeline {
                 if (effector.ExecutionTime > currentTime)  continue;
 
                 effector.execute();
-                Debug.Log($"Executed: {effector.getName()} at {currentTime}");
                 _activeEffectors.Remove(effector);
             }
         }

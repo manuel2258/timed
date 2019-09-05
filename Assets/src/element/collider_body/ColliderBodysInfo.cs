@@ -1,6 +1,6 @@
 using src.misc;
 
-namespace src.elements {
+namespace src.element.collider_body {
     
     /// <summary>
     /// Singleton that provides information's about the current ColliderBodys

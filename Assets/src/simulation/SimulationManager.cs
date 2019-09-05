@@ -14,7 +14,7 @@ namespace src.simulation {
     /// </summary>
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
-        public const decimal SIMULATION_LENGTH = 30;
+        public const decimal SIMULATION_LENGTH = 10;
         public const decimal SIMULATION_STEPS = 0.005M;
 
         /// <summary>
@@ -27,8 +27,6 @@ namespace src.simulation {
         /// </summary>
         public OnCalculationFinished onCalculationFinished;
 
-        private List<GameObjectTracker> _debugTrackers;
-
         private void Start() {
             Physics2D.autoSimulation = false;
             calculateSimulation();
@@ -38,17 +36,6 @@ namespace src.simulation {
         private void calculateSimulation() {
             onCalculationStarted?.Invoke();
             var trackers = simulate();
-            if (_debugTrackers != null) {
-                for (int i = 0; i < trackers[0]._positions.Count; i++) {
-                    var pos1 = trackers[0]._positions.ElementAt(i);
-                    var pos2 = _debugTrackers[0]._positions.ElementAt(i).Value;
-                    if ((pos1.Value - pos2).magnitude != 0) {
-                        Debug.Log($"Difference at index: {i} at time {pos1.Key}");
-                        break;
-                    }
-                }
-            }
-            _debugTrackers = trackers;
             onCalculationFinished?.Invoke(trackers);
         }
 

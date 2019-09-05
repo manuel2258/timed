@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using src.misc;
 using UnityEngine;
 
-namespace src.misc {
+namespace src.touch {
     
     /// <summary>
     /// A Singleton that captures touch inputs 

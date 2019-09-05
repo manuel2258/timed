@@ -1,4 +1,4 @@
-namespace src.elements {
+namespace src.element.collider_body {
     public enum ColliderBodyColor {
         
     }

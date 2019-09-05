@@ -1,4 +1,4 @@
-namespace src.elements.effectors {
+namespace src.element.effector {
     
     /// <summary>
     /// A event container for its to execute function and its name

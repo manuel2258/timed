@@ -12,12 +12,6 @@ namespace src.time.time_managers {
 
         protected decimal currentTime;
 
-        public float debugTime;
-
-        private void Update() {
-            debugTime = (float)currentTime;
-        }
-
         public OnNewTime onNewTime;
         public decimal CurrentTime => currentTime;
     }

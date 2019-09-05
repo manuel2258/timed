@@ -8,7 +8,7 @@ namespace src.time.timeline {
         
         public void setup(TimedEffectorEvent effectorEvent) {
             openEffectorEventPopup.onClick.AddListener(() => {
-                TimedEffectorEventPopupUIController.Instance.showTimedEffectorEvent(effectorEvent);
+                TimedEffectorEventEditManager.Instance.onTimedEffectorEventButtonPressed(effectorEvent);
             });
         }
     }

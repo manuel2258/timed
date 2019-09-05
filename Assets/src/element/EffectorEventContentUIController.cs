@@ -1,4 +1,4 @@
-using src.elements.effectors;
+using src.element.effector;
 using src.time;
 using src.time.time_managers;
 using src.time.timeline;
@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace src.elements {
+namespace src.element {
     
     /// <summary>
     /// A UI Controller representing a effectors event
