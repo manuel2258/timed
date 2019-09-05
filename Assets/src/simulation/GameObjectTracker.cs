@@ -11,8 +11,8 @@ namespace src.simulation {
     /// </summary>
     public class GameObjectTracker {
 
-        private readonly Dictionary<float, Vector2> _positions = new Dictionary<float, Vector2>();
-        private readonly Dictionary<float, Quaternion> _rotations = new Dictionary<float, Quaternion>();
+        public readonly Dictionary<decimal, Vector2> _positions = new Dictionary<decimal, Vector2>();
+        private readonly Dictionary<decimal, Quaternion> _rotations = new Dictionary<decimal, Quaternion>();
 
         private readonly GameObject _target;
         private readonly Transform _transform;
@@ -26,7 +26,7 @@ namespace src.simulation {
         /// Tracks the current meta data of the target and saves it under the currentTime
         /// </summary>
         /// <param name="currentTime">The to save at time</param>
-        public void track(float currentTime) {
+        public void track(decimal currentTime) {
             _positions.Add(currentTime, _transform.position);
             _rotations.Add(currentTime, _transform.rotation);
         }
@@ -35,7 +35,7 @@ namespace src.simulation {
         /// Sets the meta data of the target for the given timestamp
         /// </summary>
         /// <param name="timestamp">The to set timestamp</param>
-        public void replayTimestamp(float timestamp) {
+        public void replayTimestamp(decimal timestamp) {
             if (!_positions.ContainsKey(timestamp)) {
                 timestamp = _positions.Keys.Aggregate((x, y) =>
                     Math.Abs(x - timestamp) < Math.Abs(y - timestamp) ? x : y);

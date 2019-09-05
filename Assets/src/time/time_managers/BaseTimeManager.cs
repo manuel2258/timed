@@ -1,3 +1,4 @@
+using System;
 using src.misc;
 using UnityEngine;
 
@@ -9,11 +10,17 @@ namespace src.time.time_managers {
     /// <typeparam name="T">The to use singleton type</typeparam>
     public abstract class BaseTimeManager<T> : UnitySingleton<T> where T : MonoBehaviour {
 
-        protected float currentTime;
+        protected decimal currentTime;
+
+        public float debugTime;
+
+        private void Update() {
+            debugTime = (float)currentTime;
+        }
 
         public OnNewTime onNewTime;
-        public float CurrentTime => currentTime;
+        public decimal CurrentTime => currentTime;
     }
     
-    public delegate void OnNewTime(float newTime, float deltaTime);
+    public delegate void OnNewTime(decimal newTime, decimal deltaTime);
 }

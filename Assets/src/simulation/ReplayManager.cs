@@ -20,7 +20,7 @@ namespace src.simulation {
             SimulationManager.Instance.onCalculationStarted += () => ReplayTimeManager.Instance.Active = false;
         }
 
-        private void onNewTime(float currentTime, float deltaTime) {
+        private void onNewTime(decimal currentTime, decimal deltaTime) {
             foreach (var tracker in _currentTrackers) {
                 tracker.replayTimestamp(currentTime);
             }

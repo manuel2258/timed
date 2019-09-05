@@ -27,12 +27,18 @@ namespace src.elements {
         
         public TMP_Text effectorNameText;
 
+        private bool _wasJustEnabled;
+
         private void Start() {
             _canvas = GetComponent<Canvas>();
             _canvas.enabled = false;
         }
 
         private void Update() {
+            if (_wasJustEnabled) {
+                _wasJustEnabled = false;
+                return;
+            }
             if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && !_pointerInside) {
                 _canvas.enabled = false;
             }
@@ -43,6 +49,7 @@ namespace src.elements {
         /// </summary>
         /// <param name="effector">The to show Effector</param>
         public void showEffector(BaseEffector effector) {
+            _wasJustEnabled = true;
             _canvas.enabled = true;
 
             for (int i = 0; i < contentParent.transform.childCount; i++) {

@@ -18,9 +18,10 @@ namespace src.time.time_managers {
 
         private void FixedUpdate() {
             if (Active) {
-                var deltaTime = Time.fixedDeltaTime * TimeMultiplier;
+                var deltaTime = (decimal)(Time.fixedDeltaTime * TimeMultiplier);
                 currentTime += deltaTime;
-                currentTime = Mathf.Clamp(currentTime, 0, SimulationManager.SIMULATION_LENGTH);
+                currentTime = currentTime < 0 ? 0 : currentTime;
+                currentTime = currentTime > SimulationManager.SIMULATION_LENGTH ? SimulationManager.SIMULATION_LENGTH : currentTime;
                 onNewTime?.Invoke(currentTime, deltaTime);
 
                 if (currentTime > SimulationManager.SIMULATION_LENGTH) {

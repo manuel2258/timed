@@ -24,6 +24,7 @@ namespace src.elements {
             transform.rotation = _initialRotation;
             bodyColor = _initialColor;
             _rigidbody.velocity = Vector2.zero;
+            _rigidbody.angularVelocity = 0;
         }
     }
 }

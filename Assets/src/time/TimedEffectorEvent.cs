@@ -7,12 +7,12 @@ namespace src.time {
     /// </summary>
     public class TimedEffectorEvent {
         
-        public float ExecutionTime { set; get; }
+        public decimal ExecutionTime { set; get; }
         private bool _alreadyExecuted;
 
         private readonly EffectorEvent _effectorEvent;
 
-        public TimedEffectorEvent(float executionTime, EffectorEvent effectorEvent) {
+        public TimedEffectorEvent(decimal executionTime, EffectorEvent effectorEvent) {
             ExecutionTime = executionTime;
             _effectorEvent = effectorEvent;
         }

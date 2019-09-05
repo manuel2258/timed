@@ -20,7 +20,7 @@ namespace src.elements.effectors {
         protected Collider2D[] collisionBuffer;
 
         protected virtual void Start() {
-            SimulationTimeManager.Instance.onNewFixedTime += effectorUpdate;
+            SimulationTimeManager.Instance.onNewTime += effectorUpdate;
             SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
         }
 
@@ -38,7 +38,7 @@ namespace src.elements.effectors {
             return effectorEvents;
         }
 
-        protected abstract void effectorUpdate(float currentTime, float deltaTime);
+        protected abstract void effectorUpdate(decimal currentTime, decimal deltaTime);
 
         public abstract string getEffectorName();
     }

@@ -4,6 +4,7 @@ using src.misc;
 using src.simulation;
 using src.simulation.reseting;
 using src.time.time_managers;
+using UnityEngine;
 
 namespace src.time.timeline {
     
@@ -34,10 +35,7 @@ namespace src.time.timeline {
             _effectors.Sort((x, y) => Math.Sign(x.ExecutionTime - y.ExecutionTime));
             onEffectorEventChanged?.Invoke(_effectors);
         }
-
-        /// <summary>
-        /// Resets the effectors 
-        /// </summary>
+        
         public void reset() {
             foreach (var effector in _effectors) {
                 effector.reset();
@@ -50,12 +48,13 @@ namespace src.time.timeline {
         /// </summary>
         /// <param name="currentTime">The current time in seconds</param>
         /// <param name="_">Ignored deltaTime</param>
-        private void onNewTime(float currentTime, float _) {
+        private void onNewTime(decimal currentTime, decimal _) {
             for(int i = _activeEffectors.Count-1; i >= 0; i--) {
                 var effector = _activeEffectors[i];
-                if (!(effector.ExecutionTime < currentTime))  continue;
+                if (effector.ExecutionTime > currentTime)  continue;
 
                 effector.execute();
+                Debug.Log($"Executed: {effector.getName()} at {currentTime}");
                 _activeEffectors.Remove(effector);
             }
         }

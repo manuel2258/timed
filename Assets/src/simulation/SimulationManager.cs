@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using src.misc;
 using src.simulation.reseting;
 using src.time.time_managers;
@@ -13,8 +14,8 @@ namespace src.simulation {
     /// </summary>
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
-        public const float SIMULATION_LENGTH = 30f;
-        public const float SIMULATION_STEPS = 0.005f;
+        public const decimal SIMULATION_LENGTH = 30;
+        public const decimal SIMULATION_STEPS = 0.005M;
 
         /// <summary>
         /// Called when the simulation starts
@@ -26,6 +27,8 @@ namespace src.simulation {
         /// </summary>
         public OnCalculationFinished onCalculationFinished;
 
+        private List<GameObjectTracker> _debugTrackers;
+
         private void Start() {
             Physics2D.autoSimulation = false;
             calculateSimulation();
@@ -34,6 +37,22 @@ namespace src.simulation {
         
         private void calculateSimulation() {
             onCalculationStarted?.Invoke();
+            var trackers = simulate();
+            if (_debugTrackers != null) {
+                for (int i = 0; i < trackers[0]._positions.Count; i++) {
+                    var pos1 = trackers[0]._positions.ElementAt(i);
+                    var pos2 = _debugTrackers[0]._positions.ElementAt(i).Value;
+                    if ((pos1.Value - pos2).magnitude != 0) {
+                        Debug.Log($"Difference at index: {i} at time {pos1.Key}");
+                        break;
+                    }
+                }
+            }
+            _debugTrackers = trackers;
+            onCalculationFinished?.Invoke(trackers);
+        }
+
+        private List<GameObjectTracker> simulate() {
             var rigidBodys = FindObjectsOfType<Rigidbody2D>();
             var trackers = new List<GameObjectTracker>();
 
@@ -49,14 +68,15 @@ namespace src.simulation {
             
             while (simulationTimeManger.CurrentTime < SIMULATION_LENGTH) {
                 SimulationTimeManager.Instance.advanceTime(SIMULATION_STEPS);
-                Physics2D.Simulate(SIMULATION_STEPS);
+                Physics2D.Simulate((float)SIMULATION_STEPS);
                 foreach (var tracker in trackers) {
                     tracker.track(simulationTimeManger.CurrentTime);
                 }
             }
-            onCalculationFinished?.Invoke(trackers);
+
+            return trackers;
         }
-        
+
     }
 
     public delegate void OnCalculationStarted();

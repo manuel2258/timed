@@ -19,7 +19,7 @@ namespace src.elements.effectors {
 
         protected override void Start() {
             base.Start();
-            setup("5000", "true", "true");
+            setup("10000", "true", "true");
         }
 
         public void setup(string force, string invertAble, string disableAble) {
@@ -44,9 +44,10 @@ namespace src.elements.effectors {
             _initialForce = _force;
             _initialEnabled = _enabled;
         }
+
+        private bool debugFirstForce;
         
-        
-        protected override void effectorUpdate(float currentTime, float deltaTime) {
+        protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
             if (!_enabled) return;
 
             Physics2D.OverlapCircleNonAlloc(transform.position, _radius, collisionBuffer);
@@ -57,7 +58,11 @@ namespace src.elements.effectors {
                 var otherRigidBody = currentCollider.gameObject.GetComponent<Rigidbody2D>();
                 if(otherRigidBody == null) continue;
                 var diff = transform.position - otherRigidBody.gameObject.transform.position;
-                otherRigidBody.AddForce(diff.normalized * _force * deltaTime / diff.magnitude);
+                otherRigidBody.AddForce(diff.normalized * _force * (float)deltaTime / diff.magnitude);
+                if (!debugFirstForce) {
+                    debugFirstForce = true;
+                    Debug.Log("Applied first force at: " + currentTime);
+                }
             }
         }
 
@@ -68,6 +73,7 @@ namespace src.elements.effectors {
         public void reset() {
             _force = _initialForce;
             _enabled = _initialEnabled;
+            debugFirstForce = false;
         }
     }
 }
