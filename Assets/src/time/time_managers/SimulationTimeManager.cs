@@ -17,6 +17,4 @@ namespace src.time.time_managers {
             currentTime = 0;
         }
     }
-    
-    
 }

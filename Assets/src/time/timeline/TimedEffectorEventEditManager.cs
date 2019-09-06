@@ -15,15 +15,22 @@ namespace src.time.timeline {
                 TimedEffectorEventPopupUIController.Instance.closePopup();
                 TimelineUIController.Instance.exitTimePickerMode();
                 if (effectorEvent.IsDirty) {
+                    effectorEvent.IsActive = true;
                     Timeline.Instance.effectorTimeChanged();
                 }
+                ReplayTimeManager.Instance.OverrideActive = false;
             } else {
                 _currentEffectorEvent = effectorEvent;
                 TimedEffectorEventPopupUIController.Instance.showTimedEffectorEvent(effectorEvent);
                 TimelineUIController.Instance.setTimePickerMode(newTime => {
                     effectorEvent.ExecutionTime = newTime;
                     onEffectorEventTimeChanged?.Invoke(newTime);
+                    if (effectorEvent.IsActive) {
+                        effectorEvent.IsActive = false;
+                        Timeline.Instance.effectorTimeChanged();
+                    }
                 }, effectorEvent.ExecutionTime);
+                ReplayTimeManager.Instance.OverrideActive = true;
             }
         }
     }

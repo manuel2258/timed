@@ -17,7 +17,7 @@ namespace src.element.effector {
 
         protected override void Start() {
             base.Start();
-            setup("10000", "true", "true");
+            setup("2000", "true", "true");
         }
 
         public void setup(string force, string invertAble, string disableAble) {

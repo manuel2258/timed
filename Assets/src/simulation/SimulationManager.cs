@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using src.misc;
 using src.simulation.reseting;
 using src.time.time_managers;
@@ -15,7 +14,7 @@ namespace src.simulation {
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
         public const decimal SIMULATION_LENGTH = 10;
-        public const decimal SIMULATION_STEPS = 0.005M;
+        public const decimal SIMULATION_STEPS = 0.025M;
 
         /// <summary>
         /// Called when the simulation starts

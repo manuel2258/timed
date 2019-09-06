@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using src.misc;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 
 namespace src.simulation {
     
@@ -35,7 +37,7 @@ namespace src.simulation {
         /// Sets the meta data of the target for the given timestamp
         /// </summary>
         /// <param name="timestamp">The to set timestamp</param>
-        public void replayTimestamp(decimal timestamp) {
+        public void replayTimestampOld(decimal timestamp) {
             if (!_positions.ContainsKey(timestamp)) {
                 timestamp = _positions.Keys.Aggregate((x, y) =>
                     Math.Abs(x - timestamp) < Math.Abs(y - timestamp) ? x : y);
@@ -45,6 +47,38 @@ namespace src.simulation {
                 !_rotations.TryGetValue(timestamp, out var currentRotation)) {
                 throw new Exception("Could not find a fitting timestamp for: " + timestamp);
             }
+            _transform.position = currentPosition;
+            _transform.rotation = currentRotation;
+        }
+        
+        /// <summary>
+        /// Sets the meta data of the target for the given timestamp
+        /// </summary>
+        /// <param name="timestamp">The to set timestamp</param>
+        public void replayTimestamp(decimal timestamp) {
+            Vector2 currentPosition;
+            Quaternion currentRotation;
+            if (!_positions.ContainsKey(timestamp)) {
+                var index = (int)Math.Floor(timestamp / SimulationManager.SIMULATION_STEPS);
+                
+                var firstPosition = _positions.ElementAt(index).Value;
+                var secondPosition = _positions.Count > index ? _positions.ElementAt(index + 1).Value : firstPosition;
+                var firstRotation = _rotations.ElementAt(index).Value;
+                var secondRotation = _rotations.Count > index ? _rotations.ElementAt(index + 1).Value : firstRotation;
+                
+                var interpolationValue = timestamp - SimulationManager.SIMULATION_STEPS * index;
+                var lerpWeight = MathHelper.mapValue((float)interpolationValue, 0, 
+                    (float) SimulationManager.SIMULATION_STEPS, 0, 1);
+                
+                Debug.Log(lerpWeight);
+                
+                currentPosition = Vector2.Lerp(firstPosition, secondPosition, lerpWeight);
+                currentRotation = Quaternion.Lerp(firstRotation, secondRotation, lerpWeight);
+            } else {
+                currentPosition = _positions[timestamp];
+                currentRotation = _rotations[timestamp];
+            }
+            
             _transform.position = currentPosition;
             _transform.rotation = currentRotation;
         }

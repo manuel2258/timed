@@ -1,7 +1,7 @@
 using System;
 using src.element.effector;
 
-namespace src.time {
+namespace src.time.timeline {
     
     /// <summary>
     /// Represents a event that changes a effector at a given time point
@@ -24,12 +24,15 @@ namespace src.time {
             private set;
             get;
         }
+        
+        public bool IsActive { get; set; }
 
         private readonly EffectorEvent _effectorEvent;
 
         public TimedEffectorEvent(decimal executionTime, EffectorEvent effectorEvent) {
             ExecutionTime = executionTime;
             _effectorEvent = effectorEvent;
+            IsActive = true;
         }
 
         public void reset() {
@@ -38,6 +41,7 @@ namespace src.time {
         }
 
         public void execute() {
+            if(!IsActive) return;
             if (!_alreadyExecuted) {
                 _effectorEvent.effectorEvent.Invoke();
                 _alreadyExecuted = true;

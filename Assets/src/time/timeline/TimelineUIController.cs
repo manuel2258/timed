@@ -16,11 +16,15 @@ namespace src.time.timeline {
 
         public RectTransform pointer;
 
+        public RectTransform fill;
+
         private bool _timePickerMode;
         private OnNewPickedTime _timePickerCallback;
 
         private bool _selectingPosition;
         private bool _replayWasActiveBefore;
+
+        private decimal _beforePickedTime;
 
         protected override void Start() {
             base.Start();
@@ -34,27 +38,35 @@ namespace src.time.timeline {
                 var pickedTime = (decimal) MathHelper.mapValue(RectPosition.x, -rectTransform.sizeDelta.x / 2,
                     rectTransform.sizeDelta.x / 2, 0,
                     (float) SimulationManager.SIMULATION_LENGTH);
-                ReplayTimeManager.Instance.setCurrentTime(pickedTime);
-                if (_timePickerMode) {
-                    _timePickerCallback.Invoke(pickedTime);
-                } else {
-                    _selectingPosition = true;
-                    _replayWasActiveBefore = ReplayTimeManager.Instance.Active;
-                    ReplayTimeManager.Instance.Active = false;
+                if (pickedTime != _beforePickedTime) {
+                    ReplayTimeManager.Instance.setCurrentTime(pickedTime);
+                    if (_timePickerMode) {
+                        _timePickerCallback.Invoke(pickedTime);
+                    } else {
+                        _selectingPosition = true;
+                        _replayWasActiveBefore = ReplayTimeManager.Instance.Active;
+                        ReplayTimeManager.Instance.Active = false;
+                    }
+
+                    onNewTime(pickedTime, 0);
                 }
-                onNewTime(pickedTime, 0);
+
+                _beforePickedTime = pickedTime;
             } else {
                 if (_selectingPosition) {
                     _selectingPosition = false;
                     ReplayTimeManager.Instance.Active = _replayWasActiveBefore;
                 }
-            }
+            } 
         }
 
         private void onNewTime(decimal newTime, decimal _) {
             var newPositionX = MathHelper.mapValue((float)newTime, 0, (float)SimulationManager.SIMULATION_LENGTH, -_rectTransform.sizeDelta.x / 2,
                 _rectTransform.sizeDelta.x / 2);
             pointer.transform.localPosition = new Vector3(newPositionX, pointer.localPosition.y);
+            var fillWidth = rectTransform.sizeDelta.x / 2 + newPositionX;
+            fill.anchoredPosition = new Vector3(fillWidth/2, fill.anchoredPosition.y);
+            fill.sizeDelta = new Vector2(fillWidth, fill.sizeDelta.y);
         }
 
         public void setTimePickerMode(OnNewPickedTime callback, decimal startTime) {
