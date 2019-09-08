@@ -69,9 +69,7 @@ namespace src.simulation {
                 var interpolationValue = timestamp - SimulationManager.SIMULATION_STEPS * index;
                 var lerpWeight = MathHelper.mapValue((float)interpolationValue, 0, 
                     (float) SimulationManager.SIMULATION_STEPS, 0, 1);
-                
-                Debug.Log(lerpWeight);
-                
+
                 currentPosition = Vector2.Lerp(firstPosition, secondPosition, lerpWeight);
                 currentRotation = Quaternion.Lerp(firstRotation, secondRotation, lerpWeight);
             } else {

@@ -11,20 +11,24 @@ namespace src.time.timeline {
     /// A Singleton UI Controller that visualize the CurrentTime and its advancement
     /// </summary>
     public class TimelineUIController : TouchableRect<TimelineUIController>, IPointerDownHandler {
-
+        
+        public RectTransform pointer;
+        public RectTransform fill;
+        
         private RectTransform _rectTransform;
 
-        public RectTransform pointer;
-
-        public RectTransform fill;
-
+        /// <summary>
+        /// Whether the Element is in a event time picker mode or in the normal advance mode
+        /// </summary>
         private bool _timePickerMode;
+        
+        /// <summary>
+        /// The to call function if in timePickerMode and a input occurs
+        /// </summary>
         private OnNewPickedTime _timePickerCallback;
 
         private bool _selectingPosition;
         private bool _replayWasActiveBefore;
-
-        private decimal _beforePickedTime;
 
         protected override void Start() {
             base.Start();
@@ -38,8 +42,7 @@ namespace src.time.timeline {
                 var pickedTime = (decimal) MathHelper.mapValue(RectPosition.x, -rectTransform.sizeDelta.x / 2,
                     rectTransform.sizeDelta.x / 2, 0,
                     (float) SimulationManager.SIMULATION_LENGTH);
-                if (pickedTime != _beforePickedTime) {
-                    ReplayTimeManager.Instance.setCurrentTime(pickedTime);
+                ReplayTimeManager.Instance.setCurrentTime(pickedTime);
                     if (_timePickerMode) {
                         _timePickerCallback.Invoke(pickedTime);
                     } else {
@@ -49,9 +52,6 @@ namespace src.time.timeline {
                     }
 
                     onNewTime(pickedTime, 0);
-                }
-
-                _beforePickedTime = pickedTime;
             } else {
                 if (_selectingPosition) {
                     _selectingPosition = false;
@@ -69,6 +69,11 @@ namespace src.time.timeline {
             fill.sizeDelta = new Vector2(fillWidth, fill.sizeDelta.y);
         }
 
+        /// <summary>
+        /// Activates the timePickerMode
+        /// </summary>
+        /// <param name="callback">The to call callback</param>
+        /// <param name="startTime">The current time of the to change TimedEvent</param>
         public void setTimePickerMode(OnNewPickedTime callback, decimal startTime) {
             _timePickerMode = true;
             _timePickerCallback = callback;

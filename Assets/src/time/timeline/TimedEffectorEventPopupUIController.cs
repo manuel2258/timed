@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace src.time.timeline {
+    
+    /// <summary>
+    /// A Singleton representing the meta data of a timedEvent
+    /// </summary>
     public class TimedEffectorEventPopupUIController : UnitySingleton<TimedEffectorEventPopupUIController> {
 
         public TMP_Text effectorEventName;
@@ -20,6 +24,10 @@ namespace src.time.timeline {
             };
         }
 
+        /// <summary>
+        /// Displays the meta data of a timedEvent
+        /// </summary>
+        /// <param name="effectorEvent"></param>
         public void showTimedEffectorEvent(TimedEffectorEvent effectorEvent) {
             _canvas.enabled = true;
             effectorEventTime.text = $"{effectorEvent.ExecutionTime:N2}";
