@@ -1,15 +1,17 @@
 using src.element.effector;
 using src.misc;
+using src.touch;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace src.element {
     
     /// <summary>
     /// A Singleton UI Controller that manages the Effector Event Selection
     /// </summary>
-    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController>, IPointerEnterHandler, IPointerExitHandler {
+    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController>, IPointerEnterHandler {
 
         private Canvas _canvas;
 
@@ -28,6 +30,7 @@ namespace src.element {
         public TMP_Text effectorNameText;
 
         private bool _wasJustEnabled;
+        private int _justEnabledCounter;
 
         private void Start() {
             _canvas = GetComponent<Canvas>();
@@ -36,12 +39,17 @@ namespace src.element {
 
         private void Update() {
             if (_wasJustEnabled) {
+                if (_justEnabledCounter > 0) {
+                    _justEnabledCounter--;
+                    return;
+                } 
                 _wasJustEnabled = false;
-                return;
             }
-            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && !_pointerInside) {
+            if (TouchManager.Instance.isScreenTouched() && !_pointerInside) {
                 _canvas.enabled = false;
             }
+
+            _pointerInside = false;
         }
 
         /// <summary>
@@ -50,6 +58,7 @@ namespace src.element {
         /// <param name="effector">The to show Effector</param>
         public void showEffector(BaseEffector effector) {
             _wasJustEnabled = true;
+            _justEnabledCounter = 25;
             _canvas.enabled = true;
 
             for (int i = 0; i < contentParent.transform.childCount; i++) {
@@ -71,10 +80,6 @@ namespace src.element {
 
         public void OnPointerEnter(PointerEventData eventData) {
             _pointerInside = true;
-        }
-
-        public void OnPointerExit(PointerEventData eventData) {
-            _pointerInside = false;
         }
     }
 }

@@ -9,6 +9,8 @@ namespace src.touch {
     /// </summary>
     public class TouchManager : UnitySingleton<TouchManager> {
 
+        public bool overrideTouchSupported;
+
         /// <summary>
         /// The last frames touch inputs
         /// </summary>
@@ -16,7 +18,7 @@ namespace src.touch {
         
         private void Update() {
             _currentTouches.Clear();
-            if (Input.touchSupported) {
+            if (Input.touchSupported || overrideTouchSupported) {
                 for (int i = 0; i < Input.touchCount; i++) {
                     var currentTouch = Input.GetTouch(i);
                     _currentTouches.Add(new Touch {
@@ -32,6 +34,15 @@ namespace src.touch {
                     });
                 }
             }
+
+            if (_currentTouches.Count > 0) {
+                Debug.Log("---");
+                _currentTouches.ForEach(element => Debug.Log(element.worldPosition));
+            }
+        }
+
+        public bool isScreenTouched() {
+            return _currentTouches.Count > 0;
         }
 
         /// <summary>
