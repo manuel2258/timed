@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Effectors
+    uniqueID: 1702162137
+    locked: 0
+  - name: ColliderBodys
+    uniqueID: 1572653705
+    locked: 0
   - name: UI
     uniqueID: 3426436693
     locked: 0

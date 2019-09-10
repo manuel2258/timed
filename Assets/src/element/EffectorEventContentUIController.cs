@@ -12,8 +12,7 @@ namespace src.element {
     /// A UI Controller representing a effectors event
     /// </summary>
     public class EffectorEventContentUIController : MonoBehaviour {
-
-        public TMP_Text nameText;
+        
         public Button addEventButton;
 
         /// <summary>
@@ -21,7 +20,6 @@ namespace src.element {
         /// </summary>
         /// <param name="effectorEvent"></param>
         public void setup(EffectorEvent effectorEvent) {
-            nameText.text = effectorEvent.name;
             addEventButton.onClick.AddListener(() => {
                 Timeline.Instance.addEffectorEvent(new TimedEffectorEvent(ReplayTimeManager.Instance.CurrentTime, 
                     effectorEvent));

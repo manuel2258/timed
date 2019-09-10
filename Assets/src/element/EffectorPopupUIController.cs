@@ -11,12 +11,10 @@ namespace src.element {
     /// <summary>
     /// A Singleton UI Controller that manages the Effector Event Selection
     /// </summary>
-    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController>, IPointerEnterHandler {
+    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController> {
 
         private Canvas _canvas;
 
-        private bool _pointerInside;
-        
         /// <summary>
         /// The parent RectTransform that hosts the event children
         /// </summary>
@@ -29,36 +27,20 @@ namespace src.element {
         
         public TMP_Text effectorNameText;
 
-        private bool _wasJustEnabled;
-        private int _justEnabledCounter;
+        public Button closeButton;
 
         private void Start() {
             _canvas = GetComponent<Canvas>();
             _canvas.enabled = false;
+            closeButton.onClick.AddListener(() => _canvas.enabled = false);
         }
-
-        private void Update() {
-            if (_wasJustEnabled) {
-                if (_justEnabledCounter > 0) {
-                    _justEnabledCounter--;
-                    return;
-                } 
-                _wasJustEnabled = false;
-            }
-            if (TouchManager.Instance.isScreenTouched() && !_pointerInside) {
-                _canvas.enabled = false;
-            }
-
-            _pointerInside = false;
-        }
+        
 
         /// <summary>
         /// Shows the name and the events of the effector
         /// </summary>
         /// <param name="effector">The to show Effector</param>
         public void showEffector(BaseEffector effector) {
-            _wasJustEnabled = true;
-            _justEnabledCounter = 25;
             _canvas.enabled = true;
 
             for (int i = 0; i < contentParent.transform.childCount; i++) {
@@ -76,10 +58,6 @@ namespace src.element {
             contentParent.anchoredPosition = contentParentAnchoredPosition;
 
             effectorNameText.text = effector.getEffectorName();
-        }
-
-        public void OnPointerEnter(PointerEventData eventData) {
-            _pointerInside = true;
         }
     }
 }

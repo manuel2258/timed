@@ -1,4 +1,5 @@
 using src.misc;
+using src.simulation;
 using src.time.time_managers;
 
 namespace src.time.timeline {
@@ -16,27 +17,31 @@ namespace src.time.timeline {
         /// </summary>
         /// <param name="effectorEvent">The pressed timedEvent</param>
         public void onTimedEffectorEventButtonPressed(TimedEffectorEvent effectorEvent) {
-            if (_currentEffectorEvent == effectorEvent) {
-                _currentEffectorEvent = null;
+            if (_currentEffectorEvent != null) {
                 TimedEffectorEventPopupUIController.Instance.closePopup();
-                TimelineUIController.Instance.exitTimePickerMode();
-                if (effectorEvent.IsDirty) {
-                    effectorEvent.IsActive = true;
-                    Timeline.Instance.effectorTimeChanged();
-                }
-                ReplayTimeManager.Instance.OverrideActive = false;
-            } else {
+                EventTimelineUIController.Instance.exitTimePickerMode();
+                _currentEffectorEvent.IsActive = true;
+                Timeline.Instance.effectorTimeChanged();
+                ReplayManager.Instance.Active = true;
+                ReplayUIController.Instance.setActiveChangeButtonState(true);
+            }
+            if (_currentEffectorEvent != effectorEvent) {
                 _currentEffectorEvent = effectorEvent;
                 TimedEffectorEventPopupUIController.Instance.showTimedEffectorEvent(effectorEvent);
-                TimelineUIController.Instance.setTimePickerMode(newTime => {
+                if (effectorEvent.IsActive) {
+                    effectorEvent.IsActive = false;
+                    Timeline.Instance.effectorTimeChanged();
+                }
+                EventTimelineUIController.Instance.setTimePickerMode(newTime => {
                     effectorEvent.ExecutionTime = newTime;
                     onEffectorEventTimeChanged?.Invoke(newTime);
-                    if (effectorEvent.IsActive) {
-                        effectorEvent.IsActive = false;
-                        Timeline.Instance.effectorTimeChanged();
-                    }
-                }, effectorEvent.ExecutionTime);
-                ReplayTimeManager.Instance.OverrideActive = true;
+                    Timeline.Instance.effectorTimeChanged();
+                }, effectorEvent);
+                ReplayManager.Instance.Active = false;
+                ReplayTimeManager.Instance.setCurrentTime(effectorEvent.ExecutionTime);
+                ReplayUIController.Instance.setActiveChangeButtonState(false);
+            } else {
+                _currentEffectorEvent = null;
             }
         }
     }

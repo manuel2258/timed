@@ -28,7 +28,6 @@ namespace src.time.timeline {
         private OnNewPickedTime _timePickerCallback;
 
         private bool _selectingPosition;
-        private bool _replayWasActiveBefore;
 
         protected override void Start() {
             base.Start();
@@ -38,24 +37,18 @@ namespace src.time.timeline {
 
         protected override void Update() {
             base.Update();
-            if (hasPosition && RectPosition.x > -rectTransform.sizeDelta.x / 2 && RectPosition.x < rectTransform.sizeDelta.x / 2) {
+            if (hasPosition && RectPosition.x > -rectTransform.sizeDelta.x / 2 &&
+                RectPosition.x < rectTransform.sizeDelta.x / 2) {
                 var pickedTime = (decimal) MathHelper.mapValue(RectPosition.x, -rectTransform.sizeDelta.x / 2,
                     rectTransform.sizeDelta.x / 2, 0,
                     (float) SimulationManager.SIMULATION_LENGTH);
                 ReplayTimeManager.Instance.setCurrentTime(pickedTime);
-                    if (_timePickerMode) {
-                        _timePickerCallback.Invoke(pickedTime);
-                    } else {
-                        _selectingPosition = true;
-                        _replayWasActiveBefore = ReplayTimeManager.Instance.Active;
-                        ReplayTimeManager.Instance.Active = false;
-                    }
-
-                    onNewTime(pickedTime, 0);
+                _selectingPosition = true;
+                ReplayManager.Instance.Active = false;
+                onNewTime(pickedTime, 0);
             } else {
                 if (_selectingPosition) {
                     _selectingPosition = false;
-                    ReplayTimeManager.Instance.Active = _replayWasActiveBefore;
                 }
             } 
         }
@@ -68,22 +61,5 @@ namespace src.time.timeline {
             fill.anchoredPosition = new Vector3(fillWidth/2, fill.anchoredPosition.y);
             fill.sizeDelta = new Vector2(fillWidth, fill.sizeDelta.y);
         }
-
-        /// <summary>
-        /// Activates the timePickerMode
-        /// </summary>
-        /// <param name="callback">The to call callback</param>
-        /// <param name="startTime">The current time of the to change TimedEvent</param>
-        public void setTimePickerMode(OnNewPickedTime callback, decimal startTime) {
-            _timePickerMode = true;
-            _timePickerCallback = callback;
-            onNewTime(startTime, 0);
-        }
-
-        public void exitTimePickerMode() {
-            _timePickerMode = false;
-        }
     }
-    
-    public delegate void OnNewPickedTime(decimal newTime);
 }

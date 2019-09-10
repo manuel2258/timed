@@ -10,22 +10,9 @@ namespace src.time.time_managers {
     public class ReplayTimeManager : BaseTimeManager<ReplayTimeManager> {
 
         public float TimeMultiplier { get; set; } = 1;
-        public bool OverrideActive { get; set; }
 
-        private bool _active;
-        public bool Active {
-            get => _active;
-            set {
-                if (!OverrideActive) {
-                    _active = value;
-                }
-            }
-        }
-
-        public void toggleActive() {
-            Active = !Active;
-        }
-
+        public bool Active { get; set; }
+        
         public void setCurrentTime(decimal newTime) {
             if (!Active) {
                 currentTime = newTime;

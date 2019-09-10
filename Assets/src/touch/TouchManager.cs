@@ -27,17 +27,12 @@ namespace src.touch {
                     });
                 }
             } else {
-                if (Input.GetMouseButtonDown(0)) {
+                if (Input.GetMouseButton(0)) {
                     _currentTouches.Add(new Touch {
                         touchSize = 0,
                         worldPosition = CameraManager.Camera.ScreenToWorldPoint(Input.mousePosition)
                     });
                 }
-            }
-
-            if (_currentTouches.Count > 0) {
-                Debug.Log("---");
-                _currentTouches.ForEach(element => Debug.Log(element.worldPosition));
             }
         }
 
