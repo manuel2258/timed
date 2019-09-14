@@ -32,6 +32,7 @@ namespace src.time.timeline {
         private void Start() {
             _rectTransform = transform as RectTransform;
             Timeline.Instance.onEffectorEventChanged += events => {
+                List<TimedEffectorEvent> oldEvents = new List<TimedEffectorEvent>(_eventPointers.Keys);
                 foreach (var effectorEvent in events) {
                     if (!_eventPointers.TryGetValue(effectorEvent, out var pointerTransform)) {
                         var newPointer = Instantiate(pointerPrefab, transform);
@@ -39,6 +40,15 @@ namespace src.time.timeline {
                         _eventPointers.Add(effectorEvent, pointerTransform);
                     } 
                     setPointerPosition(effectorEvent.ExecutionTime, pointerTransform);
+                    oldEvents.Remove(effectorEvent);
+                }
+                
+                foreach (var timedEffectorEvent in oldEvents) {
+                    if(!_eventPointers.TryGetValue(timedEffectorEvent, out var pointerTransform)) {
+                        throw new Exception("Could not find transform of removed timedEffectorEvent!");
+                    }
+                    _eventPointers.Remove(timedEffectorEvent);
+                    Destroy(pointerTransform.gameObject);
                 }
             };
 

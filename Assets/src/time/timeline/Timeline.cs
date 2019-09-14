@@ -18,7 +18,7 @@ namespace src.time.timeline {
         public OnEffectorEventChanged onEffectorEventChanged;
 
         private void Start() {
-            SimulationTimeManager.Instance.onNewTime += onNewTime;
+            SimulationTimeManager.Instance.onNewTime += onNewSimulationTime;
             SimulationManager.Instance.onCalculationStarted += reset;
             reset();
         }
@@ -52,7 +52,7 @@ namespace src.time.timeline {
         /// </summary>
         /// <param name="currentTime">The current time in seconds</param>
         /// <param name="_">Ignored deltaTime</param>
-        private void onNewTime(decimal currentTime, decimal _) {
+        private void onNewSimulationTime(decimal currentTime, decimal _) {
             for(int i = _activeEffectors.Count-1; i >= 0; i--) {
                 var effector = _activeEffectors[i];
                 if (effector.ExecutionTime > currentTime)  continue;

@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.41444759"
-     inkscape:cx="-2408.8034"
-     inkscape:cy="1330.189"
+     inkscape:zoom="0.22490902"
+     inkscape:cx="-10391.836"
+     inkscape:cy="2260.3767"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,113 +53,114 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <g
-       id="g1559"
-       inkscape:export-xdpi="200"
-       inkscape:export-ydpi="200"
-       transform="translate(-109.2429,-144.00201)">
-      <g
-         id="g1491">
-        <path
-           inkscape:connector-curvature="0"
-           style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m -573.94332,-63.60746 c -5.10391,0 -8.52847,1.791394 -4.82161,2.784642 3.7068,0.993243 6.54148,3.77661 6.54148,3.77661 v 33.462947 h 22.22168 v -33.462947 c 0,0 2.83468,-2.783367 6.54146,-3.77661 3.70687,-0.993248 0.28237,-2.784642 -4.82162,-2.784642 h -11.53337 -2.59463 z"
-           id="path1397"
-           sodipodi:nodetypes="sccccccsccs" />
-        <path
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m -573.97666,-55.669495 24.78255,6.64046"
-           id="path1393"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="cc" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path1395"
-           d="m -573.97666,-48.785386 24.78255,6.64046"
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           sodipodi:nodetypes="cc" />
-      </g>
-      <g
-         inkscape:transform-center-x="-19.975201"
-         transform="rotate(90,-561.11261,-23.620161)"
-         inkscape:transform-center-y="-2.0745008e-06"
-         id="g1499">
-        <path
-           sodipodi:nodetypes="sccccccsccs"
-           id="path1493"
-           d="m -573.94332,-63.60746 c -5.10391,0 -8.52847,1.791394 -4.82161,2.784642 3.7068,0.993243 6.54148,3.77661 6.54148,3.77661 v 33.462947 h 22.22168 v -33.462947 c 0,0 2.83468,-2.783367 6.54146,-3.77661 3.70687,-0.993248 0.28237,-2.784642 -4.82162,-2.784642 h -11.53337 -2.59463 z"
-           style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           inkscape:connector-curvature="0" />
-        <path
-           sodipodi:nodetypes="cc"
-           inkscape:connector-curvature="0"
-           id="path1495"
-           d="m -573.97666,-55.669495 24.78255,6.64046"
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <path
-           sodipodi:nodetypes="cc"
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m -573.97666,-48.785386 24.78255,6.64046"
-           id="path1497"
-           inkscape:connector-curvature="0" />
-      </g>
-      <g
-         id="g1531"
-         inkscape:transform-center-y="19.975201"
-         transform="rotate(180,-561.11261,-23.62016)"
-         inkscape:transform-center-x="-3.0686606e-06">
-        <path
-           inkscape:connector-curvature="0"
-           style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m -573.94332,-63.60746 c -5.10391,0 -8.52847,1.791394 -4.82161,2.784642 3.7068,0.993243 6.54148,3.77661 6.54148,3.77661 v 33.462947 h 22.22168 v -33.462947 c 0,0 2.83468,-2.783367 6.54146,-3.77661 3.70687,-0.993248 0.28237,-2.784642 -4.82162,-2.784642 h -11.53337 -2.59463 z"
-           id="path1525"
-           sodipodi:nodetypes="sccccccsccs" />
-        <path
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m -573.97666,-55.669495 24.78255,6.64046"
-           id="path1527"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="cc" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path1529"
-           d="m -573.97666,-48.785386 24.78255,6.64046"
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           sodipodi:nodetypes="cc" />
-      </g>
-      <g
-         inkscape:transform-center-x="19.9752"
-         transform="rotate(-90,-561.11261,-23.620159)"
-         inkscape:transform-center-y="2.7221321e-06"
-         id="g1539">
-        <path
-           sodipodi:nodetypes="sccccccsccs"
-           id="path1533"
-           d="m -573.94332,-63.60746 c -5.10391,0 -8.52847,1.791394 -4.82161,2.784642 3.7068,0.993243 6.54148,3.77661 6.54148,3.77661 v 33.462947 h 22.22168 v -33.462947 c 0,0 2.83468,-2.783367 6.54146,-3.77661 3.70687,-0.993248 0.28237,-2.784642 -4.82162,-2.784642 h -11.53337 -2.59463 z"
-           style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           inkscape:connector-curvature="0" />
-        <path
-           sodipodi:nodetypes="cc"
-           inkscape:connector-curvature="0"
-           id="path1535"
-           d="m -573.97666,-55.669495 24.78255,6.64046"
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <path
-           sodipodi:nodetypes="cc"
-           style="fill:none;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m -573.97666,-48.785386 24.78255,6.64046"
-           id="path1537"
-           inkscape:connector-curvature="0" />
-      </g>
-    </g>
-    <circle
-       style="opacity:1;fill:#3e3e3e;fill-opacity:1;stroke:#eaa300;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path1541"
-       cx="-670.35553"
-       cy="-167.62216"
-       r="14.748623"
-       inkscape:export-xdpi="200"
-       inkscape:export-ydpi="200" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -2366.8992,116.26483 c -5.1039,0 -8.5285,1.79139 -4.8216,2.78464 3.7068,0.99324 6.5415,3.77661 6.5415,3.77661 v 33.46295 h 22.2216 v -33.46295 c 0,0 2.8347,-2.78337 6.5415,-3.77661 3.7069,-0.99325 0.2824,-2.78464 -4.8216,-2.78464 h -11.5334 -2.5946 z"
+       id="path1397"
+       sodipodi:nodetypes="sccccccsccs"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2241.9399,124.20279 24.7826,6.64046"
+       id="path1393"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1395"
+       d="m -2241.9399,131.0869 24.7826,6.64046"
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="sccccccsccs"
+       id="path1493"
+       d="m -2314.0812,143.42141 c 0,-5.10391 -1.7914,-8.52847 -2.7847,-4.82161 -0.9932,3.7068 -3.7766,6.54148 -3.7766,6.54148 h -33.4629 v 22.22168 h 33.4629 c 0,0 2.7834,2.83468 3.7766,6.54146 0.9933,3.70687 2.7847,0.28237 2.7847,-4.82162 v -11.53337 -2.59463 z"
+       style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1495"
+       d="m -2197.0265,143.38807 -6.6404,24.78255"
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2203.9106,143.38807 -6.6404,24.78255"
+       id="path1497"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -2341.2379,196.23943 c 5.1039,0 8.5285,-1.79139 4.8216,-2.78464 -3.7068,-0.99324 -6.5415,-3.77661 -6.5415,-3.77661 v -33.46295 h -22.2216 v 33.46295 c 0,0 -2.8347,2.78337 -6.5415,3.77661 -3.7069,0.99325 -0.2824,2.78464 4.8216,2.78464 h 11.5334 2.5946 z"
+       id="path1525"
+       sodipodi:nodetypes="sccccccsccs"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2216.2118,188.30147 -24.7826,-6.64046"
+       id="path1527"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1529"
+       d="m -2216.2118,181.41736 -24.7826,-6.64046"
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="sccccccsccs"
+       id="path1533"
+       d="m -2394.0558,169.08286 c 0,5.10391 1.7914,8.52847 2.7846,4.82161 0.9933,-3.7068 3.7767,-6.54148 3.7767,-6.54148 h 33.4629 v -22.22168 h -33.4629 c 0,0 -2.7834,-2.83468 -3.7767,-6.54146 -0.9932,-3.70687 -2.7846,-0.28237 -2.7846,4.82162 v 11.53337 2.59463 z"
+       style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:0.63169628px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1535"
+       d="m -2261.1251,169.1162 6.6404,-24.78255"
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#3131ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2254.241,169.1162 6.6404,-24.78255"
+       id="path1537"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/effector.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
     <g
        transform="translate(-11.248503,-144.00201)"
        inkscape:export-ydpi="200"
@@ -481,5 +482,277 @@
        cx="-572.06738"
        id="circle1718"
        style="opacity:1;fill:#3e3e3e;fill-opacity:1;stroke:#b70000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1357.993,-224.76947 35.4626,-9.50218 -35.7728,-9.58531"
+       id="path934"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -912.64,-243.85695 -35.4626,9.50218 35.7728,9.58531"
+       id="path948"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path954"
+       d="m -1125.7728,-11.63671 -9.5021,-35.4626 -9.5854,35.7728"
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1144.8602,-456.9897 9.5021,35.4626 9.5854,-35.7728"
+       id="path960"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -984.60887,-398.5177 -18.35683,31.7949 32.07306,-18.51735"
+       id="path966"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path972"
+       d="m -984.60887,-398.5177 -18.35683,31.7949 32.07306,-18.51735"
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path978"
+       d="m -1299.521,-385.02082 31.7949,18.35679 -18.5173,-32.07303"
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path996"
+       d="m -1286.0241,-70.108712 18.3568,-31.794898 -32.073,18.517349"
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1002"
+       d="m -971.11199,-83.605607 -31.79491,-18.356793 18.51736,32.073032"
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#a3a3a3;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -971.11199,-83.605607 -31.79491,-18.356793 18.51736,32.073032"
+       id="path1008"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_pull.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1339"
+       d="m -1962.4419,-224.76947 -35.4626,-9.50218 35.7728,-9.58531"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1898.3158,-398.67119 -18.3568,-31.7949 32.0731,18.51735"
+       id="path1420"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1426"
+       d="m -1730.0047,-476.29424 9.5022,-35.4626 9.5853,35.7728"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1556.1029,-412.16809 31.7949,-18.35679 -18.5174,32.07303"
+       id="path1432"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1438"
+       d="m -1478.4799,-243.85697 35.4626,9.50218 -35.7728,9.58531"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1542.606,-69.955252 18.3567,31.794901 -32.073,-18.517352"
+       id="path1444"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1450"
+       d="m -1710.9172,7.66781 -9.5022,35.4626 -9.5853,-35.7728"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1962.4419,-224.76947 -35.4626,-9.50218 35.7728,-9.58531"
+       id="path4709"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4715"
+       d="m -1898.3158,-398.67119 -18.3568,-31.7949 32.0731,18.51735"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1730.0047,-476.29424 9.5022,-35.4626 9.5853,35.7728"
+       id="path4721"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4727"
+       d="m -1556.1029,-412.16809 31.7949,-18.35679 -18.5174,32.07303"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1478.4799,-243.85697 35.4626,9.50218 -35.7728,9.58531"
+       id="path4733"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4739"
+       d="m -1542.606,-69.955252 18.3567,31.794901 -32.073,-18.517352"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1710.9172,7.66781 -9.5022,35.4626 -9.5853,-35.7728"
+       id="path4745"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4751"
+       d="m -1884.8189,-56.458341 -31.7949,18.356789 18.5173,-32.073027"
+       style="fill:none;stroke:#858585;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range_push.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4871"
+       d="m -2578.2518,-194.33342 c -5.2502,-30.9458 -3.8203,-58.08421 -0.1596,-79.95959"
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2540.3094,-365.89409 c 18.1695,-25.59444 38.3704,-43.7731 56.4271,-56.65282"
+       id="path4877"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4883"
+       d="m -2392.1684,-460.37647 c 30.9458,-5.2502 58.0843,-3.8203 79.9596,-0.1596"
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2220.6077,-422.43406 c 25.5945,18.16953 43.7731,38.37038 56.6528,56.42712"
+       id="path4889"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4895"
+       d="m -2126.1253,-274.29302 c 5.2502,30.9458 3.8203,58.08421 0.1596,79.95959"
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2164.0677,-102.73236 c -18.1695,25.594441 -38.3704,43.773102 -56.4271,56.652826"
+       id="path4901"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4907"
+       d="m -2312.2088,-8.249957 c -30.9458,5.2502 -58.0842,3.8203 -79.9596,0.1596"
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       style="fill:none;stroke:#8c8c8c;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -2483.7694,-46.192365 c -25.5945,-18.169533 -43.7731,-38.370378 -56.6529,-56.427115"
+       id="path4913"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/range.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
   </g>
 </svg>

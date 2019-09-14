@@ -35,7 +35,6 @@ namespace src.time.timeline {
                 EventTimelineUIController.Instance.setTimePickerMode(newTime => {
                     effectorEvent.ExecutionTime = newTime;
                     onEffectorEventTimeChanged?.Invoke(newTime);
-                    Timeline.Instance.effectorTimeChanged();
                 }, effectorEvent);
                 ReplayManager.Instance.Active = false;
                 ReplayTimeManager.Instance.setCurrentTime(effectorEvent.ExecutionTime);
@@ -43,6 +42,11 @@ namespace src.time.timeline {
             } else {
                 _currentEffectorEvent = null;
             }
+        }
+
+        public void removeTimedEffectorEvent(TimedEffectorEvent effectorEvent) {
+            Timeline.Instance.removeEffectorEvent(effectorEvent);
+            onTimedEffectorEventButtonPressed(effectorEvent);
         }
     }
 

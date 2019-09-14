@@ -14,24 +14,25 @@ namespace src.time.time_managers {
         public bool Active { get; set; }
         
         public void setCurrentTime(decimal newTime) {
-            if (!Active) {
-                currentTime = newTime;
-                onNewTime?.Invoke(currentTime, 0);
-            }
+            if (Active) return;
+
+            var delta = newTime - currentTime;
+            currentTime = newTime;
+            onNewTime?.Invoke(currentTime, delta);
         }
 
         private void FixedUpdate() {
-            if (Active) {
-                var deltaTime = (decimal)(Time.fixedDeltaTime * TimeMultiplier);
-                currentTime += deltaTime;
-                currentTime = currentTime < 0 ? 0 : currentTime;
-                currentTime = currentTime > SimulationManager.SIMULATION_LENGTH ? SimulationManager.SIMULATION_LENGTH : currentTime;
-                onNewTime?.Invoke(currentTime, deltaTime);
+            if (!Active) return;
+            
+            var deltaTime = (decimal)(Time.fixedDeltaTime * TimeMultiplier);
+            currentTime += deltaTime;
+            currentTime = currentTime < 0 ? 0 : currentTime;
+            currentTime = currentTime > SimulationManager.SIMULATION_LENGTH ? SimulationManager.SIMULATION_LENGTH : currentTime;
+            onNewTime?.Invoke(currentTime, deltaTime);
 
-                if (currentTime > SimulationManager.SIMULATION_LENGTH) {
-                    currentTime = 0;
-                    Active = false;
-                }
+            if (currentTime > SimulationManager.SIMULATION_LENGTH) {
+                currentTime = 0;
+                Active = false;
             }
         }
     }

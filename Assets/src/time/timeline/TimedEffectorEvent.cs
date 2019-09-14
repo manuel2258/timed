@@ -7,24 +7,11 @@ namespace src.time.timeline {
     /// Represents a event that changes a effector at a given time point
     /// </summary>
     public class TimedEffectorEvent {
-
-        private decimal _executionTime;
-
-        public decimal ExecutionTime {
-            set {
-                _executionTime = value;
-                IsDirty = true;
-            }
-            get => _executionTime;
-        }
+        
+        public decimal ExecutionTime { set; get; }
 
         private bool _alreadyExecuted;
 
-        public bool IsDirty {
-            private set;
-            get;
-        }
-        
         public bool IsActive { get; set; }
 
         private readonly EffectorEvent _effectorEvent;
@@ -37,13 +24,12 @@ namespace src.time.timeline {
 
         public void reset() {
             _alreadyExecuted = false;
-            IsDirty = false;
         }
 
         public void execute() {
             if(!IsActive) return;
             if (!_alreadyExecuted) {
-                _effectorEvent.effectorEvent.Invoke();
+                _effectorEvent.simulationEvent.Invoke();
                 _alreadyExecuted = true;
             } else {
                 throw new Exception("TimeEffectorEvent has executed twice!");

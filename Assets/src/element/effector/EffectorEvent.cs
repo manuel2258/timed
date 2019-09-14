@@ -6,11 +6,11 @@ namespace src.element.effector {
     public class EffectorEvent {
 
         public readonly string name;
-        public readonly TriggerEffectorEvent effectorEvent;
-        
-        public EffectorEvent(string name, TriggerEffectorEvent effectorEvent) {
+        public readonly TriggerEffectorEvent simulationEvent;
+
+        public EffectorEvent(string name, TriggerEffectorEvent simulationEvent) {
             this.name = name;
-            this.effectorEvent = effectorEvent;
+            this.simulationEvent = simulationEvent;
         }
         
     }

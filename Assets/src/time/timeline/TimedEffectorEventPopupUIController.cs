@@ -34,7 +34,7 @@ namespace src.time.timeline {
             effectorEventName.text = effectorEvent.getName();
             removeButton.onClick.RemoveAllListeners();
             removeButton.onClick.AddListener(() => {
-                Timeline.Instance.removeEffectorEvent(effectorEvent);
+                TimedEffectorEventEditManager.Instance.removeTimedEffectorEvent(effectorEvent);
                 _canvas.enabled = false;
             });
         }

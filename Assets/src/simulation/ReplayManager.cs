@@ -29,16 +29,23 @@ namespace src.simulation {
 
         private int _currentPriority;
 
+        private decimal _beforeTime;
+
         private void Start() {
             ReplayTimeManager.Instance.onNewTime += onNewTime;
             SimulationManager.Instance.onCalculationFinished += newTrackers => {
                 _currentTrackers = newTrackers;
                 onNewTime(ReplayTimeManager.Instance.CurrentTime, 0);
+                ReplayTimeManager.Instance.setCurrentTime(_beforeTime);
             };
-            SimulationManager.Instance.onCalculationStarted += () => ReplayTimeManager.Instance.Active = false;
-            foreach (var system in FindObjectsOfType<ParticleSystem>()) {
-                _particleSystems.Add(system);
-            }
+            SimulationManager.Instance.onCalculationStarted += () => {
+                ReplayTimeManager.Instance.Active = false;
+                _beforeTime = ReplayTimeManager.Instance.CurrentTime;
+                ReplayTimeManager.Instance.setCurrentTime(0);
+            };
+            
+            addAllChildParticles(GameObject.Find("Level").transform);
+            
             setParticleSimulationSpeed(0);
         }
 
@@ -56,6 +63,19 @@ namespace src.simulation {
             foreach (var system in _particleSystems) {
                 var main = system.main;
                 main.simulationSpeed = speed;
+            }
+        }
+
+        private void addAllChildParticles(Transform parent) {
+            for (int i = 0; i < parent.childCount; i++) {
+                var currentChild = parent.GetChild(i);
+                {
+                    var particleSystem = currentChild.GetComponent<ParticleSystem>();
+                    if (particleSystem != null) {
+                        _particleSystems.Add(particleSystem);
+                    }
+                }
+                addAllChildParticles(currentChild);
             }
         }
     }
