@@ -30,40 +30,22 @@ namespace src.element.effector {
         }
 
         protected virtual void onCalculationStarted() { }
-        
+
         public ICollection<EffectorEvent> getEffectorEvents() {
             return effectorEvents;
         }
 
-        protected void executeVisualChange(IVisualStateAble that, Action changeFunction) {
-            var beforeState = getCurrentState();
-            changeFunction.Invoke();
-            var afterState = getCurrentState();
-            ReplayTimeline.Instance.addVisualEvent(that, beforeState, afterState);
-        }
-
         protected abstract void effectorUpdate(decimal currentTime, decimal deltaTime);
-
-        protected abstract VisualState getCurrentState();
 
         public abstract string getEffectorName();
     }
 
     public interface IVisualStateAble {
         void setVisualsByState(VisualState state);
+
+        VisualState getCurrentState();
     }
 
     public class VisualState {
-        public ElementColor color;
-
-        public VisualState(ElementColor color) {
-            this.color = color;
-        }
-
-        public VisualState() { }
-
-        public VisualState(VisualState that) {
-            color = that.color;
-        }
     }
 }

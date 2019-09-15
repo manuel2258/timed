@@ -13,12 +13,14 @@ namespace src.element.effector {
         class RadialGravityState : VisualState {
             public float force;
             public bool enabled;
+            public ElementColor color;
 
-            public RadialGravityState() : base(ElementColor.Yellow) { }
+            public RadialGravityState() { }
 
-            public RadialGravityState(RadialGravityState that) : base(that.color) {
+            public RadialGravityState(RadialGravityState that)  {
                 force = that.force;
                 enabled = that.enabled;
+                color = that.color;
             }
         }
 
@@ -37,7 +39,7 @@ namespace src.element.effector {
 
         protected override void Start() {
             base.Start();
-            setup("2000", "true", "true", "true",
+            setup("1500", "true", "true", "true",
                 new List<ElementColor> {ElementColor.Yellow, ElementColor.Blue}, "Yellow");
         }
 
@@ -67,7 +69,8 @@ namespace src.element.effector {
 
             if (_disableAble) {
                 effectorEvents.Add(new EffectorEvent("Enable / Disable",
-                    () => { executeVisualChange(this, () => _currentState.enabled = !_currentState.enabled); }));
+                    () => { Elements.executeVisualChange(this, 
+                        () => _currentState.enabled = !_currentState.enabled); }));
             }
 
             if (_invertAble) {
@@ -83,7 +86,7 @@ namespace src.element.effector {
             if (_colorChangeAble) {
                 foreach (var color in changeAbleColors) {
                     effectorEvents.Add(new EffectorEvent($"Colorchange: {color.ToString()}",
-                        () => { executeVisualChange(this, () => {
+                        () => { Elements.executeVisualChange(this, () => {
                             var savedColor = color;
                             _currentState.color = savedColor;
                         }); }));
@@ -114,21 +117,21 @@ namespace src.element.effector {
             for (int i = 0; i < colliders.Length; i++) {
                 var currentCollider = colliders[i];
                 if(currentCollider == null) continue;
-                var otherRigidBody = currentCollider.gameObject.GetComponent<Rigidbody2D>();
-                if(otherRigidBody == null) continue;
-
-                var diff = transform.position - otherRigidBody.transform.position;
+                var colliderBody = currentCollider.gameObject.GetComponent<ColliderBody>();
+                if(colliderBody == null) continue;
+                if(colliderBody.Color != _currentState.color) continue;
+                var diff = transform.position - colliderBody.transform.position;
                 if (diff.magnitude > 0.25) {
                     var force = (-_currentState.force / 20 * diff.magnitude + _currentState.force) * (float)deltaTime;
-                    otherRigidBody.AddForce(force * diff.normalized);
+                    colliderBody.rigidbody2D.AddForce(force * diff.normalized);
                 }
             }
         }
 
-        protected override VisualState getCurrentState() {
+        public VisualState getCurrentState() {
             return new RadialGravityState(_currentState);
         }
-
+        
         public override string getEffectorName() {
             return "Radial Gravity Field";
         }

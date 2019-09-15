@@ -4,20 +4,37 @@ using UnityEngine;
 
 namespace src.element.collider_body {
     public class ColliderBody : MonoBehaviour, IResetable, IVisualStateAble {
+        
+        class ColliderBodyState : VisualState {
+            public ElementColor color;
+
+            public ColliderBodyState() { }
+
+            public ColliderBodyState(ColliderBodyState that)  {
+                color = that.color;
+            }
+        }
 
         private Vector2 _initialPosition;
         private Quaternion _initialRotation;
 
-        private VisualState _initialState;
-        private VisualState _currentState;
+        private ColliderBodyState _initialState;
+        private ColliderBodyState _currentState;
 
-        private Rigidbody2D _rigidbody;
+        public Rigidbody2D rigidbody2D;
 
         public SpriteRenderer colorMask;
 
+        public ElementColor Color {
+            get => _currentState.color;
+            set {
+                Elements.executeVisualChange(this, () => _currentState.color = value);
+            }
+        }
+
         public void setup(ElementColor startColor) {
-            _currentState = new VisualState {color = startColor};
-            _initialState = new VisualState(_currentState);
+            _currentState = new ColliderBodyState {color = startColor};
+            _initialState = new ColliderBodyState(_currentState);
 
             setVisualsByState(_currentState);
         }
@@ -25,7 +42,7 @@ namespace src.element.collider_body {
         private void Start() {
             _initialPosition = transform.position;
             _initialRotation = transform.rotation;
-            _rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody2D = GetComponent<Rigidbody2D>();
             
             setup(ElementColor.Yellow);
         }
@@ -33,13 +50,17 @@ namespace src.element.collider_body {
         public void reset() {
             transform.position = _initialPosition;
             transform.rotation = _initialRotation;
-            _currentState = new VisualState(_initialState);
-            _rigidbody.velocity = Vector2.zero;
-            _rigidbody.angularVelocity = 0;
+            _currentState = new ColliderBodyState(_initialState);
+            rigidbody2D.velocity = Vector2.zero;
+            rigidbody2D.angularVelocity = 0;
         }
 
         public void setVisualsByState(VisualState state) {
-            colorMask.color = ElementColors.getColorValue(state.color);
+            colorMask.color = ElementColors.getColorValue(((ColliderBodyState)state).color);
+        }
+
+        public VisualState getCurrentState() {
+            return new ColliderBodyState(_currentState);
         }
     }
 }
