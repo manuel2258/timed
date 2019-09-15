@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using src.element.collider_body;
 using src.simulation.reseting;
 using src.time.timeline;
 using UnityEngine;
@@ -108,13 +109,14 @@ namespace src.element.effector {
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
             if (!_currentState.enabled) return;
 
-            Physics2D.OverlapCircleNonAlloc(transform.position, _radius, collisionBuffer);
-            
-            for (int i = 0; i < collisionBuffer.Length; i++) {
-                var currentCollider = collisionBuffer[i];
+            var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
+
+            for (int i = 0; i < colliders.Length; i++) {
+                var currentCollider = colliders[i];
                 if(currentCollider == null) continue;
                 var otherRigidBody = currentCollider.gameObject.GetComponent<Rigidbody2D>();
                 if(otherRigidBody == null) continue;
+
                 var diff = transform.position - otherRigidBody.transform.position;
                 if (diff.magnitude > 0.25) {
                     var force = (-_currentState.force / 20 * diff.magnitude + _currentState.force) * (float)deltaTime;

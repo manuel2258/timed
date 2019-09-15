@@ -17,8 +17,6 @@ namespace src.element.effector {
         public float touchHitBox = .5f;
 
         protected readonly List<EffectorEvent> effectorEvents = new List<EffectorEvent>();
-        
-        protected Collider2D[] collisionBuffer;
 
         protected virtual void Start() {
             SimulationTimeManager.Instance.onNewTime += effectorUpdate;
@@ -31,9 +29,7 @@ namespace src.element.effector {
             }
         }
 
-        protected virtual void onCalculationStarted() {
-            collisionBuffer = new Collider2D[ColliderBodysInfo.Instance.ColliderBodyCount];
-        }
+        protected virtual void onCalculationStarted() { }
         
         public ICollection<EffectorEvent> getEffectorEvents() {
             return effectorEvents;
