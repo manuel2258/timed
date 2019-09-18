@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.element.collider_body;
+using src.level.parsing;
 using src.simulation.reseting;
 using src.time.timeline;
 using UnityEngine;
@@ -29,7 +30,6 @@ namespace src.element.effector {
 
         private bool _invertAble = true;
         private bool _disableAble = true;
-        private bool _colorChangeAble = true;
 
         public List<SpriteRenderer> colorChangeAbles;
 
@@ -37,14 +37,8 @@ namespace src.element.effector {
         public GameObject push;
         public GameObject pull;
 
-        protected override void Start() {
-            base.Start();
-            setup("1500", "true", "true", "true",
-                new List<ElementColor> {ElementColor.Yellow, ElementColor.Blue}, "Yellow");
-        }
-
-        public void setup(string force, string invertAble, string disableAble, string colorChangeAble,
-            List<ElementColor> changeAbleColors, string initialColor) {
+        public void setup(string force, string invertAble, string disableAble,
+            string colors, string initialColor) {
             _initialState = new RadialGravityState {enabled = false};
 
             if (!float.TryParse(force, out _initialState.force)) {
@@ -57,10 +51,6 @@ namespace src.element.effector {
             
             if (!bool.TryParse(disableAble, out _disableAble)) {
                 throw new Exception("RadialGravityEffector: Could not parse disableAble argument -> " + disableAble);
-            }
-
-            if (!bool.TryParse(colorChangeAble, out _colorChangeAble)) {
-                throw new Exception("RadialGravityEffector: Could not parse colorChangeAble argument -> " + colorChangeAble);
             }
 
             if (!Enum.TryParse(initialColor, out _initialState.color)) {
@@ -83,15 +73,16 @@ namespace src.element.effector {
                     }));
             }
 
-            if (_colorChangeAble) {
-                foreach (var color in changeAbleColors) {
-                    effectorEvents.Add(new EffectorEvent($"Colorchange: {color.ToString()}",
-                        () => { Elements.executeVisualChange(this, () => {
+            foreach (var color in ParseHelper.parseEnumListFromString<ElementColor>(colors)) {
+                effectorEvents.Add(new EffectorEvent($"Colorchange: {color.ToString()}",
+                    () => {
+                        Elements.executeVisualChange(this, () => {
                             var savedColor = color;
                             _currentState.color = savedColor;
-                        }); }));
-                }
+                        });
+                    }));
             }
+
 
             _currentState = new RadialGravityState(_initialState);
             setVisualsByState(_currentState);

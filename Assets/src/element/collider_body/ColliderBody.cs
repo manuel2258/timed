@@ -1,4 +1,6 @@
+using System;
 using src.element.effector;
+using src.level.parsing;
 using src.simulation.reseting;
 using UnityEngine;
 
@@ -32,19 +34,18 @@ namespace src.element.collider_body {
             }
         }
 
-        public void setup(ElementColor startColor) {
-            _currentState = new ColliderBodyState {color = startColor};
+        public void setup(string initialColor) {
+            if (!Enum.TryParse(initialColor, out ElementColor parsedColor)) {
+                throw new Exception("ColliderBody: Could not parse initialColor argument -> " + initialColor);
+            }
+            _currentState = new ColliderBodyState {color = parsedColor};
             _initialState = new ColliderBodyState(_currentState);
 
-            setVisualsByState(_currentState);
-        }
-
-        private void Start() {
             _initialPosition = transform.position;
             _initialRotation = transform.rotation;
             rigidbody2D = GetComponent<Rigidbody2D>();
             
-            setup(ElementColor.Yellow);
+            setVisualsByState(_currentState);
         }
 
         public void reset() {

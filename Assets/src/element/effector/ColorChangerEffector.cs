@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.element.collider_body;
+using src.level.parsing;
 using src.simulation.reseting;
 using src.time.timeline;
 using UnityEngine;
@@ -27,19 +28,14 @@ namespace src.element.effector {
 
         public GameObject gate;
 
-        protected override void Start() {
-            base.Start();
-            setup(new List<ElementColor> {ElementColor.Yellow, ElementColor.Blue}, "Yellow");
-        }
-
-        public void setup(List<ElementColor> changeAbleColors, string initialColor) {
+        public void setup(string colors, string initialColor) {
             _initialState = new ColorChangerState();
 
             if (!Enum.TryParse(initialColor, out _initialState.color)) {
                 throw new Exception("RadialGravityEffector: Could not parse initialColor argument -> " + initialColor);
             }
 
-            foreach (var color in changeAbleColors) {
+            foreach (var color in ParseHelper.parseEnumListFromString<ElementColor>(colors)) {
                 effectorEvents.Add(new EffectorEvent($"Colorchange: {color.ToString()}",
                     () => {
                         Elements.executeVisualChange(this, () => {
@@ -61,7 +57,7 @@ namespace src.element.effector {
         }
 
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
-            var colliders = Physics2D.RaycastAll(transform.position, transform.up, _length);
+            var colliders = Physics2D.RaycastAll(transform.position + transform.up, transform.up, _length);
 
             for (int i = 0; i < colliders.Length; i++) {
                 var currentCollider = colliders[i];
