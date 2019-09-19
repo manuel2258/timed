@@ -29,7 +29,7 @@ namespace src.level.initializing {
                 case ElementType.ColliderBody:
                     return ElementPrefabStorage.Instance.getColliderBody();
                 default:
-                    throw new Exception("ElementInitialized used for effector!");
+                    throw new Exception("ElementInitialized used for effector or trigger!");
             }
         }
 

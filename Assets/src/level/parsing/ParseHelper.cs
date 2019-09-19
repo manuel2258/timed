@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using src.element;
 using src.element.effector;
 
 namespace src.level.parsing {
@@ -54,6 +55,20 @@ namespace src.level.parsing {
                 }
             }
             throw new Exception("Could not find Attribute " + name);
+        }
+
+        /// <summary>
+        /// Parses a string to the enum type ElementColor
+        /// </summary>
+        /// <param name="color">The to parse String</param>
+        /// <returns>The parsed ElementColor Enum</returns>
+        /// <exception cref="Exception">If the string could not be parsed</exception>
+        public static ElementColor getElementColorFromString(string color) {
+            if(!Enum.TryParse(color, out ElementColor parsedColor)){
+                throw new Exception($"Unable to parse {color} as a elementColor");
+            }
+
+            return parsedColor;
         }
     }
 }

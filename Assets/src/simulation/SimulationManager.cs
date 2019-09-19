@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using src.misc;
 using src.simulation.reseting;
@@ -51,9 +52,8 @@ namespace src.simulation {
 
             var simulationTimeManger = SimulationTimeManager.Instance;
             
-            
             while (simulationTimeManger.CurrentTime < SIMULATION_LENGTH) {
-                SimulationTimeManager.Instance.advanceTime(SIMULATION_STEPS);
+                simulationTimeManger.advanceTime(SIMULATION_STEPS);
                 Physics2D.Simulate((float)SIMULATION_STEPS);
                 foreach (var tracker in trackers) {
                     tracker.track(simulationTimeManger.CurrentTime);

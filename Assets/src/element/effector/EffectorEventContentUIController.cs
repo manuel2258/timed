@@ -1,12 +1,9 @@
-using src.element.effector;
-using src.time;
 using src.time.time_managers;
 using src.time.timeline;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace src.element {
+namespace src.element.effector {
     
     /// <summary>
     /// A UI Controller representing a effectors event

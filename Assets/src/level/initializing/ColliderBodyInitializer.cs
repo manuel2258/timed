@@ -22,37 +22,8 @@ namespace src.level.initializing {
         }
 
         protected override void callSetupScript(GameObject currentGameObject) {
-            // Firstly get the effectors type
             var colliderBody = currentGameObject.GetComponent<ColliderBody>();
-            Type colliderBodyType = colliderBody.GetType();
-            
-            // Then get its methods and prepare its to search for values
-            var methods = colliderBodyType.GetMethods();
-            object[] parameters = new object[0];
-            MethodInfo setupFunction = methods[0];
-            foreach (var methodInfo in methods) {
-                // Check if the method is named setup
-                if(methodInfo.Name != "setup") continue;
-                
-                // If so saves the method for later
-                setupFunction = methodInfo;
-                
-                // Then get its parameter and initialize the parameter buffer
-                var parameterInfos = methodInfo.GetParameters();
-                parameters = new object[parameterInfos.Length];
-                foreach (var parameterInfo in parameterInfos) {
-                    // Then maps its values and fill the buffer
-                    if (!_parameters.TryGetValue(parameterInfo.Name, out var currentParameter)) {
-                        throw new Exception($"Could not find parameter {parameterInfo.Name}");
-                    }
-                    parameters[parameterInfo.Position] = currentParameter;
-                }
-
-                break;
-            }
-
-            // And finally invoke it with its parameters
-            setupFunction.Invoke(colliderBody, parameters);
+            InitializeHelper.initializeObject(colliderBody, _parameters);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace src.element.effector {
 
         protected readonly List<EffectorEvent> effectorEvents = new List<EffectorEvent>();
 
-        protected virtual void Start() {
+        protected virtual void Awake() {
             SimulationTimeManager.Instance.onNewTime += effectorUpdate;
             SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
         }

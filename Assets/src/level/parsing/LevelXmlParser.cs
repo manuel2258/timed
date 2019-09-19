@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 using src.element;
+using src.element.triggers;
 using src.level.initializing;
 using src.misc;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace src.level.parsing {
         public Transform effectorRoot;
         public Transform wallRoot;
         public Transform colliderBodyRoot;
+        public Transform triggerRoot;
         
         private readonly Dictionary<ElementType, Transform> _elementParentTransformMap =
             new Dictionary<ElementType, Transform>();
@@ -20,6 +22,7 @@ namespace src.level.parsing {
             _elementParentTransformMap.Add(ElementType.Effector, effectorRoot);
             _elementParentTransformMap.Add(ElementType.Wall, wallRoot);
             _elementParentTransformMap.Add(ElementType.ColliderBody, colliderBodyRoot);
+            _elementParentTransformMap.Add(ElementType.Trigger, triggerRoot);
             parseLevelFromXmlString(LevelXmlPayload.Instance.levelXml).initializeLevel();
         }
 
@@ -83,14 +86,30 @@ namespace src.level.parsing {
                         continue;
                     }
 
-                    // And its EffectorType
-                    string effectorTypeString = ParseHelper.getAttributeValueByName(element, "type");
-                    if (!Enum.TryParse(effectorTypeString, out EffectorType effectorType)) {
-                        throw new Exception($"Could parse {effectorTypeString} to a EffectorType");
+
+                    if (elementType == ElementType.Effector) {
+                        // And its EffectorType
+                        string effectorTypeString = ParseHelper.getAttributeValueByName(element, "type");
+                        if (!Enum.TryParse(effectorTypeString, out EffectorType effectorType)) {
+                            throw new Exception($"Could parse {effectorTypeString} to a EffectorType");
+                        }
+
+                        // Finally add the EffectorInitializer
+                        level.addInitializer(new EffectorInitializer(effectorType, parameters, elementType, position,
+                            angle));
                     }
-                        
-                    // Finally add the EffectorInitializer
-                    level.addInitializer(new EffectorInitializer(effectorType, parameters, elementType, position, angle));
+
+                    if (elementType == ElementType.Trigger) {
+                        // And its TriggerType
+                        string triggerTypeString = ParseHelper.getAttributeValueByName(element, "type");
+                        if (!Enum.TryParse(triggerTypeString, out TriggerType triggerType)) {
+                            throw new Exception($"Could parse {triggerTypeString} to a EffectorType");
+                        }
+
+                        // Finally add the EffectorInitializer
+                        level.addInitializer(new TriggerInitializer(triggerType, parameters, elementType, position,
+                            angle));
+                    }
                 }
             }
 

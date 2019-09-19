@@ -23,7 +23,7 @@ namespace src.element.collider_body {
         private ColliderBodyState _initialState;
         private ColliderBodyState _currentState;
 
-        public Rigidbody2D rigidbody2D;
+        public Rigidbody2D rigidBody;
 
         public SpriteRenderer colorMask;
 
@@ -43,7 +43,7 @@ namespace src.element.collider_body {
 
             _initialPosition = transform.position;
             _initialRotation = transform.rotation;
-            rigidbody2D = GetComponent<Rigidbody2D>();
+            rigidBody = GetComponent<Rigidbody2D>();
             
             setVisualsByState(_currentState);
         }
@@ -52,8 +52,8 @@ namespace src.element.collider_body {
             transform.position = _initialPosition;
             transform.rotation = _initialRotation;
             _currentState = new ColliderBodyState(_initialState);
-            rigidbody2D.velocity = Vector2.zero;
-            rigidbody2D.angularVelocity = 0;
+            rigidBody.velocity = Vector2.zero;
+            rigidBody.angularVelocity = 0;
         }
 
         public void setVisualsByState(VisualState state) {

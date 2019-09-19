@@ -57,7 +57,7 @@ namespace src.element.effector {
         }
 
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
-            var colliders = Physics2D.RaycastAll(transform.position + transform.up, transform.up, _length);
+            var colliders = Physics2D.RaycastAll(transform.position, transform.up, _length);
 
             for (int i = 0; i < colliders.Length; i++) {
                 var currentCollider = colliders[i];

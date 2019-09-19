@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using src.element.collider_body;
 using src.level.parsing;
 using src.simulation.reseting;
@@ -104,17 +105,11 @@ namespace src.element.effector {
             if (!_currentState.enabled) return;
 
             var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
-
-            for (int i = 0; i < colliders.Length; i++) {
-                var currentCollider = colliders[i];
-                if(currentCollider == null) continue;
-                var colliderBody = currentCollider.gameObject.GetComponent<ColliderBody>();
-                if(colliderBody == null) continue;
-                if(colliderBody.Color != _currentState.color) continue;
+            foreach (var colliderBody in  Elements.filterForColor(colliders, _currentState.color)) {
                 var diff = transform.position - colliderBody.transform.position;
                 if (diff.magnitude > 0.25) {
                     var force = (-_currentState.force / 20 * diff.magnitude + _currentState.force) * (float)deltaTime;
-                    colliderBody.rigidbody2D.AddForce(force * diff.normalized);
+                    colliderBody.rigidBody.AddForce(force * diff.normalized);
                 }
             }
         }
