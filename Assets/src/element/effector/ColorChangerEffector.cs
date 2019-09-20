@@ -28,6 +28,8 @@ namespace src.element.effector {
 
         public GameObject gate;
 
+        public Sprite debug;
+        
         public void setup(string colors, string initialColor) {
             _initialState = new ColorChangerState();
 
@@ -36,7 +38,7 @@ namespace src.element.effector {
             }
 
             foreach (var color in ParseHelper.parseEnumListFromString<ElementColor>(colors)) {
-                effectorEvents.Add(new EffectorEvent($"Colorchange: {color.ToString()}",
+                effectorEvents.Add(new EffectorEvent(debug,
                     () => {
                         Elements.executeVisualChange(this, () => {
                             var savedColor = color;
@@ -70,10 +72,6 @@ namespace src.element.effector {
 
         public VisualState getCurrentState() {
             return new ColorChangerState(_currentState);
-        }
-        
-        public override string getEffectorName() {
-            return "Color Changer";
         }
 
         public void reset() {

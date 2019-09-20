@@ -17,7 +17,7 @@ namespace src.element {
                 case ElementColor.Yellow:
                     return new Color32(201, 147, 0, 255);
                 case ElementColor.Blue:
-                    return new Color32(27, 56, 154, 255);
+                    return new Color32(0, 139, 209, 255);
                 case ElementColor.Green:
                     return new Color32(28, 152, 86, 255);
                 case ElementColor.Red:

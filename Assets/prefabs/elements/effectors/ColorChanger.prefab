@@ -285,10 +285,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchHitBox: 0.5
+  elementInfo: {fileID: 11400000, guid: 8760c63ec933668ccbf2978334b9c39e, type: 2}
   colorChangeAbles:
   - {fileID: 79329223771842206}
   - {fileID: 79329223728665236}
   gate: {fileID: 79329223728665238}
+  debug: {fileID: 0}
 --- !u!1 &7053897174047296050
 GameObject:
   m_ObjectHideFlags: 0

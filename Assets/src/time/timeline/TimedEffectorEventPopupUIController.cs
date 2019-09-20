@@ -10,7 +10,7 @@ namespace src.time.timeline {
     /// </summary>
     public class TimedEffectorEventPopupUIController : UnitySingleton<TimedEffectorEventPopupUIController> {
 
-        public TMP_Text effectorEventName;
+        public Image effectorEventIcon;
         public TMP_Text effectorEventTime;
 
         public Button removeButton;
@@ -31,7 +31,7 @@ namespace src.time.timeline {
         public void showTimedEffectorEvent(TimedEffectorEvent effectorEvent) {
             _canvas.enabled = true;
             effectorEventTime.text = $"{effectorEvent.ExecutionTime:N2}";
-            effectorEventName.text = effectorEvent.getName();
+            effectorEventIcon.sprite = effectorEvent.getIcon();
             removeButton.onClick.RemoveAllListeners();
             removeButton.onClick.AddListener(() => {
                 TimedEffectorEventEditManager.Instance.removeTimedEffectorEvent(effectorEvent);

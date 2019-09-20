@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace src.element.effector {
     
     /// <summary>
@@ -5,11 +7,11 @@ namespace src.element.effector {
     /// </summary>
     public class EffectorEvent {
 
-        public readonly string name;
+        public readonly Sprite icon;
         public readonly TriggerEffectorEvent simulationEvent;
 
-        public EffectorEvent(string name, TriggerEffectorEvent simulationEvent) {
-            this.name = name;
+        public EffectorEvent(Sprite icon, TriggerEffectorEvent simulationEvent) {
+            this.icon = icon;
             this.simulationEvent = simulationEvent;
         }
         

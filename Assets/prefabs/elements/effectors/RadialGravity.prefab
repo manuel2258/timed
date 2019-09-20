@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchHitBox: 0.75
+  elementInfo: {fileID: 11400000, guid: 90d1d201ea9f569cf9dbf7844fc61027, type: 2}
   colorChangeAbles:
   - {fileID: 6593178359814880422}
   - {fileID: 6593178360849672339}
@@ -374,6 +375,14 @@ MonoBehaviour:
   forceSpriteParent: {fileID: 6593178360243226461}
   push: {fileID: 6593178358890705976}
   pull: {fileID: 6593178360849672337}
+  onOffEventIcon: {fileID: -55448403596586403, guid: 6efb966f492e852fca0df5bdbb023acf,
+    type: 3}
+  invertEventIcon: {fileID: -7731650768986233303, guid: 6efb966f492e852fca0df5bdbb023acf,
+    type: 3}
+  yellowChangeEventIcon: {fileID: 2465268050609179749, guid: 6efb966f492e852fca0df5bdbb023acf,
+    type: 3}
+  blueChangeEventIcon: {fileID: 4352410312053424958, guid: 6efb966f492e852fca0df5bdbb023acf,
+    type: 3}
 --- !u!1 &6593178360243226461
 GameObject:
   m_ObjectHideFlags: 0

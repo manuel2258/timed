@@ -1,3 +1,4 @@
+using src.element.info;
 using src.misc;
 using TMPro;
 using UnityEngine;
@@ -26,19 +27,23 @@ namespace src.element.effector {
 
         public Button closeButton;
 
+        public Button helpButton;
+
         private void Start() {
             _canvas = GetComponent<Canvas>();
             _canvas.enabled = false;
             closeButton.onClick.AddListener(() => _canvas.enabled = false);
+            
         }
         
-
         /// <summary>
         /// Shows the name and the events of the effector
         /// </summary>
         /// <param name="effector">The to show Effector</param>
         public void showEffector(BaseEffector effector) {
             _canvas.enabled = true;
+            helpButton.onClick.RemoveAllListeners();
+            helpButton.onClick.AddListener(() => EffectorInfoUIController.Instance.toggleEffectorInfo(effector.elementInfo));
 
             for (int i = 0; i < contentParent.transform.childCount; i++) {
                 Destroy(contentParent.transform.GetChild(i).gameObject);
@@ -54,7 +59,7 @@ namespace src.element.effector {
             contentParentAnchoredPosition.y = -contentParent.sizeDelta.y / 2;
             contentParent.anchoredPosition = contentParentAnchoredPosition;
 
-            effectorNameText.text = effector.getEffectorName();
+            effectorNameText.text = effector.elementInfo.elementName;
         }
     }
 }

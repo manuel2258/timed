@@ -17,6 +17,7 @@ namespace src.element.effector {
         /// </summary>
         /// <param name="effectorEvent"></param>
         public void setup(EffectorEvent effectorEvent) {
+            addEventButton.image.sprite = effectorEvent.icon;
             addEventButton.onClick.AddListener(() => {
                 Timeline.Instance.addEffectorEvent(new TimedEffectorEvent(ReplayTimeManager.Instance.CurrentTime, 
                     effectorEvent));

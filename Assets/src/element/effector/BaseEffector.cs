@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.element.collider_body;
+using src.element.info;
 using src.simulation;
 using src.time.time_managers;
 using src.time.timeline;
@@ -15,6 +16,8 @@ namespace src.element.effector {
     public abstract class BaseEffector : MonoBehaviour {
         
         public float touchHitBox = .5f;
+
+        public ElementInfo elementInfo;
 
         protected readonly List<EffectorEvent> effectorEvents = new List<EffectorEvent>();
 
@@ -36,8 +39,6 @@ namespace src.element.effector {
         }
 
         protected abstract void effectorUpdate(decimal currentTime, decimal deltaTime);
-
-        public abstract string getEffectorName();
     }
 
     public interface IVisualStateAble {

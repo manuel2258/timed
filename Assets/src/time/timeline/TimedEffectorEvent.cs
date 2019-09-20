@@ -1,5 +1,6 @@
 using System;
 using src.element.effector;
+using UnityEngine;
 
 namespace src.time.timeline {
     
@@ -36,8 +37,8 @@ namespace src.time.timeline {
             }
         }
 
-        public string getName() {
-            return _effectorEvent.name;
+        public Sprite getIcon() {
+            return _effectorEvent.icon;
         }
         
     }

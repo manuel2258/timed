@@ -41,6 +41,8 @@ namespace src.element.effector {
         public void setup(string force, string invertAble, string disableAble,
             string colors, string initialColor) {
             _initialState = new RadialGravityState {enabled = false};
+            
+            elementInfo.buildInfos();
 
             if (!float.TryParse(force, out _initialState.force)) {
                 throw new Exception("RadialGravityEffector: Could not parse force argument -> " + force);
@@ -59,13 +61,15 @@ namespace src.element.effector {
             }
 
             if (_disableAble) {
-                effectorEvents.Add(new EffectorEvent("Enable / Disable",
+                var eventInfo = elementInfo.getEventInfoBySearchTag("on_off");
+                effectorEvents.Add(new EffectorEvent(eventInfo.icon,
                     () => { Elements.executeVisualChange(this, 
                         () => _currentState.enabled = !_currentState.enabled); }));
             }
 
             if (_invertAble) {
-                effectorEvents.Add(new EffectorEvent("Invert Force",
+                var eventInfo = elementInfo.getEventInfoBySearchTag("invert");
+                effectorEvents.Add(new EffectorEvent(eventInfo.icon,
                     () => {
                         var beforeState = new RadialGravityState(_currentState);
                         _currentState.force *= -1;
@@ -75,7 +79,8 @@ namespace src.element.effector {
             }
 
             foreach (var color in ParseHelper.parseEnumListFromString<ElementColor>(colors)) {
-                effectorEvents.Add(new EffectorEvent($"Colorchange: {color.ToString()}",
+                var eventInfo = elementInfo.getEventInfoBySearchTag("color_change_" + color.ToString().ToLower());
+                effectorEvents.Add(new EffectorEvent(eventInfo.icon,
                     () => {
                         Elements.executeVisualChange(this, () => {
                             var savedColor = color;
@@ -83,8 +88,6 @@ namespace src.element.effector {
                         });
                     }));
             }
-
-
             _currentState = new RadialGravityState(_initialState);
             setVisualsByState(_currentState);
         }
@@ -116,10 +119,6 @@ namespace src.element.effector {
 
         public VisualState getCurrentState() {
             return new RadialGravityState(_currentState);
-        }
-        
-        public override string getEffectorName() {
-            return "Radial Gravity Field";
         }
 
         public void reset() {

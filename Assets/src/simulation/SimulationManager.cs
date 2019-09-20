@@ -15,7 +15,7 @@ namespace src.simulation {
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
         public const decimal SIMULATION_LENGTH = 10;
-        public const decimal SIMULATION_STEPS = 0.025M;
+        public const decimal SIMULATION_STEPS = 0.02M;
 
         /// <summary>
         /// Called when the simulation starts

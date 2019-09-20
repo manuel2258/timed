@@ -47,16 +47,17 @@ namespace src.simulation {
             addAllChildParticles(GameObject.Find("Level").transform);
             
             setParticleSimulationSpeed(0);
+            Active = false;
+        }
+
+        public void toggleActive() {
+            Active = !Active;
         }
 
         private void onNewTime(decimal currentTime, decimal deltaTime) {
             foreach (var tracker in _currentTrackers) {
                 tracker.replayTimestamp(currentTime);
             }
-        }
-
-        public void toggleActive() {
-            Active = !Active;
         }
 
         private void setParticleSimulationSpeed(float speed) {
@@ -77,6 +78,11 @@ namespace src.simulation {
                 }
                 addAllChildParticles(currentChild);
             }
+        }
+
+        public void skipFrames(int frames) {
+            ReplayTimeManager.Instance.setCurrentTime(ReplayTimeManager.Instance.CurrentTime +
+                                                      SimulationManager.SIMULATION_STEPS * frames);
         }
     }
 

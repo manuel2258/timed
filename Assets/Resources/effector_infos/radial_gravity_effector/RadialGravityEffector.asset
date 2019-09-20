@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c37d5a166433885a1c6100318b30b, type: 3}
+  m_Name: RadialGravityEffector
+  m_EditorClassIdentifier: 
+  elementEventInfos:
+  - {fileID: 11400000, guid: ea3f6bead3018080f8e5e4d3e6c4ed8e, type: 2}
+  - {fileID: 11400000, guid: 827382d1d968470a593031c84f9b368e, type: 2}
+  - {fileID: 11400000, guid: 8f5a2ba54df685d4fb6638f1acc2a492, type: 2}
+  - {fileID: 11400000, guid: a89fd728e7be7e579b96e732ebb4b717, type: 2}
+  elementName: Radial Gravity Field
+  helpText: A Field that either pulls objects to its core or pushes them away.

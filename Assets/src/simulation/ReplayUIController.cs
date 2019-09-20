@@ -10,11 +10,14 @@ namespace src.simulation {
 
         public Image activeChangeImage;
         private Button _activeChangeButton;
+
+        public GameObject skipButtonArray;
         
         private void Start() {
             _activeChangeButton = activeChangeImage.GetComponent<Button>();
             ReplayManager.Instance.onActiveStatusChanged += newState => {
                 activeChangeImage.sprite = !newState ? activeReplay : inActiveReplay;
+                skipButtonArray.SetActive(!newState);
             };
         }
 

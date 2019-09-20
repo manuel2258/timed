@@ -7,6 +7,7 @@ namespace src.time.timeline {
         public Button openEffectorEventPopup;
         
         public void setup(TimedEffectorEvent effectorEvent) {
+            openEffectorEventPopup.image.sprite = effectorEvent.getIcon();
             openEffectorEventPopup.onClick.AddListener(() => {
                 TimedEffectorEventEditManager.Instance.onTimedEffectorEventButtonPressed(effectorEvent);
             });
