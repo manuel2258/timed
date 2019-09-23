@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using src.element.collider_body;
 using src.element.info;
+using src.misc;
 using src.simulation;
 using src.time.time_managers;
 using src.time.timeline;
@@ -22,8 +23,10 @@ namespace src.element.effector {
         protected readonly List<EffectorEvent> effectorEvents = new List<EffectorEvent>();
 
         protected virtual void Awake() {
-            SimulationTimeManager.Instance.onNewTime += effectorUpdate;
-            SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
+            if (GlobalGameState.Instance.IsInGame) {
+                SimulationTimeManager.Instance.onNewTime += effectorUpdate;
+                SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
+            }
         }
         
         private void Update() {

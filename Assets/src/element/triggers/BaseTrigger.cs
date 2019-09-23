@@ -1,3 +1,4 @@
+using src.misc;
 using src.simulation;
 using src.time.time_managers;
 using UnityEngine;
@@ -9,9 +10,11 @@ namespace src.element.triggers {
     /// </summary>
     public abstract class BaseTrigger : MonoBehaviour {
 
-        protected virtual void Awake() {
-            SimulationTimeManager.Instance.onNewTime += triggerUpdate;
-            SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
+        protected void onSetup() {
+            if (GlobalGameState.Instance.IsInGame) {
+                SimulationTimeManager.Instance.onNewTime += triggerUpdate;
+                SimulationManager.Instance.onCalculationStarted += onCalculationStarted;
+            }
         }
 
         protected virtual void onCalculationStarted() { }

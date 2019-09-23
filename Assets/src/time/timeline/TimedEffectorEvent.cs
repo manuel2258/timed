@@ -40,6 +40,9 @@ namespace src.time.timeline {
         public Sprite getIcon() {
             return _effectorEvent.icon;
         }
-        
+
+        public override string ToString() {
+            return $"[{ExecutionTime}, {_effectorEvent.simulationEvent.Target}";
+        }
     }
 }

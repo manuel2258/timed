@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6593178358890705977}
   - component: {fileID: 6593178358890705978}
+  - component: {fileID: 722912621}
   m_Layer: 0
   m_Name: Push
   m_TagString: Untagged
@@ -66,7 +67,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1702162137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: d746d6baa3182470fb9f2282ec3cf975, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -79,6 +80,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &722912621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593178358890705976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 10
+  alphaThreshold: 0
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!1 &6593178359094798860
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6593178359094798861}
   - component: {fileID: 6593178359094798862}
+  - component: {fileID: 4745352867166447659}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -127,7 +147,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,10 +165,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1702162137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 100
-  m_Sprite: {fileID: 9067573558852749708, guid: f93e2da03db2cb08e962744cea678d74,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80038bdc60e08ecd8982cafdd73f76d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,6 +178,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4745352867166447659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593178359094798860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 3.74
+  outlineWidth: 10
+  alphaThreshold: 0
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!1 &6593178359525116265
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6593178359525116266}
   - component: {fileID: 6593178359525116267}
+  - component: {fileID: 4196141842113391153}
   m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
@@ -207,7 +245,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,7 +263,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1702162137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: f539221dacf126365b53060e743abc7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -238,6 +276,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4196141842113391153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593178359525116265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 10
+  alphaThreshold: 0
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!1 &6593178359814880420
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6593178359814880421
 Transform:
   m_ObjectHideFlags: 0
@@ -304,7 +360,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1702162137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 101
   m_Sprite: {fileID: 5266599016212344739, guid: f93e2da03db2cb08e962744cea678d74,
     type: 3}
@@ -367,22 +423,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touchHitBox: 0.75
   elementInfo: {fileID: 11400000, guid: 90d1d201ea9f569cf9dbf7844fc61027, type: 2}
+  mainBody: {fileID: 4745352867166447659}
   colorChangeAbles:
-  - {fileID: 6593178359814880422}
-  - {fileID: 6593178360849672339}
-  - {fileID: 6593178358890705978}
-  - {fileID: 6593178359525116267}
+  - {fileID: 4196141842113391153}
+  - {fileID: 4975574546282195776}
+  - {fileID: 722912621}
+  - {fileID: 4745352867166447659}
   forceSpriteParent: {fileID: 6593178360243226461}
   push: {fileID: 6593178358890705976}
   pull: {fileID: 6593178360849672337}
-  onOffEventIcon: {fileID: -55448403596586403, guid: 6efb966f492e852fca0df5bdbb023acf,
-    type: 3}
-  invertEventIcon: {fileID: -7731650768986233303, guid: 6efb966f492e852fca0df5bdbb023acf,
-    type: 3}
-  yellowChangeEventIcon: {fileID: 2465268050609179749, guid: 6efb966f492e852fca0df5bdbb023acf,
-    type: 3}
-  blueChangeEventIcon: {fileID: 4352410312053424958, guid: 6efb966f492e852fca0df5bdbb023acf,
-    type: 3}
 --- !u!1 &6593178360243226461
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6593178360849672338}
   - component: {fileID: 6593178360849672339}
+  - component: {fileID: 4975574546282195776}
   m_Layer: 0
   m_Name: Pull
   m_TagString: Untagged
@@ -463,7 +513,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -481,7 +531,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1702162137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a8a66b2195bb9516a97e570888dbe2a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -494,3 +544,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4975574546282195776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593178360849672337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 10
+  alphaThreshold: 0
+  drawOutside: 0
+  enableInstancing: 0

@@ -7,6 +7,8 @@ namespace src.level {
         public string filename;
         
         private void Start() {
+            if (LevelXmlPayload.Instance != null) return;
+            
             LevelXmlPayloadFactory.generateFromFile(filename);
         }
     }

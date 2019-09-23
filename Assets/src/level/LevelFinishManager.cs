@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using src.element.triggers;
 using src.misc;
 using src.simulation.reseting;
+using UnityEngine.SceneManagement;
 
 namespace src.level {
     
@@ -40,6 +41,10 @@ namespace src.level {
 
         public void reset() {
             _currentUnfinishedGoals = new List<GoalTrigger>(_allGoalTriggers);
+        }
+
+        public void goToMainMenu() {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

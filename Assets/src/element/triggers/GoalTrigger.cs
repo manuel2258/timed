@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using SpriteGlow;
 using src.element.collider_body;
 using src.element.effector;
 using src.level;
 using src.level.parsing;
+using src.misc;
 using src.simulation;
 using src.simulation.reseting;
-using TMPro;
 using UnityEngine;
 
 namespace src.element.triggers {
@@ -14,11 +15,10 @@ namespace src.element.triggers {
 
         public Transform triggerArea;
 
-        public SpriteRenderer area;
-        public SpriteRenderer baseColorMask;
-
-        public TMP_Text remaining;
+        public SpriteRenderer remaining;
         
+        public List<SpriteGlowEffect> colorChangeAbles = new List<SpriteGlowEffect>();
+
         class GoalState : VisualState {
             public int remainingAmount;
 
@@ -37,6 +37,7 @@ namespace src.element.triggers {
         private readonly List<ColliderBody> _alreadyCounted = new List<ColliderBody>();
 
         public void setup(string color, string amount) {
+            onSetup();
             _color = ParseHelper.getElementColorFromString(color);
             
             _currentState = new GoalState();
@@ -44,8 +45,11 @@ namespace src.element.triggers {
             if (!int.TryParse(amount, out _currentState.remainingAmount)) {
                 throw new Exception("GoalTrigger: Could not parse amount argument -> " + amount);
             }
-            LevelFinishManager.Instance.registerGoal(this);
-            
+
+            if (GlobalGameState.Instance.IsInGame) {
+                LevelFinishManager.Instance.registerGoal(this);
+            }
+
             _initialState = new GoalState(_currentState);
             setVisualsByState(_currentState);
         }
@@ -71,16 +75,12 @@ namespace src.element.triggers {
             var goalState = (GoalState) state;
             if (goalState.remainingAmount > 0) {
                 remaining.enabled = true;
-                area.enabled = true;
 
-                remaining.text = goalState.remainingAmount.ToString();
+                remaining.sprite = IntToSpriteImageStorage.Instance.getSpriteByInt(goalState.remainingAmount);
                 var color = ElementColors.getColorValue(_color);
-                baseColorMask.color = color;
-                color.a = 100;
-                area.color = color;
+                colorChangeAbles.ForEach(colorChangeAble => colorChangeAble.GlowColor = color);
             } else {
                 remaining.enabled = false;
-                area.enabled = false;
             }
         }
 

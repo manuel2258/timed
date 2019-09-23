@@ -20,7 +20,7 @@ namespace src.time.timeline {
             _canvas = GetComponent<Canvas>();
             _canvas.enabled = false;
             TimedEffectorEventEditManager.Instance.onEffectorEventTimeChanged += newTime => {
-                effectorEventTime.text = $"{newTime:N2}";
+                effectorEventTime.text = $"{newTime:N2}s";
             };
         }
 

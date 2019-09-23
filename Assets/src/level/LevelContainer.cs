@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using src.level.initializing;
+using src.level.parsing;
+using UnityEngine;
 
 namespace src.level {
     
@@ -8,9 +10,10 @@ namespace src.level {
     /// </summary>
     public class LevelContainer {
         
-        public string Name { private set; get; }
+        public string Name { get; }
 
         private readonly List<ElementInitializer> _initializers = new List<ElementInitializer>();
+        private bool _alreadyFired;
 
         public LevelContainer(string name) {
             Name = name;
@@ -31,7 +34,11 @@ namespace src.level {
         /// This will spawn all the components of the level, make sure to call this in a level Scene 
         /// </remarks>
         public void initializeLevel() {
+            if(_alreadyFired) return;
+            
+            LevelXmlParser.Instance.clearAllLevelChildren();
             _initializers.ForEach(initializer => initializer.initialize());
+            _alreadyFired = true;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using SpriteGlow;
 using src.element.collider_body;
 using src.level.parsing;
 using src.simulation.reseting;
@@ -24,7 +25,7 @@ namespace src.element.effector {
         private ColorChangerState _initialState;
         private ColorChangerState _currentState;
 
-        public List<SpriteRenderer> colorChangeAbles;
+        public List<SpriteGlowEffect> colorChangeAbles;
 
         public GameObject gate;
 
@@ -55,7 +56,7 @@ namespace src.element.effector {
             var colorChangeState = (ColorChangerState) state;
 
             var color = ElementColors.getColorValue(colorChangeState.color);
-            colorChangeAbles.ForEach(spriteRenderer => spriteRenderer.color = color);
+            colorChangeAbles.ForEach(spriteRenderer => spriteRenderer.GlowColor = color);
         }
 
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {

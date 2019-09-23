@@ -1,5 +1,7 @@
+using src.level.parsing;
 using src.misc;
 using src.simulation.reseting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +11,19 @@ namespace src.level {
         public Canvas endLevelScreen;
         public Button endLevelButton;
 
+        public TMP_Text levelName;
+        public Canvas finishedCanvas;
+
+        public Sprite notFinished;
+        public Sprite finished;
+
         private void Start() {
-            LevelFinishManager.Instance.onLevelFinished += () => endLevelButton.gameObject.SetActive(true);
+            LevelFinishManager.Instance.onLevelFinished += () => {
+                endLevelButton.image.sprite = finished;
+                finishedCanvas.enabled = true;
+            };
             endLevelButton.onClick.AddListener(() => UIWindowStack.Instance.toggleWindow(typeof(LevelFinishUIController)));
+            levelName.text = LevelXmlParser.Instance.CurrentLevel.Name;
 
             endLevelScreen.enabled = false;
         }
@@ -25,8 +37,9 @@ namespace src.level {
         }
 
         public void reset() {
-            endLevelButton.gameObject.SetActive(false);
+            endLevelButton.image.sprite = notFinished;
             endLevelScreen.enabled = false;
+            finishedCanvas.enabled = false;
         }
     }
 }

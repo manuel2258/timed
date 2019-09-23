@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Editor;
 using src.element;
 using src.element.triggers;
 using src.level.initializing;
@@ -10,30 +11,22 @@ using UnityEngine;
 namespace src.level.parsing {
     public class LevelXmlParser : UnitySingleton<LevelXmlParser> {
 
-        public Transform effectorRoot;
-        public Transform wallRoot;
-        public Transform colliderBodyRoot;
-        public Transform triggerRoot;
+        [field: SerializeField, LabelOverride("LevelRoot")]
+        public Transform LevelRoot { get; private set; }
         
-        private readonly Dictionary<ElementType, Transform> _elementParentTransformMap =
-            new Dictionary<ElementType, Transform>();
+        public LevelContainer CurrentLevel { get; private set; }
 
         private void Start() {
-            _elementParentTransformMap.Add(ElementType.Effector, effectorRoot);
-            _elementParentTransformMap.Add(ElementType.Wall, wallRoot);
-            _elementParentTransformMap.Add(ElementType.ColliderBody, colliderBodyRoot);
-            _elementParentTransformMap.Add(ElementType.Trigger, triggerRoot);
-            parseLevelFromXmlString(LevelXmlPayload.Instance.levelXml).initializeLevel();
+            if (GlobalGameState.Instance.IsInGame) {
+                CurrentLevel = parseLevelFromXmlString(LevelXmlPayload.Instance.levelXml);
+                CurrentLevel.initializeLevel();
+            }
         }
-
-        /// <summary>
-        /// Gets the parent transform for each ElementType
-        /// </summary>
-        /// <param name="elementType">The to get ElementTypes Transform</param>
-        /// <returns>The parent Transform</returns>
-        public Transform getParentByElementType(ElementType elementType) {
-            _elementParentTransformMap.TryGetValue(elementType, out var rootTransform);
-            return rootTransform;
+        
+        public void clearAllLevelChildren() {
+            for (int i = 0; i < LevelRoot.childCount; i++) {
+                Destroy(LevelRoot.GetChild(i).gameObject);
+            }
         }
 
         /// <summary>
@@ -42,7 +35,7 @@ namespace src.level.parsing {
         /// <param name="xmlString">The to parse XmlString</param>
         /// <returns>The parsed ElementInitializers</returns>
         /// <exception cref="Exception">If something could not be parsed properly</exception>
-        private LevelContainer parseLevelFromXmlString(string xmlString) {
+        public LevelContainer parseLevelFromXmlString(string xmlString) {
             
             // Creates a XmlDocument from the 
             XmlDocument xmlDocument = new XmlDocument();

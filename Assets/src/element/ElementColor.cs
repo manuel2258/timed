@@ -15,13 +15,13 @@ namespace src.element {
         public static Color32 getColorValue(ElementColor color) {
             switch (color) {
                 case ElementColor.Yellow:
-                    return new Color32(201, 147, 0, 255);
+                    return new Color32(255, 255, 0, 255);
                 case ElementColor.Blue:
-                    return new Color32(0, 139, 209, 255);
+                    return new Color32(0, 255, 255, 255);
                 case ElementColor.Green:
-                    return new Color32(28, 152, 86, 255);
+                    return new Color32(0, 255, 0, 255);
                 case ElementColor.Red:
-                    return new Color32(146,11,27, 255);
+                    return new Color32(255,0,0, 255);
                 default:
                     return Color.black;
             }

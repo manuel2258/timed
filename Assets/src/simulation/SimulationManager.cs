@@ -15,7 +15,7 @@ namespace src.simulation {
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
         public const decimal SIMULATION_LENGTH = 10;
-        public const decimal SIMULATION_STEPS = 0.02M;
+        public const decimal SIMULATION_STEPS = 0.01M;
 
         /// <summary>
         /// Called when the simulation starts
@@ -31,6 +31,7 @@ namespace src.simulation {
             Physics2D.autoSimulation = false;
             calculateSimulation();
             Timeline.Instance.onEffectorEventChanged += _ => calculateSimulation();
+            Time.fixedDeltaTime = (float)SIMULATION_STEPS;
         }
         
         private void calculateSimulation() {

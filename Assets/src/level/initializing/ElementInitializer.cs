@@ -36,7 +36,7 @@ namespace src.level.initializing {
         protected virtual void setTransform(GameObject currentGameObject) {
             currentGameObject.transform.position = _position;
             currentGameObject.transform.rotation = Quaternion.Euler(0,0,_angle);
-            currentGameObject.transform.parent = LevelXmlParser.Instance.getParentByElementType(_elementType);
+            currentGameObject.transform.parent = LevelXmlParser.Instance.LevelRoot;
         }
 
         protected virtual void callSetupScript(GameObject currentGameObject) { }

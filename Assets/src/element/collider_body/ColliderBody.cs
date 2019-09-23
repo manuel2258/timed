@@ -1,6 +1,8 @@
 using System;
+using SpriteGlow;
 using src.element.effector;
 using src.level.parsing;
+using src.misc;
 using src.simulation.reseting;
 using UnityEngine;
 
@@ -25,7 +27,7 @@ namespace src.element.collider_body {
 
         public Rigidbody2D rigidBody;
 
-        public SpriteRenderer colorMask;
+        public SpriteGlowEffect colorMask;
 
         public ElementColor Color {
             get => _currentState.color;
@@ -44,7 +46,11 @@ namespace src.element.collider_body {
             _initialPosition = transform.position;
             _initialRotation = transform.rotation;
             rigidBody = GetComponent<Rigidbody2D>();
-            
+
+            if (!GlobalGameState.Instance.IsInGame) {
+                rigidBody.simulated = false;
+            }
+
             setVisualsByState(_currentState);
         }
 
@@ -57,7 +63,7 @@ namespace src.element.collider_body {
         }
 
         public void setVisualsByState(VisualState state) {
-            colorMask.color = ElementColors.getColorValue(((ColliderBodyState)state).color);
+            colorMask.GlowColor = ElementColors.getColorValue(((ColliderBodyState)state).color);
         }
 
         public VisualState getCurrentState() {

@@ -1,6 +1,7 @@
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
+using UnityEditor;
 
 namespace src.time.timeline {
     
@@ -17,14 +18,7 @@ namespace src.time.timeline {
         /// </summary>
         /// <param name="effectorEvent">The pressed timedEvent</param>
         public void onTimedEffectorEventButtonPressed(TimedEffectorEvent effectorEvent) {
-            if (_currentEffectorEvent != null) {
-                TimedEffectorEventPopupUIController.Instance.closePopup();
-                EventTimelineUIController.Instance.exitTimePickerMode();
-                _currentEffectorEvent.IsActive = true;
-                Timeline.Instance.effectorTimeChanged();
-                ReplayManager.Instance.Active = true;
-                ReplayUIController.Instance.setActiveChangeButtonState(true);
-            }
+            exitEditing();
             if (_currentEffectorEvent != effectorEvent) {
                 _currentEffectorEvent = effectorEvent;
                 TimedEffectorEventPopupUIController.Instance.showTimedEffectorEvent(effectorEvent);
@@ -39,9 +33,22 @@ namespace src.time.timeline {
                 ReplayManager.Instance.Active = false;
                 ReplayTimeManager.Instance.setCurrentTime(effectorEvent.ExecutionTime);
                 ReplayUIController.Instance.setActiveChangeButtonState(false);
+                EventlineUIController.Instance.highlightEvent(effectorEvent);
             } else {
                 _currentEffectorEvent = null;
+                EventlineUIController.Instance.disHighlightAll();
             }
+        }
+
+        public void exitEditing() {
+            if (_currentEffectorEvent == null) return;
+            
+            TimedEffectorEventPopupUIController.Instance.closePopup();
+            EventTimelineUIController.Instance.exitTimePickerMode();
+            _currentEffectorEvent.IsActive = true;
+            Timeline.Instance.effectorTimeChanged();
+            ReplayManager.Instance.Active = true;
+            ReplayUIController.Instance.setActiveChangeButtonState(true);
         }
 
         public void removeTimedEffectorEvent(TimedEffectorEvent effectorEvent) {

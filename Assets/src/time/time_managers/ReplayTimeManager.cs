@@ -1,4 +1,3 @@
-using System;
 using src.simulation;
 using UnityEngine;
 
@@ -15,6 +14,7 @@ namespace src.time.time_managers {
         
         public void setCurrentTime(decimal newTime) {
             if (Active) return;
+            if (newTime < 0 || newTime > SimulationManager.SIMULATION_LENGTH) return;
 
             var delta = newTime - currentTime;
             currentTime = newTime;

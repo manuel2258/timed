@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SpriteGlow;
 using src.element.collider_body;
 using src.level.parsing;
 using src.simulation.reseting;
@@ -17,12 +18,15 @@ namespace src.element.effector {
             public bool enabled;
             public ElementColor color;
 
+            public bool colliderBodyInside;
+
             public RadialGravityState() { }
 
             public RadialGravityState(RadialGravityState that)  {
                 force = that.force;
                 enabled = that.enabled;
                 color = that.color;
+                colliderBodyInside = that.colliderBodyInside;
             }
         }
 
@@ -32,7 +36,9 @@ namespace src.element.effector {
         private bool _invertAble = true;
         private bool _disableAble = true;
 
-        public List<SpriteRenderer> colorChangeAbles;
+        public SpriteGlowEffect mainBody;
+
+        public List<SpriteGlowEffect> colorChangeAbles;
 
         public GameObject forceSpriteParent;
         public GameObject push;
@@ -101,19 +107,28 @@ namespace src.element.effector {
             push.SetActive(!positiveSign);
             
             var color = ElementColors.getColorValue(gravityState.color);
-            colorChangeAbles.ForEach(spriteRenderer => spriteRenderer.color = color);
+            colorChangeAbles.ForEach(spriteRenderer => spriteRenderer.GlowColor = color);
+
+            mainBody.GlowBrightness = gravityState.colliderBodyInside ? 3 : 2;
+            mainBody.gameObject.transform.localScale =
+                gravityState.colliderBodyInside ? new Vector3(1.5f, 1.5f) : new Vector3(1, 1);
         }
 
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
-            if (!_currentState.enabled) return;
-
+            var colliderBodyInside = false;
             var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
             foreach (var colliderBody in  Elements.filterForColor(colliders, _currentState.color)) {
+                colliderBodyInside = true;
+                if (!_currentState.enabled) continue;
                 var diff = transform.position - colliderBody.transform.position;
                 if (diff.magnitude > 0.25) {
                     var force = (-_currentState.force / 20 * diff.magnitude + _currentState.force) * (float)deltaTime;
                     colliderBody.rigidBody.AddForce(force * diff.normalized);
                 }
+            }
+
+            if (colliderBodyInside != _currentState.colliderBodyInside) {
+                Elements.executeVisualChange(this, () => _currentState.colliderBodyInside = colliderBodyInside);
             }
         }
 

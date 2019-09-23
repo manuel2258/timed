@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using src.misc;
-using TMPro;
 using UnityEngine;
 
 namespace src.touch {
@@ -12,17 +9,30 @@ namespace src.touch {
     /// </summary>
     public class TouchManager : UnitySingleton<TouchManager> {
 
+        /// <summary>
+        /// The amount of saved backward frames
+        /// </summary>
         private const int MAX_FRAMES = 5;
 
         public bool overrideTouchSupported;
 
+        /// <summary>
+        /// A RectTransform that acts
+        /// </summary>
         public RectTransform cameraMovementArea;
 
+        /// <summary>
+        /// Blocks the capturing of touches, therefor will result in empty frames
+        /// </summary>
         public bool blocked;
 
         /// <summary>
         /// The last frames touch inputs
         /// </summary>
+        /// <remarks>
+        /// This list is backwards!
+        /// 0 Representing the current frame, 1 the lastFrame ... MAX_FRAMES the last saved frame
+        /// </remarks>
         private readonly List<Frame> _currentTouches = new List<Frame>();
 
         private void Start() {
@@ -34,20 +44,22 @@ namespace src.touch {
         private void Update() {
             var frame = new Frame();
             if (!blocked) {
+                // Checks if on mobile or editor
                 if (Input.touchSupported || overrideTouchSupported) {
+                    // If mobile go through each registered touch
                     for (int i = 0; i < Input.touchCount; i++) {
                         var currentTouch = Input.GetTouch(i);
+                        // And simply adds it to the frame
                         frame.addTouch(new Touch {
-                            touchSize = currentTouch.radius,
                             worldPosition = CameraManager.Camera.ScreenToWorldPoint(currentTouch.position),
                             screenPosition = currentTouch.position,
                             inCameraArea = isPositionInsideCameraMovementArea(currentTouch.position),
                         });
                     }
                 } else {
+                    // If in the Editor simply check for mouseInput and then adds it as well
                     if (Input.GetMouseButton(0)) {
                         frame.addTouch(new Touch {
-                            touchSize = 0,
                             worldPosition = CameraManager.Camera.ScreenToWorldPoint(Input.mousePosition),
                             screenPosition = Input.mousePosition,
                             inCameraArea = isPositionInsideCameraMovementArea(Input.mousePosition),
@@ -56,6 +68,7 @@ namespace src.touch {
                 }
             }
 
+            // Inserts the frame into the front
             _currentTouches.Insert(0, frame);
 
             if (_currentTouches.Count > MAX_FRAMES) {
@@ -77,7 +90,7 @@ namespace src.touch {
             if (_currentTouches[4].WasTouched) return false;
             foreach (var touch in _currentTouches[0].Touches) {
                 var distance = (position - touch.worldPosition).magnitude;
-                if (distance <= size + touch.touchSize) {
+                if (distance <= size) {
                     return true;
                 }
             }
@@ -119,9 +132,11 @@ namespace src.touch {
     /// A touch at its world position and its touchSize
     /// </summary>
     public struct Touch {
+        // Its positions
         public Vector2 worldPosition;
         public Vector2 screenPosition;
-        public float touchSize;
+
+        // If the touch was in the CameraMoveArea
         public bool inCameraArea;
     }
 }

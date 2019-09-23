@@ -35,9 +35,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="-673.22855"
-     inkscape:cy="-369.06873"
+     inkscape:zoom="2.8284272"
+     inkscape:cx="-903.97456"
+     inkscape:cy="-285.48315"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -360,7 +360,7 @@
     <circle
        style="opacity:1;fill:#94194a;fill-opacity:1;stroke:none;stroke-width:0.92982459;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path951"
-       cx="-252.06633"
+       cx="-256.96112"
        cy="384.24783"
        r="2.5040922"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
@@ -368,7 +368,7 @@
        inkscape:export-ydpi="2000" />
     <g
        id="g976"
-       transform="matrix(0.88894924,0,0,0.88894924,-76.485419,-15.581056)"
+       transform="matrix(0.88894924,0,0,0.88894924,-81.380211,-15.581056)"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        inkscape:export-xdpi="2000"
        inkscape:export-ydpi="2000">
@@ -767,7 +767,7 @@
     <circle
        r="2.5040922"
        cy="384.24783"
-       cx="-244.13844"
+       cx="-249.03323"
        id="circle1300"
        style="opacity:1;fill:#94194a;fill-opacity:1;stroke:none;stroke-width:0.92982459;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
@@ -775,7 +775,7 @@
        inkscape:export-ydpi="2000" />
     <g
        id="g1308"
-       transform="translate(-24.807909,-65.29958)"
+       transform="translate(-29.702701,-65.29958)"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        inkscape:export-xdpi="2000"
        inkscape:export-ydpi="2000">
@@ -798,7 +798,7 @@
     </g>
     <g
        id="g1326"
-       transform="matrix(1.2438299,0,0,1.2438299,-16.51468,-111.84927)"
+       transform="matrix(1.2438299,0,0,1.2438299,-21.409472,-111.84927)"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        inkscape:export-xdpi="2000"
        inkscape:export-ydpi="2000">
@@ -832,7 +832,7 @@
     </g>
     <g
        id="g1346"
-       transform="translate(-3.4611404,-14.499379)"
+       transform="translate(-8.3559319,-14.499379)"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        inkscape:export-xdpi="2000"
        inkscape:export-ydpi="2000">
@@ -1014,7 +1014,7 @@
        inkscape:export-xdpi="2000"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        r="2.5040922"
-       cy="-222.92827"
+       cy="-227.82306"
        cx="-384.24783"
        id="circle1143"
        style="opacity:1;fill:#94194a;fill-opacity:1;stroke:none;stroke-width:0.92982459;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1023,7 +1023,7 @@
        inkscape:export-ydpi="2000"
        inkscape:export-xdpi="2000"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
-       transform="matrix(0,-0.88894924,0.88894924,0,-622.75703,209.03619)"
+       transform="matrix(0,-0.88894924,0.88894924,0,-627.65182,209.03619)"
        id="g1150">
       <path
          style="fill:#e2ebf6;fill-opacity:1;stroke:#e2ebf6;stroke-width:0.12074174px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
@@ -1040,7 +1040,7 @@
     </g>
     <g
        id="g1156"
-       transform="matrix(0,-0.88894924,0.88894924,0,-622.75703,208.08851)"
+       transform="matrix(0,-0.88894924,0.88894924,0,-627.65182,208.08851)"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        inkscape:export-xdpi="2000"
        inkscape:export-ydpi="2000">
@@ -1062,7 +1062,7 @@
        style="opacity:1;fill:#94194a;fill-opacity:1;stroke:none;stroke-width:0.92982459;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle962"
        cx="-384.24783"
-       cy="-216.23985"
+       cy="-221.13464"
        r="2.5040922"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
        inkscape:export-xdpi="2000"
@@ -1070,7 +1070,7 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.66834879px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e2ebf6;fill-opacity:1;stroke:#e2ebf6;stroke-width:0.26548722;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="-217.35941"
+       x="-222.2542"
        y="385.56363"
        id="text966"
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
@@ -1078,8 +1078,74 @@
        inkscape:export-ydpi="2000"><tspan
          sodipodi:role="line"
          id="tspan964"
-         x="-217.35941"
+         x="-222.2542"
          y="385.56363"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;fill:#e2ebf6;fill-opacity:1;stroke:#e2ebf6;stroke-width:0.26548722;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">?</tspan></text>
+    <circle
+       inkscape:export-ydpi="2000"
+       inkscape:export-xdpi="2000"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
+       r="2.5040922"
+       cy="-214.32162"
+       cx="-384.24783"
+       id="circle965"
+       style="opacity:1;fill:#94194a;fill-opacity:1;stroke:none;stroke-width:0.92982459;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       transform="rotate(-90)" />
+    <circle
+       transform="rotate(-90)"
+       style="opacity:1;fill:#94194a;fill-opacity:1;stroke:none;stroke-width:0.92982459;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle967"
+       cx="-384.24783"
+       cy="-208.07085"
+       r="2.5040922"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
+       inkscape:export-xdpi="2000"
+       inkscape:export-ydpi="2000" />
+    <g
+       id="g975"
+       transform="matrix(0.93147008,0,0,0.93147008,-14.656771,26.505392)"
+       style="fill:#e2ebf6;fill-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
+       inkscape:export-xdpi="2000"
+       inkscape:export-ydpi="2000">
+      <rect
+         transform="rotate(-45)"
+         ry="0.42994791"
+         y="119.17177"
+         x="-424.46878"
+         height="1.7197917"
+         width="0.69149238"
+         id="rect969"
+         style="opacity:1;fill:#e2ebf6;fill-opacity:1;stroke:none;stroke-width:2.00995421;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <rect
+         transform="rotate(30)"
+         style="opacity:1;fill:#e2ebf6;fill-opacity:1;stroke:none;stroke-width:2.71863723;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect971"
+         width="0.69149238"
+         height="3.1463428"
+         x="6.3998208"
+         y="438.00909"
+         ry="0.34574619" />
+    </g>
+    <g
+       id="g983"
+       transform="translate(0.00428844,0.04951853)"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/ui/icons.png"
+       inkscape:export-xdpi="2000"
+       inkscape:export-ydpi="2000">
+      <rect
+         ry="0.3390035"
+         y="383.91562"
+         x="-208.84409"
+         height="1.5378906"
+         width="1.5378906"
+         id="rect977"
+         style="opacity:1;fill:#e2ebf6;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path979"
+         d="m -209.28205,384.14601 1.20288,-1.20289 1.21095,1.21097 z"
+         style="opacity:1;fill:#e2ebf6;fill-opacity:1;stroke:none;stroke-width:0.24367502;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    </g>
   </g>
 </svg>
