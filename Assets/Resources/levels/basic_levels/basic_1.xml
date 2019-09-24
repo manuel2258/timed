@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level name="Freefall" id="2" difficulty="0">
+    <Elements>
+        <Effector type="RadialGravityEffector" id="1">
+            <Position x="-8" y="-1"/>
+            <Rotation angle="0"/>
+            <Parameter name="force">5000</Parameter>
+            <Parameter name="invertAble">false</Parameter>
+            <Parameter name="disableAble">true</Parameter>
+            <Parameter name="colors"/>
+            <Parameter name="initialColor">Yellow</Parameter>
+        </Effector>
+        <ColliderBody id="5">
+            <Position x="-14" y="0"/>
+            <Rotation angle="0"/>
+            <Parameter name="initialColor">Yellow</Parameter>
+        </ColliderBody>
+        <Wall id="6">
+            <Position x="-12.5" y="-2.5"/>
+            <Rotation angle="-45"/>
+            <Scale x="7" y="0.2"/>
+        </Wall>
+        <Trigger type="Goal" id="6">
+            <Position x="1" y="0"/>
+            <Rotation angle="0"/>
+            <Parameter name="color">Yellow</Parameter>
+            <Parameter name="amount">1</Parameter>
+        </Trigger>
+    </Elements>
+</Level>

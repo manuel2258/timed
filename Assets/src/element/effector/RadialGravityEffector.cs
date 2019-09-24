@@ -123,7 +123,7 @@ namespace src.element.effector {
                 var diff = transform.position - colliderBody.transform.position;
                 if (diff.magnitude > 0.25) {
                     var force = (-_currentState.force / 20 * diff.magnitude + _currentState.force) * (float)deltaTime;
-                    colliderBody.rigidBody.AddForce(force * diff.normalized);
+                    colliderBody.Rigidbody.AddForce(force * diff.normalized);
                 }
             }
 

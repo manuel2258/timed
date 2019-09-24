@@ -1,7 +1,6 @@
 using System;
 using SpriteGlow;
 using src.element.effector;
-using src.level.parsing;
 using src.misc;
 using src.simulation.reseting;
 using UnityEngine;
@@ -25,7 +24,10 @@ namespace src.element.collider_body {
         private ColliderBodyState _initialState;
         private ColliderBodyState _currentState;
 
-        public Rigidbody2D rigidBody;
+        public Rigidbody2D Rigidbody { get; private set; }
+
+        [SerializeField] private SpriteGlowEffect velocityGlow;
+        [SerializeField] private GameObject velocityRotation;
 
         public SpriteGlowEffect colorMask;
 
@@ -45,25 +47,37 @@ namespace src.element.collider_body {
 
             _initialPosition = transform.position;
             _initialRotation = transform.rotation;
-            rigidBody = GetComponent<Rigidbody2D>();
+            Rigidbody = GetComponent<Rigidbody2D>();
 
             if (!GlobalGameState.Instance.IsInGame) {
-                rigidBody.simulated = false;
+                Rigidbody.simulated = false;
             }
 
             setVisualsByState(_currentState);
+        }
+
+        public void setVisualPosition(Vector3 position, Quaternion rotation, Vector2 velocity) {
+            transform.rotation = _initialRotation;
+            transform.position = position;
+            colorMask.transform.rotation = rotation;
+            velocityGlow.GlowBrightness = velocity.magnitude / 5;
+            velocityRotation.transform.localScale = Vector3.one * velocity.magnitude / 10;
+            var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+            velocityRotation.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         public void reset() {
             transform.position = _initialPosition;
             transform.rotation = _initialRotation;
             _currentState = new ColliderBodyState(_initialState);
-            rigidBody.velocity = Vector2.zero;
-            rigidBody.angularVelocity = 0;
+            Rigidbody.velocity = Vector2.zero;
+            Rigidbody.angularVelocity = 0;
         }
 
         public void setVisualsByState(VisualState state) {
-            colorMask.GlowColor = ElementColors.getColorValue(((ColliderBodyState)state).color);
+            var color = ElementColors.getColorValue(((ColliderBodyState) state).color);
+            colorMask.GlowColor = color;
+            velocityGlow.GlowColor = color;
         }
 
         public VisualState getCurrentState() {

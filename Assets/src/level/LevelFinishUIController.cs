@@ -1,4 +1,5 @@
 using src.level.parsing;
+using src.level.selection;
 using src.misc;
 using src.simulation.reseting;
 using TMPro;
@@ -14,6 +15,8 @@ namespace src.level {
         public TMP_Text levelName;
         public Canvas finishedCanvas;
 
+        public Button nextLevelButton;
+
         public Sprite notFinished;
         public Sprite finished;
 
@@ -26,6 +29,13 @@ namespace src.level {
             levelName.text = LevelXmlParser.Instance.CurrentLevel.Name;
 
             endLevelScreen.enabled = false;
+
+            if (LevelSelectionManager.Instance != null) {
+                if (LevelSelectionManager.Instance.hasNextLevel()) {
+                    nextLevelButton.gameObject.SetActive(true);
+                    nextLevelButton.onClick.AddListener(() => LevelSelectionManager.Instance.loadNextLevel());
+                }
+            }
         }
 
         public void setActive(bool newState) {
