@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Level name="TestLevel" id="1234543543" difficulty="0">
+    <Elements>
+        <Effector prefab="RadialGravityEffector" scriptName="" id="1">
+            <Position x="1" y="1"/>
+            <Rotation angle="0"/>
+            <Param name="strength">750</Param>
+            <Param name="invertAble">true</Param>
+            <Param name="disableAble">false</Param>
+            <Param name="colors">Blue|Red</Param>
+        </Effector>
+        <Effector prefab="RadialGravityEffector" scriptName="" id="2">
+            <Position x="1" y="1"/>
+            <Rotation angle="0"/>
+            <Param name="strength">750</Param>
+            <Param name="invertAble">true</Param>
+            <Param name="disableAble">false</Param>
+            <Param name="colors">Blue|Red</Param>
+        </Effector>
+        <Wall prefab="Wall" scriptName="" id="3">
+            <Position x="1" y="1"/>
+            <Rotation angle="0"/>
+        </Wall>
+    </Elements>
+</Level>
