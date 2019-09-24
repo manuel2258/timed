@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using src.misc;
-using src.simulation;
 using src.simulation.reseting;
 using src.time.time_managers;
 
@@ -19,7 +18,6 @@ namespace src.time.timeline {
 
         private void Start() {
             SimulationTimeManager.Instance.onNewTime += onNewSimulationTime;
-            SimulationManager.Instance.onCalculationStarted += reset;
             reset();
         }
 

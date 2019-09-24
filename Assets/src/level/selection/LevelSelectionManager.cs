@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using src.misc;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace src.level.selection {
     public class LevelSelectionManager : UnitySingleton<LevelSelectionManager> {
@@ -39,8 +39,7 @@ namespace src.level.selection {
 
         public bool hasNextLevel() {
             if (_lastLoadedPack == null) return false;
-            if (_lastIndex + 2 > _lastLoadedPack.LevelCount) return false;
-            return true;
+            return _lastIndex + 2 <= _lastLoadedPack.LevelCount;
         }
 
         public void loadNextLevel() {

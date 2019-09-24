@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using src.misc;
 using src.simulation.reseting;
@@ -14,7 +13,7 @@ namespace src.simulation {
     /// </summary>
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
-        public const decimal SIMULATION_LENGTH = 10;
+        public const decimal SIMULATION_LENGTH = 15;
         public const decimal SIMULATION_STEPS = 0.01M;
 
         /// <summary>
