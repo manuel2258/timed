@@ -15,4 +15,7 @@ MonoBehaviour:
   <PackName>k__BackingField: Advanced
   <Difficulty>k__BackingField: 1
   <PackType>k__BackingField: 0
-  levels: []
+  levels:
+  - {fileID: 4900000, guid: b07b6e2da6c64e228822995edf9fac57, type: 3}
+  - {fileID: 4900000, guid: cc360865ca05418889f12d77f98ad38d, type: 3}
+  - {fileID: 4900000, guid: 638e248830c3445982f2699cd1fb376c, type: 3}

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace levels
+namespace src.level.generator.levels
 {
     public enum ElementType
     {
@@ -22,7 +18,7 @@ namespace levels
         RadialGravity = 24
     }
 
-    public enum ElementColor
+    /*public enum ElementColor
     {
         _first_ = 0,
         white = 1,
@@ -30,7 +26,7 @@ namespace levels
         blue = 3,
         yellow = 4,
         _last_ = 5
-    }
+    }*/
 
     public class Position
     {
@@ -59,9 +55,9 @@ namespace levels
     public static class GravityForce
     {
         public const float maxRadius = 7.0f;
-        public const float constForceLow = 1500f;    // radius <= 4
-        public const float constForceNormal = 2000f; // radius <= 6
-        public const float constForceHigh = 2500f;   // radius <= 8
+        public const float constForceLow = 3000f;    // radius <= 4
+        public const float constForceNormal = 5000f; // radius <= 6
+        public const float constForceHigh = 7000f;   // radius <= 8
 
         public static float[] radiusToForce = { constForceLow, constForceLow, constForceLow, constForceLow,
                             constForceNormal, constForceNormal, constForceHigh, constForceHigh};
@@ -91,7 +87,7 @@ namespace levels
         public const int YDim = 20;
         public const int maxDifficulty = 9;
 
-        public static string[] colorNames = new string[] { "", "White", "Green", "Blue", "Yellow", "" };
+        public static string[] colorNames = new string[] { "", "Yellow", "Blue", "" };
 
         public static float getDistance(Position pos1, Position pos2)
         {

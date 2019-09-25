@@ -5,7 +5,7 @@ using src.misc;
 using src.simulation.reseting;
 using UnityEngine.SceneManagement;
 
-namespace src.level {
+namespace src.level.finish {
     
     /// <summary>
     /// Manages the goal completion of the level
@@ -45,6 +45,10 @@ namespace src.level {
 
         public void goToMainMenu() {
             SceneManager.LoadScene("MainMenu");
+        }
+        
+        public void resetLevel() {
+            SceneManager.LoadScene("MainScene");
         }
     }
 

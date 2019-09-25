@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
+using src.element;
+using src.level.generator.levels;
+using ElementType = src.level.generator.levels.ElementType;
 
-using levels;
-
-namespace elements
+namespace src.level.generator.elements
 {
     public class Goal : Element
     {

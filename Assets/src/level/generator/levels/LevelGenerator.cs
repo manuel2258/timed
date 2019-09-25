@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using elements;
+using src.element;
+using src.level.generator.elements;
 
-namespace levels
+namespace src.level.generator.levels
 {
     public class LevelGenerator
     {
@@ -127,7 +125,7 @@ namespace levels
 
                     elementsTimeLine[timeStep].Remove(coll);
                     Position newPosColl = getFreePosition(ColliderBody.posRadius);
-                    ElementColor newColor = Randoms.getColor(new List<ElementColor>() { oldColor });
+                    ElementColor newColor = Randoms.getColor(new List<ElementColor>() { });
                     ColliderBody newColl = new ColliderBody(newPosColl, newColor,coll.id);                
                     elementsTimeLine[timeStep].Add(newColl);
 
@@ -150,7 +148,7 @@ namespace levels
             float strength = GravityForce.getForce(dist);
             float strengthRadius = GravityForce.getForceRadius(strength);
 
-            RadialGravity rg = new RadialGravity(posRG, strength, strengthRadius, new List<ElementColor>() {color });
+            RadialGravity rg = new RadialGravity(posRG, strength, strengthRadius, new List<ElementColor> {color});
             elementsTimeLine[timeStep].Add(rg);
         }
 

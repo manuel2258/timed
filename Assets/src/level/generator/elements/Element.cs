@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
+using src.level.generator.levels;
 
-using levels;
-
-namespace elements
+namespace src.level.generator.elements
 {
     public abstract class Element
     {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level name="Multithreading" id="4" difficulty="0">
+<Level name="Multithreading" id="4" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
         <Effector type="RadialGravityEffector" id="1">
             <Position x="-8" y="-1"/>

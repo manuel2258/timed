@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Xml;
+using src.element;
+using src.level.generator.levels;
+using ElementType = src.level.generator.levels.ElementType;
 
-using levels;
-
-namespace elements
+namespace src.level.generator.elements
 {
     public class RadialGravity : Element
     {
@@ -15,9 +12,9 @@ namespace elements
 
         public float strength = 0;
         public float strengthRadius = 0;
-        public bool invertAble = false;
-        public bool disableAble = false;
-        public List<ElementColor> colors = new List<ElementColor>();
+        public bool invertAble = true;
+        public bool disableAble = true;
+        public List<ElementColor> colors;
 
         public RadialGravity(Position pos, float strength, float strengthRadius, List<ElementColor> colors) : base(ElementType.RadialGravity, posRadius)
         {

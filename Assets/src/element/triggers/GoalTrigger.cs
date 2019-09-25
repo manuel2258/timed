@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SpriteGlow;
 using src.element.collider_body;
 using src.element.effector;
-using src.level;
+using src.level.finish;
 using src.level.parsing;
 using src.misc;
 using src.simulation;

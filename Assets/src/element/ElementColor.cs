@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace src.element {
     public enum ElementColor {
+        _first_,
         Yellow,
         Blue,
-        Green,
-        Red, 
+        _last_,
     }
 
     /// <summary>
@@ -18,10 +18,10 @@ namespace src.element {
                     return new Color32(255, 255, 0, 255);
                 case ElementColor.Blue:
                     return new Color32(0, 255, 255, 255);
-                case ElementColor.Green:
+                /*case ElementColor.Green:
                     return new Color32(0, 255, 0, 255);
                 case ElementColor.Red:
-                    return new Color32(255,0,0, 255);
+                    return new Color32(255,0,0, 255);*/
                 default:
                     return Color.black;
             }

@@ -43,8 +43,26 @@ namespace src.level.parsing {
             var elements = xmlDocument.SelectSingleNode("/Level/Elements");
             
             // Parses the levels meta data and creates a level container
-            var levelName = ParseHelper.getAttributeValueByName(xmlDocument.SelectSingleNode("Level"), "name");
-            var level = new LevelContainer(levelName);
+            var levelNode = xmlDocument.SelectSingleNode("Level");
+            
+            var levelName = ParseHelper.getAttributeValueByName(levelNode, "name");
+            
+            var gravityStringX = ParseHelper.getAttributeValueByName(levelNode, "gravity_x");
+            if (!float.TryParse(gravityStringX, out var gravityX)) {
+                throw new Exception("Could not parse gravityScaleX argument: " + gravityStringX);
+            }
+            
+            var gravityStringY = ParseHelper.getAttributeValueByName(levelNode, "gravity_y");
+            if (!float.TryParse(gravityStringY, out var gravityY)) {
+                throw new Exception("Could not parse gravityScaleY argument: " + gravityStringY);
+            }
+            
+            var difficultyString = ParseHelper.getAttributeValueByName(levelNode, "difficulty");
+            if (!int.TryParse(difficultyString, out var difficulty)) {
+                throw new Exception("Could not parse difficulty argument: " + difficulty);
+            }
+            
+            var level = new LevelContainer(levelName, new Vector2(gravityX, gravityY), difficulty);
 
             if (elements != null) {
                 // Then goes through each element

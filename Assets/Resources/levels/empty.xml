@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level name="Level Name" id="1" difficulty="1" gravity_x="0" gravity_y="-9.81">
+    <Elements>
+        <Effector type="RadialGravityEffector" id="1">
+            <Position x="-20" y="-20"/>
+            <Rotation angle="0"/>
+            <Parameter name="force">5000</Parameter>
+            <Parameter name="invertAble">true</Parameter>
+            <Parameter name="disableAble">true</Parameter>
+            <Parameter name="colors">Blue|Yellow</Parameter>
+            <Parameter name="initialColor">Yellow</Parameter>
+        </Effector>
+    </Elements>
+</Level>

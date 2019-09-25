@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace src.level {
+namespace src.level.finish {
     public class LevelFinishUIController : UnitySingleton<LevelFinishUIController>, IResetable, IStackAbleWindow {
 
         public Canvas endLevelScreen;
@@ -26,9 +26,11 @@ namespace src.level {
                 finishedCanvas.enabled = true;
             };
             endLevelButton.onClick.AddListener(() => UIWindowStack.Instance.toggleWindow(typeof(LevelFinishUIController)));
-            levelName.text = LevelXmlParser.Instance.CurrentLevel.Name;
-
-            endLevelScreen.enabled = false;
+            
+            var currentLevel = LevelXmlParser.Instance.CurrentLevel;
+            levelName.text = currentLevel.Name;
+            DifficultyUIController.Instance.displayDifficulty(currentLevel.Difficulty);
+            GravityScaleUIController.Instance.displayGravity(currentLevel.GravityScale);
 
             if (LevelSelectionManager.Instance != null) {
                 if (LevelSelectionManager.Instance.hasNextLevel()) {
@@ -48,7 +50,6 @@ namespace src.level {
 
         public void reset() {
             endLevelButton.image.sprite = notFinished;
-            endLevelScreen.enabled = false;
             finishedCanvas.enabled = false;
         }
     }
