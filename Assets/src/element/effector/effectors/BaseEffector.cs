@@ -1,15 +1,12 @@
-using System;
 using System.Collections.Generic;
-using src.element.collider_body;
 using src.element.info;
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
-using src.time.timeline;
 using src.touch;
 using UnityEngine;
 
-namespace src.element.effector {
+namespace src.element.effector.effectors {
     
     /// <summary>
     /// The base of each Effector

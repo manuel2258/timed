@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using src.element.effector;
+using src.element.effector.effectors;
 using src.misc;
 using src.simulation.reseting;
 using src.time.time_managers;

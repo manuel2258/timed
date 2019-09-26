@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using SpriteGlow;
 using src.element.collider_body;
-using src.element.effector;
+using src.element.effector.effectors;
 using src.level.finish;
 using src.level.parsing;
 using src.misc;
@@ -59,7 +59,7 @@ namespace src.element.triggers {
             if(_currentState.remainingAmount <= 0) return;
 
             var colliders = Physics2D.OverlapBoxAll(triggerArea.position,triggerArea.localScale, 0);
-            foreach (var colliderBody in Elements.filterForColor(colliders, _color)) {
+            foreach (var colliderBody in Elements.filterForColorFromColliders(colliders, _color)) {
                 if (_alreadyCounted.Contains(colliderBody)) continue;
                 
                 Elements.executeVisualChange(this, () => _currentState.remainingAmount--);

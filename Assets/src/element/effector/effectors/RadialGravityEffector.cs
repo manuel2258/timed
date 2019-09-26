@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SpriteGlow;
-using src.element.collider_body;
 using src.level.parsing;
 using src.simulation.reseting;
 using src.time.timeline;
 using UnityEngine;
 
-namespace src.element.effector {
+namespace src.element.effector.effectors {
     public class RadialGravityEffector : BaseEffector, IResetable, IVisualStateAble {
 
         private float _radius = 4;
@@ -117,7 +115,7 @@ namespace src.element.effector {
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
             var colliderBodyInside = false;
             var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
-            foreach (var colliderBody in  Elements.filterForColor(colliders, _currentState.color)) {
+            foreach (var colliderBody in  Elements.filterForColorFromColliders(colliders, _currentState.color)) {
                 colliderBodyInside = true;
                 if (!_currentState.enabled) continue;
                 var diff = transform.position - colliderBody.transform.position;

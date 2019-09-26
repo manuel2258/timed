@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using Editor;
 using src.element;
+using src.element.effector;
 using src.element.triggers;
 using src.level.initializing;
 using src.misc;

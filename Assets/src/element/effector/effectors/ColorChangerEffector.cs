@@ -4,10 +4,9 @@ using SpriteGlow;
 using src.element.collider_body;
 using src.level.parsing;
 using src.simulation.reseting;
-using src.time.timeline;
 using UnityEngine;
 
-namespace src.element.effector {
+namespace src.element.effector.effectors {
     public class ColorChangerEffector : BaseEffector, IResetable, IVisualStateAble {
 
         private float _length = 4;

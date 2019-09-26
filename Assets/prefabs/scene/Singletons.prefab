@@ -102,6 +102,8 @@ MonoBehaviour:
     type: 3}
   colorChanger: {fileID: 79329224663597848, guid: 4ea8649947322285bbe0ffa15edb3c9c,
     type: 3}
+  teleporter: {fileID: 6775215462720005913, guid: 844f48ab2182056719970ab3c05f643b,
+    type: 3}
   goal: {fileID: 1185578928099992215, guid: d23d06cb7c3a0b5a5b215f930d4aefc2, type: 3}
 --- !u!1 &1694711968
 GameObject:

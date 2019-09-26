@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Level name="Level Name" id="1" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
-        <Effector type="RadialGravityEffector" id="1">
-            <Position x="-20" y="-20"/>
-            <Rotation angle="0"/>
-            <Parameter name="force">5000</Parameter>
-            <Parameter name="invertAble">true</Parameter>
+        <Effector type="TeleporterEffector" id="1">
+            <Position x="0" y="0"/>
+            <Rotation angle="90"/>
             <Parameter name="disableAble">true</Parameter>
-            <Parameter name="colors">Blue|Yellow</Parameter>
+            <Parameter name="colors"/>
             <Parameter name="initialColor">Yellow</Parameter>
+            <Parameter name="differenceX">2</Parameter>
+            <Parameter name="differenceY">2</Parameter>
+            <Parameter name="differenceAngle">270</Parameter>
         </Effector>
+        <Effector type="TeleporterEffector" id="1">
+            <Position x="-2" y="2"/>
+            <Rotation angle="0"/>
+            <Parameter name="disableAble">true</Parameter>
+            <Parameter name="colors"/>
+            <Parameter name="initialColor">Yellow</Parameter>
+            <Parameter name="differenceX">2</Parameter>
+            <Parameter name="differenceY">2</Parameter>
+            <Parameter name="differenceAngle">90</Parameter>
+        </Effector>
+        <ColliderBody id="5">
+            <Position x="0" y="1"/>
+            <Rotation angle="0"/>
+            <Parameter name="initialColor">Yellow</Parameter>
+        </ColliderBody>
     </Elements>
 </Level>

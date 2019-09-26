@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c537e82bdf64465eaddf792a4a89df3c, type: 3}
+  m_Name: OnOff
+  m_EditorClassIdentifier: 
+  icon: {fileID: -55448403596586403, guid: 6efb966f492e852fca0df5bdbb023acf, type: 3}
+  searchTag: on_off
+  eventName: On/Off
+  helpText: Turns the Teleporter either on or off.

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using src.element;
 using src.element.effector;
+using src.element.effector.effectors;
 using UnityEngine;
 
 namespace src.level.initializing {

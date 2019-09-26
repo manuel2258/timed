@@ -10,6 +10,8 @@ namespace src.element.info {
         public Sprite icon;
         public string searchTag;
         public string eventName;
+        
+        [TextArea]
         public string helpText;
 
     }

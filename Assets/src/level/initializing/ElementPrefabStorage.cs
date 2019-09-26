@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using src.element.effector;
 using src.element.triggers;
 using src.misc;
 using UnityEngine;
@@ -16,6 +16,7 @@ namespace src.level.initializing {
         
         public GameObject radialGravity;
         public GameObject colorChanger;
+        public GameObject teleporter;
 
         public GameObject goal;
 
@@ -28,6 +29,7 @@ namespace src.level.initializing {
         private void Start() {
             _effectorTypePrefabMap.Add(EffectorType.RadialGravityEffector, radialGravity);
             _effectorTypePrefabMap.Add(EffectorType.ColorChangerEffector, colorChanger);
+            _effectorTypePrefabMap.Add(EffectorType.TeleporterEffector, teleporter);
             
             _triggerTypePrefabMap.Add(TriggerType.Goal, goal);
         }
