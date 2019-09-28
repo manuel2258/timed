@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using SpriteGlow;
 using src.level.parsing;
 using src.simulation.reseting;
@@ -33,7 +34,7 @@ namespace src.element.effector.effectors {
 
         public List<SpriteGlowEffect> colorChangeAbles;
 
-        public void setup(string disableAble, string colors, string initialColor, 
+        public void setup(string disableAble, string initialEnabled, string colors, string initialColor, 
             string differenceX, string differenceY, string differenceAngle) {
             _initialState = new TeleporterState {enabled = false};
             
@@ -41,6 +42,10 @@ namespace src.element.effector.effectors {
             
             if (!bool.TryParse(disableAble, out _disableAble)) {
                 throw new Exception("RadialGravityEffector: Could not parse disableAble argument -> " + disableAble);
+            }
+            
+            if (!bool.TryParse(initialEnabled, out _initialState.enabled)) {
+                throw new Exception("RadialGravityEffector: Could not parse initialEnabled argument -> " + initialEnabled);
             }
 
             if (!Enum.TryParse(initialColor, out _initialState.color)) {
@@ -106,16 +111,12 @@ namespace src.element.effector.effectors {
             foreach (var colliderBody in Elements.filterForColorFromRaycastHits(colliders, _currentState.color)) {
                 colliderBody.transform.position += _difference;
 
-                /*var velocityAngle = Vector2.Angle(Vector2.right, colliderBody.Rigidbody.velocity);
-                velocityAngle *= colliderBody.Rigidbody.velocity.y > 0 ? 1 : -1;
-                velocityAngle += _differenceAngle;
-                velocityAngle *= Mathf.Deg2Rad;
-                var newVector = new Vector2 {x = Mathf.Cos(velocityAngle), y = Mathf.Sin(velocityAngle)};
-                newVector *= colliderBody.Rigidbody.velocity.magnitude;
-                colliderBody.Rigidbody.velocity = newVector;*/
-
                 colliderBody.Rigidbody.velocity = Quaternion.Euler(0, 0, _differenceAngle) * colliderBody.Rigidbody.velocity;
             }
+        }
+
+        protected override void onTouched() {
+            ElementHighlighter.Instance.displayPositions(new Collection<Vector2> {transform.position, transform.position + _difference});
         }
 
         public VisualState getCurrentState() {

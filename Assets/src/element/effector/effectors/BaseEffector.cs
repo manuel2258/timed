@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using src.element.info;
 using src.misc;
 using src.simulation;
@@ -29,10 +30,15 @@ namespace src.element.effector.effectors {
         private void Update() {
             if (TouchManager.Instance.isTouched(transform.position, touchHitBox)) {
                 EffectorPopupUIController.Instance.showEffector(this);
+                onTouched();
             }
         }
 
         protected virtual void onCalculationStarted() { }
+
+        protected virtual void onTouched() {
+            ElementHighlighter.Instance.displayPositions(new Collection<Vector2> {transform.position});
+        }
 
         public ICollection<EffectorEvent> getEffectorEvents() {
             return effectorEvents;

@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5ea4dbd99c59ea92a9d726553fa4a6a, type: 2}
   elementName: Color Changer
   helpText: Changes the color of through passing objects.
-  icon: {fileID: 21300000, guid: f0b6fdcdccdf95591a33d06e452cf96b, type: 3}
+  icon: {fileID: -7384852357581781829, guid: 858116ad61672034da0550b821607987, type: 3}

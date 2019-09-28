@@ -33,7 +33,10 @@ namespace src.element.effector {
         private void Start() {
             _canvas = GetComponent<Canvas>();
             _canvas.enabled = false;
-            closeButton.onClick.AddListener(() => _canvas.enabled = false);
+            closeButton.onClick.AddListener(() => {
+                _canvas.enabled = false;
+                ElementHighlighter.Instance.deleteAllPositions();
+            });
             
         }
         

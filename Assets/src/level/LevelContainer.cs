@@ -14,7 +14,8 @@ namespace src.level {
         public Vector2 GravityScale { get; }
         public int Difficulty { get; }
 
-        private readonly List<ElementInitializer> _initializers = new List<ElementInitializer>();
+        private readonly List<ElementInitializer> _worldInitializers = new List<ElementInitializer>();
+        private readonly List<ElementInitializer> _physicInitializers = new List<ElementInitializer>();
         private bool _alreadyFired;
 
         public LevelContainer(string name, Vector2 gravityScale, int difficulty) {
@@ -28,7 +29,7 @@ namespace src.level {
         /// </summary>
         /// <param name="initializer">The to add Initializer</param>
         public void addInitializer(ElementInitializer initializer) {
-            _initializers.Add(initializer);
+            _worldInitializers.Add(initializer);
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace src.level {
             
             Physics2D.gravity = GravityScale;
             LevelXmlParser.Instance.clearAllLevelChildren();
-            _initializers.ForEach(initializer => initializer.initialize());
+            _worldInitializers.ForEach(initializer => initializer.initialize());
             _alreadyFired = true;
         }
     }

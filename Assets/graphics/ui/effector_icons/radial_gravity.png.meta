@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 4352410312053424958
     second: radial_gravity_3
+  - first:
+      213: -9042408239259986315
+    second: radial_gravity_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -121,10 +124,10 @@ TextureImporter:
       name: radial_gravity_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 251
-        height: 251
+        x: 3
+        y: 3
+        width: 546
+        height: 546
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,7 +135,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3151203c0048ac708ee661655618f49
+      spriteID: 179ac591f6b68080f988ba77312107d5
       internalID: -55448403596586403
       vertices: []
       indices: 
@@ -142,10 +145,10 @@ TextureImporter:
       name: radial_gravity_1
       rect:
         serializedVersion: 2
-        x: 336
+        x: 708
         y: 2
-        width: 251
-        height: 251
+        width: 408
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,7 +156,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d1a6ea6a08cf0979c6ab6cba084a29
+      spriteID: def2b91a2ab738aed9bf541cce9887c1
       internalID: -7731650768986233303
       vertices: []
       indices: 
@@ -163,10 +166,10 @@ TextureImporter:
       name: radial_gravity_2
       rect:
         serializedVersion: 2
-        x: 658
+        x: 1256
         y: 2
-        width: 251
-        height: 251
+        width: 410
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d973adc60137758199a7c9d09920b8bb
+      spriteID: 9c924e46c901b459bbe8a3b791f55d3a
       internalID: 2465268050609179749
       vertices: []
       indices: 
@@ -184,10 +187,10 @@ TextureImporter:
       name: radial_gravity_3
       rect:
         serializedVersion: 2
-        x: 974
+        x: 1773
         y: 2
-        width: 251
-        height: 251
+        width: 409
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +198,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaca05603809c35af887c9b4fe420e8a
+      spriteID: bc08a36e063a83b2aa9bed48f331afd8
       internalID: 4352410312053424958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_gravity_4
+      rect:
+        serializedVersion: 2
+        x: 2286
+        y: 2
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396e4ffbea179315a858f502599016d7
+      internalID: -9042408239259986315
       vertices: []
       indices: 
       edges: []

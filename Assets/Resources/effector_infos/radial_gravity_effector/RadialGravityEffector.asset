@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a89fd728e7be7e579b96e732ebb4b717, type: 2}
   elementName: Radial Gravity Field
   helpText: A Field that either pulls objects to its core or pushes them away.
-  icon: {fileID: 21300000, guid: 80038bdc60e08ecd8982cafdd73f76d5, type: 3}
+  icon: {fileID: -55448403596586403, guid: 6efb966f492e852fca0df5bdbb023acf, type: 3}

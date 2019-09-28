@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c537e82bdf64465eaddf792a4a89df3c, type: 3}
   m_Name: InvertForce
   m_EditorClassIdentifier: 
-  icon: {fileID: -7731650768986233303, guid: 6efb966f492e852fca0df5bdbb023acf, type: 3}
+  icon: {fileID: 2465268050609179749, guid: 6efb966f492e852fca0df5bdbb023acf, type: 3}
   searchTag: invert
   eventName: Invert Force
   helpText: Changes the direction of the applied force, therefor either make it pull
