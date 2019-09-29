@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace src.level.generator.levels
+namespace levels
 {
     public enum ElementType
     {
@@ -18,7 +22,8 @@ namespace src.level.generator.levels
         RadialGravity = 24
     }
 
-    /*public enum ElementColor
+/*
+    public enum ElementColor
     {
         _first_ = 0,
         white = 1,
@@ -26,7 +31,15 @@ namespace src.level.generator.levels
         blue = 3,
         yellow = 4,
         _last_ = 5
-    }*/
+    }
+*/
+    public enum ElementColor
+    {
+        _first_ = 0,
+        blue = 1,
+        yellow = 2,
+        _last_ = 3
+    }
 
     public class Position
     {
@@ -54,10 +67,14 @@ namespace src.level.generator.levels
 
     public static class GravityForce
     {
+        public const float naturalGravity = -9.81f;
+
         public const float maxRadius = 7.0f;
         public const float constForceLow = 3000f;    // radius <= 4
         public const float constForceNormal = 5000f; // radius <= 6
         public const float constForceHigh = 7000f;   // radius <= 8
+
+        public static float[] force = {constForceLow, constForceNormal, constForceHigh };
 
         public static float[] radiusToForce = { constForceLow, constForceLow, constForceLow, constForceLow,
                             constForceNormal, constForceNormal, constForceHigh, constForceHigh};
@@ -87,7 +104,8 @@ namespace src.level.generator.levels
         public const int YDim = 20;
         public const int maxDifficulty = 9;
 
-        public static string[] colorNames = new string[] { "", "Yellow", "Blue", "" };
+        // public static string[] colorNames = new string[] { "", "White", "Green", "Blue", "Yellow", "" };
+        public static string[] colorNames = new string[] { "", "Blue", "Yellow", "" };
 
         public static float getDistance(Position pos1, Position pos2)
         {

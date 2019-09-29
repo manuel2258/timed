@@ -1,20 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
-using src.element;
-using src.level.generator.levels;
-using ElementType = src.level.generator.levels.ElementType;
 
-namespace src.level.generator.elements
+using levels;
+
+namespace elements
 {
     public class RadialGravity : Element
     {
         const float posRadius = 1.0f;
 
+        public const float forceRadius = 4.0f;
+
         public float strength = 0;
         public float strengthRadius = 0;
         public bool invertAble = true;
         public bool disableAble = true;
-        public List<ElementColor> colors;
+        public List<ElementColor> colors = new List<ElementColor>();
 
         public RadialGravity(Position pos, float strength, float strengthRadius, List<ElementColor> colors) : base(ElementType.RadialGravity, posRadius)
         {
@@ -23,6 +28,26 @@ namespace src.level.generator.elements
             this.strength = strength;
             this.strengthRadius = strengthRadius;
             this.colors = colors; 
+        }
+
+        public RadialGravity(Position pos, float strength, float strengthRadius, List<ElementColor> colors, int id) : 
+                        base(ElementType.RadialGravity, posRadius, id)
+        {
+            positionX = pos.x;
+            positionY = pos.y;
+            this.strength = strength;
+            this.strengthRadius = strengthRadius;
+            this.colors = colors;
+        }
+
+        public bool containsColor(ElementColor color)
+        {
+            foreach (ElementColor c in colors)
+            {
+                if (c == color) return true;
+            }
+
+            return false;
         }
 
         public override void WriteXML(XmlTextWriter writer)
@@ -51,9 +76,12 @@ namespace src.level.generator.elements
             writer.WriteStartElement(LevelWriter.PARAM);
             writer.WriteAttributeString(LevelWriter.NAME, "colors");
             string valColors = "";
-            foreach (ElementColor color in colors)
+            if (colors.Count > 1)
             {
-                valColors += (valColors=="" ? "" : "|") + LevelHelper.colorNames[(int) color];
+                foreach (ElementColor color in colors)
+                {
+                    valColors += (valColors == "" ? "" : "|") + LevelHelper.colorNames[(int)color];
+                }
             }
             writer.WriteString(valColors);
             writer.WriteEndElement();

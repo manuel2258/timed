@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using src.element;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace src.level.generator.levels
+namespace levels
 {
     public static class Randoms
     {
@@ -81,7 +83,6 @@ namespace src.level.generator.levels
         {
             return (float)(rnd.NextDouble() * 2.0 * Math.PI);
         }
-
 
         public static Position getPosition(float radius)
         {

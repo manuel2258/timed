@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System;
 using System.Xml;
-using src.level.generator.elements;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using elements;
 
-namespace src.level.generator.levels
+
+namespace levels
 {
     public class LevelWriter
     {
@@ -16,7 +20,6 @@ namespace src.level.generator.levels
 
         public string writeLevel(int level, int difficulty, List<Element> levelElements)
         {
-            string xml = "";
             string name = string.Format("Generated Level {0},{1}",level,difficulty);
             StringBuilder builder = new StringBuilder();
             using (StringWriter stringWriter = new StringWriter(builder))
@@ -30,6 +33,8 @@ namespace src.level.generator.levels
                 writer.WriteAttributeString("name", name);
                 writer.WriteAttributeString("id", level.ToString());
                 writer.WriteAttributeString("difficulty", difficulty.ToString());
+                writer.WriteAttributeString("gravity_x", "0");
+                writer.WriteAttributeString("gravity_y", GravityForce.naturalGravity.ToString());
 
                 writer.WriteStartElement("Elements");
 

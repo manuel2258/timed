@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using src.element;
-using src.level.generator.elements;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using elements;
 
-namespace src.level.generator.levels
+namespace levels
 {
     public class LevelGenerator
     {
         const int maxTriesGetFreePosition = 20;
-        const float factorRadiusGravity = 0.3f;
+        const float factorRadiusGravity = 1.0f;
+        public const float factorForceRadiusGoal = 1.0f;
 
         public int timeInMs = 0;
 
@@ -82,7 +85,7 @@ namespace src.level.generator.levels
                     break;
 
                     case ElementType.ColliderBody:
-                        if (Randoms.getProbality(3 * LevelHelper.maxDifficulty - difficulty))
+                        if (Randoms.getProbality(2 * LevelHelper.maxDifficulty - difficulty))
                         {
                             eventCandidates.Add(elem.id);
                         }
@@ -107,13 +110,14 @@ namespace src.level.generator.levels
                 case ElementType.Goal:
                     Goal goal = (Goal)elem;
                     goal.counterTimed++;
-                    Position newPos = getFreePosition(ColliderBody.posRadius);
+                    Position newPos = getFreePosition(ColliderBody.posRadius, goal.getPosition(), 
+                                        RadialGravity.forceRadius);
                     ColliderBody colliderBody = new ColliderBody(newPos, goal.color);
                     elementsTimeLine[timeStep].Add(colliderBody);
 
                     eventsTimeLine.Add(new TimeLineEvent(colliderBody.id, goal.id));
 
-                    AddGravity(goal.getPosition(), newPos, goal.color);
+                    AddGravity(newPos, goal.color);
                     break;
 
                 case ElementType.ColliderBody:
@@ -124,14 +128,14 @@ namespace src.level.generator.levels
                     elementsTimeLine[timeStep].Add(chg);
 
                     elementsTimeLine[timeStep].Remove(coll);
-                    Position newPosColl = getFreePosition(ColliderBody.posRadius);
-                    ElementColor newColor = Randoms.getColor(new List<ElementColor>() { });
+                    Position newPosColl = getFreePosition(ColliderBody.posRadius, oldPos, RadialGravity.forceRadius);
+                    ElementColor newColor = Randoms.getColor(new List<ElementColor>() { oldColor });
                     ColliderBody newColl = new ColliderBody(newPosColl, newColor,coll.id);                
                     elementsTimeLine[timeStep].Add(newColl);
 
                     eventsTimeLine.Add(new TimeLineEvent(coll.id, chg.id));
 
-                    AddGravity(newPosColl, oldPos, newColor);
+                    AddGravity(newPosColl, newColor);
                     break;
             }
         }
@@ -148,11 +152,21 @@ namespace src.level.generator.levels
             float strength = GravityForce.getForce(dist);
             float strengthRadius = GravityForce.getForceRadius(strength);
 
-            RadialGravity rg = new RadialGravity(posRG, strength, strengthRadius, new List<ElementColor> {color});
+            RadialGravity rg = new RadialGravity(posRG, strength, strengthRadius, new List<ElementColor>() {color });
             elementsTimeLine[timeStep].Add(rg);
         }
 
-        private bool findGravity(Position pos, float radius, ElementColor color)
+        private void AddGravity(Position pos, ElementColor color)
+        {
+            if (findRadialGravity(pos, RadialGravity.forceRadius, color)) return;
+
+            Position posRG = Randoms.getPositionInCircle(pos, RadialGravity.forceRadius);
+            float strength = GravityForce.force[Randoms.getInt(0,2)];
+
+            RadialGravity rg = new RadialGravity(posRG, strength, RadialGravity.forceRadius, new List<ElementColor>() { color });
+            elementsTimeLine[timeStep].Add(rg);
+        }
+        private bool findRadialGravity(Position pos, float radius, ElementColor color)
         {
             foreach (Element elem in elementsTimeLine[timeStep])
             {
@@ -161,6 +175,22 @@ namespace src.level.generator.levels
                     float dist = LevelHelper.getDistance(pos, elem.getPosition());
                     if (dist < radius)
                     {
+                        RadialGravity rg = (RadialGravity) elem;
+                        if (rg.containsColor(color))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            // add color to existing RadialGravity
+                            elementsTimeLine[timeStep].Remove(rg);
+                            List<ElementColor> colors = new List<ElementColor>();
+                            colors.Add(rg.colors[0]);
+                            colors.Add(color);
+                            RadialGravity rgNew = new RadialGravity(rg.getPosition(), rg.strength, rg.strengthRadius, colors, rg.id);
+                            elementsTimeLine[timeStep].Add(rgNew);
+                            return true;
+                        }
                     }
                 }
             }
@@ -190,21 +220,30 @@ namespace src.level.generator.levels
         }
 
 
-        protected Position getFreePosition(float radius)
+        protected Position getFreePosition(float radiusElem, Position centerCircle = null, float radiusCircle = 0)
         {
             bool bContinue = true;
             int cnt = 0;
             Position pos = null;
             while (bContinue)
             {
-                pos = Randoms.getPosition(radius);
+                if (centerCircle == null)
+                {
+                    pos = Randoms.getPosition(radiusElem);
+                }
+                else
+                {
+                    // ToDo: Position maybe out of screen
+                    pos = Randoms.getPositionInCircle(centerCircle,radiusCircle);
+                }
+
                 cnt++;
                 bContinue = false;
                 foreach (Element elem in elementsTimeLine[timeStep])
                 {
                     Position elemPos = elem.getPosition();
                     float distance = LevelHelper.getDistance(pos, elemPos);
-                    if (distance <= elem.radius + radius)
+                    if (distance <= elem.radius + radiusElem)
                     {
                         bContinue = true;
                     }
