@@ -13,8 +13,8 @@ namespace src.simulation {
     /// </summary>
     public class SimulationManager : UnitySingleton<SimulationManager> {
 
-        public const decimal SIMULATION_LENGTH = 15;
-        public const decimal SIMULATION_STEPS = 0.01M;
+        public const decimal SIMULATION_LENGTH = 10;
+        public const decimal SIMULATION_STEPS = 0.015M;
 
         /// <summary>
         /// Called when the simulation starts
@@ -48,13 +48,19 @@ namespace src.simulation {
                     throw new Exception($"Tried to track a non resetAble gameObject!: {rigidBody.name}");
                 }
                 trackers.Add(new GameObjectTracker(rigidBody.gameObject));
+                rigidBody.isKinematic = true;
             }
-
+            
             var simulationTimeManger = SimulationTimeManager.Instance;
             
+            simulationTimeManger.advanceTime(SIMULATION_STEPS);
+            foreach (var rigidBody in rigidBodys) {
+                rigidBody.isKinematic = false;
+            }
+
             while (simulationTimeManger.CurrentTime < SIMULATION_LENGTH) {
-                simulationTimeManger.advanceTime(SIMULATION_STEPS);
                 Physics2D.Simulate((float)SIMULATION_STEPS);
+                simulationTimeManger.advanceTime(SIMULATION_STEPS);
                 foreach (var tracker in trackers) {
                     tracker.track(simulationTimeManger.CurrentTime);
                 }

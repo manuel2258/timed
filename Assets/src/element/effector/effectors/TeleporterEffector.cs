@@ -109,7 +109,12 @@ namespace src.element.effector.effectors {
             var colliders = Physics2D.RaycastAll(transform.position - transform.up * _length / 2, transform.up, _length);
 
             foreach (var colliderBody in Elements.filterForColorFromRaycastHits(colliders, _currentState.color)) {
+                var positionDifference = transform.position - colliderBody.transform.position;
+                var rotatedDifference = Quaternion.Euler(0, 0, _differenceAngle + transform.eulerAngles.z) * positionDifference;
+                Debug.Log($"{positionDifference} -> {rotatedDifference}");
+                
                 colliderBody.transform.position += _difference;
+                colliderBody.transform.position += rotatedDifference;
 
                 colliderBody.Rigidbody.velocity = Quaternion.Euler(0, 0, _differenceAngle) * colliderBody.Rigidbody.velocity;
             }

@@ -74,7 +74,7 @@ namespace src.misc {
                     var lengthChange = currentDiff.magnitude - lastDiff.magnitude;
                     
                     // And then adds the difference * scaling
-                    Camera.orthographicSize += Time.deltaTime * zoomMultiplier * lengthChange * Camera.orthographicSize / 15;
+                    Camera.orthographicSize -= Time.deltaTime * zoomMultiplier * lengthChange * Camera.orthographicSize / 15;
                 }
             } else {
                 //If in Editor simply get the scrollWheel Axis and adds it to the size

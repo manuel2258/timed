@@ -54,7 +54,6 @@ namespace src.time.timeline {
             for(int i = _activeEffectors.Count-1; i >= 0; i--) {
                 var effector = _activeEffectors[i];
                 if (effector.ExecutionTime > currentTime)  continue;
-
                 effector.execute();
                 _activeEffectors.Remove(effector);
             }

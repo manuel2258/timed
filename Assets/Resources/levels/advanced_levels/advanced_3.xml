@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level name="Particle Accelerator" id="9" difficulty="2" gravity_x="0" gravity_y="-9.81">
+<Level name="Particle Accelerator" id="9" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
         <Effector type="TeleporterEffector" id="1">
             <Position x="-7.5" y="1.4"/>
             <Rotation angle="10"/>
+            <Parameter name="initialEnabled">true</Parameter>
             <Parameter name="disableAble">true</Parameter>
             <Parameter name="colors"/>
             <Parameter name="initialColor">Yellow</Parameter>
@@ -21,7 +22,7 @@
             <Parameter name="initialColor">Yellow</Parameter>
         </Effector>
         <ColliderBody id="5">
-            <Position x="-17" y="0"/>
+            <Position x="-18" y="-1"/>
             <Rotation angle="0"/>
             <Parameter name="initialColor">Yellow</Parameter>
         </ColliderBody>

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3148347885555408343}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Velocity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3148347886736561871}
   - component: {fileID: 3148347886736561870}
   - component: {fileID: 3148347886736561864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ColliderBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3148347886888236760}
   - component: {fileID: 3148347886888236761}
   - component: {fileID: 819533674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ColorMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 8510169831867368930}
   - component: {fileID: 4605362949675492006}
   - component: {fileID: 7172494510293950806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -33,7 +33,7 @@ namespace src.time.timeline {
                 _effectorEvent.simulationEvent.Invoke();
                 _alreadyExecuted = true;
             } else {
-                throw new Exception("TimeEffectorEvent has executed twice!");
+                throw new Exception("TimeEffectorEvent has been executed twice!");
             }
         }
 
@@ -42,7 +42,7 @@ namespace src.time.timeline {
         }
 
         public override string ToString() {
-            return $"[{ExecutionTime}, {_effectorEvent.simulationEvent.Target}";
+            return $"[{ExecutionTime}, {_effectorEvent.simulationEvent.Target}]";
         }
     }
 }

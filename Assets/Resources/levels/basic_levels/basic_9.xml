@@ -4,11 +4,13 @@
         <Effector type="TeleporterEffector" id="1">
             <Position x="-1" y="0"/>
             <Rotation angle="0"/>
-            <Parameter name="disableAble">true</Parameter>
+            <Parameter name="initialEnabled">true</Parameter>
+            <Parameter name="disableAble">false</Parameter>
             <Parameter name="colors"/>
             <Parameter name="initialColor">Yellow</Parameter>
             <Parameter name="differenceX">2</Parameter>
             <Parameter name="differenceY">0</Parameter>
+            <Parameter name="differenceAngle">0</Parameter>
         </Effector>
         <Effector type="RadialGravityEffector" id="1">
             <Position x="-8" y="-1"/>

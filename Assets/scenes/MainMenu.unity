@@ -187,13 +187,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1199146142890317980, guid: c3b38651ab62d8671904c954fc34149b,
-        type: 3}
-      propertyPath: parallax
-      value: 
-      objectReference: {fileID: 1905103025}
-    m_RemovedComponents:
-    - {fileID: 1199146142890317980, guid: c3b38651ab62d8671904c954fc34149b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b38651ab62d8671904c954fc34149b, type: 3}
 --- !u!1 &258101900
 GameObject:
@@ -479,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382853535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 406.69965, y: -69.09632, z: 3654.2817}
+  m_LocalPosition: {x: 406.69965, y: -153, z: 3654.2817}
   m_LocalScale: {x: 36, y: 36, z: 36}
   m_Children:
   - {fileID: 1464056737}
@@ -651,9 +645,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 0, g: 1, b: 1, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
+  glowColor: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 7
   alphaThreshold: 1
   drawOutside: 0
   enableInstancing: 0
@@ -696,7 +690,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7754944763568503063, guid: 70d13d8f0766aeaecb2329b2bfe6470c,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1057,7 +1051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -92}
+  m_AnchoredPosition: {x: 0, y: -206}
   m_SizeDelta: {x: 700, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827025383
@@ -1183,9 +1177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 0, g: 1, b: 1, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
+  glowColor: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 7
   alphaThreshold: 1
   drawOutside: 0
   enableInstancing: 0
@@ -1228,7 +1222,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -4280912277713178269, guid: 70d13d8f0766aeaecb2329b2bfe6470c,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1419,7 +1413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -236}
+  m_AnchoredPosition: {x: 0, y: -350}
   m_SizeDelta: {x: 700, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885871174
@@ -2031,9 +2025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 0, g: 1, b: 1, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
+  glowColor: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 7
   alphaThreshold: 1
   drawOutside: 0
   enableInstancing: 0
@@ -2076,7 +2070,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1268047530025242580, guid: 70d13d8f0766aeaecb2329b2bfe6470c,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2130,9 +2124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 0, g: 1, b: 1, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
+  glowColor: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 7
   alphaThreshold: 1
   drawOutside: 0
   enableInstancing: 0
@@ -2175,7 +2169,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2567768856255260753, guid: 70d13d8f0766aeaecb2329b2bfe6470c,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2492,9 +2486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 0, g: 1, b: 1, a: 1}
-  glowBrightness: 2
-  outlineWidth: 1
+  glowColor: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
+  glowBrightness: 2.5
+  outlineWidth: 7
   alphaThreshold: 1
   drawOutside: 0
   enableInstancing: 0
@@ -2536,7 +2530,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 396287828699044150, guid: 70d13d8f0766aeaecb2329b2bfe6470c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93333334, g: 0.3019608, b: 0.18039216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2563,12 +2557,6 @@ Transform:
 --- !u!20 &1905103020 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2375033921102099142, guid: c3b38651ab62d8671904c954fc34149b,
-    type: 3}
-  m_PrefabInstance: {fileID: 17534550}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1905103025 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2375033921102099143, guid: c3b38651ab62d8671904c954fc34149b,
     type: 3}
   m_PrefabInstance: {fileID: 17534550}
   m_PrefabAsset: {fileID: 0}

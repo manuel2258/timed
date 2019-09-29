@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level name="American Sniper" id="9" difficulty="2" gravity_x="0" gravity_y="-9.81">
+<Level name="American Sniper" id="9" difficulty="4" gravity_x="0" gravity_y="-9.81">
     <Elements>
         <Wall id="6">
             <Position x="-30" y="-3"/>
@@ -16,12 +16,12 @@
             <Parameter name="initialColor">Yellow</Parameter>
         </Effector>
         <ColliderBody id="5">
-            <Position x="-30" y="-2.5"/>
+            <Position x="-30" y="-2"/>
             <Rotation angle="0"/>
             <Parameter name="initialColor">Yellow</Parameter>
         </ColliderBody>
         <ColliderBody id="5">
-            <Position x="-44" y="2.5"/>
+            <Position x="-43" y="3"/>
             <Rotation angle="0"/>
             <Parameter name="initialColor">Yellow</Parameter>
         </ColliderBody>
