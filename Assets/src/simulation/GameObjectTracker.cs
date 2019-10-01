@@ -45,6 +45,9 @@ namespace src.simulation {
             Vector2 currentVelocity;
             if (!_positions.ContainsKey(timestamp)) {
                 var index = (int)Math.Floor(timestamp / SimulationManager.SIMULATION_STEPS);
+                if (index >= _positions.Count) {
+                    index = _positions.Count - 1;
+                }
 
                 var firstPosition = _positions.ElementAt(index).Value;
                 var secondPosition = _positions.Count > index + 1 ? _positions.ElementAt(index + 1).Value : firstPosition;

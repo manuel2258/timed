@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
-using src.touch;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace src.time.timeline {
@@ -86,7 +84,9 @@ namespace src.time.timeline {
 
         public void exitTimePickerMode() {
             _activeEdit = false;
-            _activePointer.GetComponent<Image>().sprite = inActiveEventPointer;
+            if (_activePointer != null) {
+                _activePointer.GetComponent<Image>().sprite = inActiveEventPointer;
+            }
         }
     }
     

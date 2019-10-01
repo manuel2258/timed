@@ -35,19 +35,27 @@ namespace src.simulation {
                 _currentTrackers = newTrackers;
                 onNewTime(ReplayTimeManager.Instance.CurrentTime, 0);
                 ReplayTimeManager.Instance.setCurrentTime(_beforeTime);
-                Active = _beforeActiveState;
+                restoreActive();
             };
             SimulationManager.Instance.onCalculationStarted += () => {
-                ReplayTimeManager.Instance.Active = false;
+                disableActive();
                 _beforeTime = ReplayTimeManager.Instance.CurrentTime;
                 ReplayTimeManager.Instance.setCurrentTime(0);
-                _beforeActiveState = Active;
             };
             Active = false;
         }
 
         public void toggleActive() {
             Active = !Active;
+        }
+
+        public void disableActive() {
+            _beforeActiveState = Active;
+            Active = false;
+        }
+
+        public void restoreActive() {
+            Active = _beforeActiveState;
         }
 
         private void onNewTime(decimal currentTime, decimal deltaTime) {

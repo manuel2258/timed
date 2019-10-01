@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using elements;
+using src.level.generator.elements;
 
-namespace levels
+namespace src.level.generator.levels
 {
     public class LevelGenerator
     {

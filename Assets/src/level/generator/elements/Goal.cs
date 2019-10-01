@@ -1,7 +1,5 @@
 ﻿using System.Xml;
-using src.element;
 using src.level.generator.levels;
-using ElementType = src.level.generator.levels.ElementType;
 
 namespace src.level.generator.elements
 {

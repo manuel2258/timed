@@ -1,14 +1,10 @@
-﻿using System;
-using System.Xml;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using elements;
+using System.Xml;
+using src.level.generator.elements;
 
-
-namespace levels
+namespace src.level.generator.levels
 {
     public class LevelWriter
     {
@@ -32,9 +28,9 @@ namespace levels
                 writer.WriteStartElement("Level");
                 writer.WriteAttributeString("name", name);
                 writer.WriteAttributeString("id", level.ToString());
-                writer.WriteAttributeString("difficulty", difficulty.ToString());
+                writer.WriteAttributeString("difficulty", (difficulty / 2).ToString());
                 writer.WriteAttributeString("gravity_x", "0");
-                writer.WriteAttributeString("gravity_y", GravityForce.naturalGravity.ToString());
+                writer.WriteAttributeString("gravity_y", "-2");
 
                 writer.WriteStartElement("Elements");
 

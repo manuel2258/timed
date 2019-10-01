@@ -2,6 +2,7 @@ using System;
 using SpriteGlow;
 using src.element.effector.effectors;
 using src.misc;
+using src.simulation;
 using src.simulation.reseting;
 using src.time.time_managers;
 using UnityEngine;
@@ -41,14 +42,6 @@ namespace src.element.collider_body {
             }
         }
 
-        private void Awake() {
-            SimulationTimeManager.Instance.onNewTime += (currentTime, deltaTime) => {
-                if (Rigidbody.velocity.magnitude > MAX_VELOCITY) {
-                    Rigidbody.velocity = Rigidbody.velocity.normalized * MAX_VELOCITY;
-                }
-            };
-        }
-
         public void setup(string initialColor) {
             if (!Enum.TryParse(initialColor, out ElementColor parsedColor)) {
                 throw new Exception("ColliderBody: Could not parse initialColor argument -> " + initialColor);
@@ -65,6 +58,14 @@ namespace src.element.collider_body {
             }
 
             setVisualsByState(_currentState);
+
+            if (SimulationManager.Instance != null) {
+                SimulationTimeManager.Instance.onNewTime += (currentTime, deltaTime) => {
+                    if (Rigidbody.velocity.magnitude > MAX_VELOCITY) {
+                        Rigidbody.velocity = Rigidbody.velocity.normalized * MAX_VELOCITY;
+                    }
+                };
+            }
         }
 
         public void setVisualPosition(Vector3 position, Quaternion rotation, Vector2 velocity) {

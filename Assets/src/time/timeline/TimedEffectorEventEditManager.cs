@@ -1,7 +1,6 @@
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
-using UnityEditor;
 
 namespace src.time.timeline {
     
@@ -30,7 +29,7 @@ namespace src.time.timeline {
                     effectorEvent.ExecutionTime = newTime;
                     onEffectorEventTimeChanged?.Invoke(newTime);
                 }, effectorEvent);
-                ReplayManager.Instance.Active = false;
+                ReplayManager.Instance.disableActive();
                 ReplayTimeManager.Instance.setCurrentTime(effectorEvent.ExecutionTime);
                 ReplayUIController.Instance.setActiveChangeButtonState(false);
                 EventlineUIController.Instance.highlightEvent(effectorEvent);
@@ -43,11 +42,11 @@ namespace src.time.timeline {
         public void exitEditing() {
             if (_currentEffectorEvent == null) return;
             
-            TimedEffectorEventPopupUIController.Instance.closePopup();
+            TimedEffectorEventPopupUIController.Instance.closePopup();    
             EventTimelineUIController.Instance.exitTimePickerMode();
             _currentEffectorEvent.IsActive = true;
             Timeline.Instance.effectorTimeChanged();
-            ReplayManager.Instance.Active = true;
+            ReplayManager.Instance.restoreActive();
             ReplayUIController.Instance.setActiveChangeButtonState(true);
         }
 
