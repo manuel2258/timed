@@ -27,7 +27,7 @@ namespace src.level.finish {
             };
             endLevelButton.onClick.AddListener(() => UIWindowStack.Instance.toggleWindow(typeof(LevelFinishUIController)));
             
-            var currentLevel = LevelXmlParser.Instance.CurrentLevel;
+            var currentLevel = LevelManager.Instance.CurrentLevel;
             levelName.text = currentLevel.Name;
             DifficultyUIController.Instance.displayDifficulty(currentLevel.Difficulty);
             GravityScaleUIController.Instance.displayGravity(currentLevel.GravityScale);

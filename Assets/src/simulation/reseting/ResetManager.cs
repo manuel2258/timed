@@ -16,7 +16,7 @@ namespace src.simulation.reseting {
             SimulationManager.Instance.onCalculationStarted += reset;
         }
         
-        private void reset() {
+        private void reset(bool wasSide) {
             foreach (var resetAble in _resetAbles) {
                 resetAble.reset();
             }

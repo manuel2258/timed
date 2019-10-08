@@ -1,6 +1,7 @@
 using System;
 using SpriteGlow;
 using src.element.effector.effectors;
+using src.level.initializing;
 using src.misc;
 using src.simulation;
 using src.simulation.reseting;
@@ -8,7 +9,7 @@ using src.time.time_managers;
 using UnityEngine;
 
 namespace src.element.collider_body {
-    public class ColliderBody : MonoBehaviour, IResetable, IVisualStateAble {
+    public class ColliderBody : MonoBehaviour, IResetable, IVisualStateAble, ISetupAble {
 
         private const float MAX_VELOCITY = 35;
         

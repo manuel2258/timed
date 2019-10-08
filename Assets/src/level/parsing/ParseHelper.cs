@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 using src.element;
-using src.element.effector;
+using UnityEngine;
 
 namespace src.level.parsing {
     public static class ParseHelper {
@@ -69,6 +69,26 @@ namespace src.level.parsing {
             }
 
             return parsedColor;
+        }
+        
+        public static Vector2 parsePositionFromNode(XmlNode node) {
+            var positionNode = node.SelectSingleNode("Position");
+            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "x"), out var x);
+            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "y"), out var y);
+            return new Vector2(x, y);
+        }
+        
+        public static Vector2 parseScaleFromNode(XmlNode node) {
+            var positionNode = node.SelectSingleNode("Scale");
+            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "x"), out var x);
+            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "y"), out var y);
+            return new Vector2(x, y);
+        }
+        
+        public static float parseRotationFromNode(XmlNode node) {
+            var rotationNode = node.SelectSingleNode("Rotation");
+            float.TryParse(ParseHelper.getAttributeValueByName(rotationNode, "angle"), out var angle);
+            return angle;
         }
     }
 }

@@ -17,10 +17,10 @@ namespace src.level.selection {
         }
 
         public void generateAndPreviewLevel() {
-            LevelXmlParser.Instance.LevelRoot.transform.localScale = Vector3.one;
+            LevelManager.Instance.LevelRoot.transform.localScale = Vector3.one;
             _generatedLevel = new LevelGenerator().CreateLevel(Random.Range(int.MinValue, int.MaxValue), _difficulty * 2);
-            LevelXmlParser.Instance.parseLevelFromXmlString(_generatedLevel).initializeLevel();
-            LevelXmlParser.Instance.LevelRoot.transform.localScale /= 2;
+            LevelXmlParser.parseLevelFromXmlString(_generatedLevel).initializeLevel();
+            LevelManager.Instance.LevelRoot.transform.localScale /= 2;
         }
 
         public void loadLevel() {

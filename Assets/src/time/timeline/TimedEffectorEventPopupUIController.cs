@@ -1,4 +1,5 @@
 using src.misc;
+using src.simulation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +10,10 @@ namespace src.time.timeline {
     /// A Singleton representing the meta data of a timedEvent
     /// </summary>
     public class TimedEffectorEventPopupUIController : UnitySingleton<TimedEffectorEventPopupUIController> {
-
-        public Image effectorEventIcon;
+        
         public TMP_Text effectorEventTime;
 
+        public Button reSimulateButton;
         public Button removeButton;
         private Canvas _canvas;
 
@@ -31,11 +32,13 @@ namespace src.time.timeline {
         public void showTimedEffectorEvent(TimedEffectorEvent effectorEvent) {
             _canvas.enabled = true;
             effectorEventTime.text = $"{effectorEvent.ExecutionTime:N2}";
-            effectorEventIcon.sprite = effectorEvent.getIcon();
             removeButton.onClick.RemoveAllListeners();
             removeButton.onClick.AddListener(() => {
                 TimedEffectorEventEditManager.Instance.removeTimedEffectorEvent(effectorEvent);
                 _canvas.enabled = false;
+            });
+            reSimulateButton.onClick.AddListener(() => {
+                SimulationManager.Instance.calculateSimulation(true);
             });
         }
 

@@ -28,15 +28,15 @@ namespace src.simulation {
 
         private void Start() {
             Physics2D.autoSimulation = false;
-            calculateSimulation();
-            Timeline.Instance.onEffectorEventChanged += _ => calculateSimulation();
+            calculateSimulation(false);
+            Timeline.Instance.onEffectorEventChanged += _ => calculateSimulation(false);
             Time.fixedDeltaTime = (float)SIMULATION_STEPS;
         }
         
-        private void calculateSimulation() {
-            onCalculationStarted?.Invoke();
+        public void calculateSimulation(bool side) {
+            onCalculationStarted?.Invoke(side);
             var trackers = simulate();
-            onCalculationFinished?.Invoke(trackers);
+            onCalculationFinished?.Invoke(trackers, side);
         }
 
         private List<GameObjectTracker> simulate() {
@@ -71,6 +71,6 @@ namespace src.simulation {
 
     }
 
-    public delegate void OnCalculationStarted();
-    public delegate void OnCalculationFinished(List<GameObjectTracker> trackers);
+    public delegate void OnCalculationStarted(bool wasSide);
+    public delegate void OnCalculationFinished(List<GameObjectTracker> trackers, bool wasSide);
 }

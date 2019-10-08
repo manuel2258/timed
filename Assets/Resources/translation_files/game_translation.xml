@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="MainMenuPlayButton">
+        <Translation language="English">Play</Translation>
+        <Translation language="German">Spielen</Translation>
+    </Translations>
+</TranslationPack>

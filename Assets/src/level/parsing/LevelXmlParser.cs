@@ -10,25 +10,7 @@ using src.misc;
 using UnityEngine;
 
 namespace src.level.parsing {
-    public class LevelXmlParser : UnitySingleton<LevelXmlParser> {
-
-        [field: SerializeField, LabelOverride("LevelRoot")]
-        public Transform LevelRoot { get; private set; }
-        
-        public LevelContainer CurrentLevel { get; private set; }
-
-        private void Start() {
-            if (GlobalGameState.Instance.IsInGame) {
-                CurrentLevel = parseLevelFromXmlString(LevelXmlPayload.Instance.levelXml);
-                CurrentLevel.initializeLevel();
-            }
-        }
-        
-        public void clearAllLevelChildren() {
-            for (int i = 0; i < LevelRoot.childCount; i++) {
-                Destroy(LevelRoot.GetChild(i).gameObject);
-            }
-        }
+    public static class LevelXmlParser {
 
         /// <summary>
         /// Parses the provided strings into ElementInitializers
@@ -36,7 +18,7 @@ namespace src.level.parsing {
         /// <param name="xmlString">The to parse XmlString</param>
         /// <returns>The parsed ElementInitializers</returns>
         /// <exception cref="Exception">If something could not be parsed properly</exception>
-        public LevelContainer parseLevelFromXmlString(string xmlString) {
+        public static LevelContainer parseLevelFromXmlString(string xmlString) {
             
             // Creates a XmlDocument from the 
             XmlDocument xmlDocument = new XmlDocument();
@@ -69,18 +51,23 @@ namespace src.level.parsing {
                 // Then goes through each element
                 foreach (XmlNode element in elements.ChildNodes) {
                     // Parses position and rotation
-                    var position = parsePositionFromNode(element);
-                    var angle = parseRotationFromNode(element);
+                    var position = ParseHelper.parsePositionFromNode(element);
+                    var angle = ParseHelper.parseRotationFromNode(element);
                     
                     // Its ElementType
                     if(!Enum.TryParse(element.Name, out ElementType elementType)) {
                         throw new Exception($"Could not parse the name ElementType {element.Name}");
                     }
+
+                    var idString = ParseHelper.getAttributeValueByName(element, "id");
+                    if (!int.TryParse(idString, out var id)) {
+                        throw new Exception($"Could not parse the id {idString}");
+                    }
                     
                     // And if its Wall, get its scale and create a WallInitializer
                     if (elementType == ElementType.Wall) {
-                        var scale = parseScaleFromNode(element);
-                        level.addInitializer(new WallInitializer(scale, elementType, position, angle));
+                        var scale = ParseHelper.parseScaleFromNode(element);
+                        level.addInitializer(new WallInitializer(scale, elementType, id, position, angle));
                         continue;
                     }
 
@@ -94,7 +81,7 @@ namespace src.level.parsing {
                     
                     // And if its ColliderBody, create a ColliderBodyInitializer with its parameter
                     if (elementType == ElementType.ColliderBody) {
-                        level.addInitializer(new ColliderBodyInitializer(parameters, elementType, position, angle));
+                        level.addInitializer(new ColliderBodyInitializer(parameters, elementType, id, position, angle));
                         continue;
                     }
 
@@ -107,7 +94,7 @@ namespace src.level.parsing {
                         }
 
                         // Finally add the EffectorInitializer
-                        level.addInitializer(new EffectorInitializer(effectorType, parameters, elementType, position,
+                        level.addInitializer(new EffectorInitializer(effectorType, parameters, elementType, id, position,
                             angle));
                     }
 
@@ -119,7 +106,7 @@ namespace src.level.parsing {
                         }
 
                         // Finally add the EffectorInitializer
-                        level.addInitializer(new TriggerInitializer(triggerType, parameters, elementType, position,
+                        level.addInitializer(new TriggerInitializer(triggerType, parameters, elementType, id, position,
                             angle));
                     }
                 }
@@ -128,24 +115,6 @@ namespace src.level.parsing {
             return level;
         }
 
-        private Vector2 parsePositionFromNode(XmlNode node) {
-            var positionNode = node.SelectSingleNode("Position");
-            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "x"), out var x);
-            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "y"), out var y);
-            return new Vector2(x, y);
-        }
         
-        private Vector2 parseScaleFromNode(XmlNode node) {
-            var positionNode = node.SelectSingleNode("Scale");
-            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "x"), out var x);
-            float.TryParse(ParseHelper.getAttributeValueByName(positionNode, "y"), out var y);
-            return new Vector2(x, y);
-        }
-        
-        private float parseRotationFromNode(XmlNode node) {
-            var rotationNode = node.SelectSingleNode("Rotation");
-            float.TryParse(ParseHelper.getAttributeValueByName(rotationNode, "angle"), out var angle);
-            return angle;
-        }
     }
 }

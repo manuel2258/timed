@@ -5,7 +5,7 @@ using System.Reflection;
 namespace src.level.initializing {
     public static class InitializeHelper {
         
-        public static void initializeObject(Object initializeAble, Dictionary<string, string> nameParameterMap) {
+        public static void initializeObject(ISetupAble initializeAble, Dictionary<string, string> nameParameterMap) {
             Type type = initializeAble.GetType();
             // Then get its methods and prepare its to search for values
             var methods = type.GetMethods();
@@ -35,4 +35,6 @@ namespace src.level.initializing {
             setupFunction.Invoke(initializeAble, parameters);
         }
     }
+    
+    public interface ISetupAble { }
 }

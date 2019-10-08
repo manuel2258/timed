@@ -1,3 +1,4 @@
+using System;
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
@@ -11,7 +12,14 @@ namespace src.time.timeline {
 
         public OnEffectorEventTimeChanged onEffectorEventTimeChanged;
         private TimedEffectorEvent _currentEffectorEvent;
-        
+
+        private bool _timePickerBlocked;
+
+        private void Start() {
+            SimulationManager.Instance.onCalculationStarted += wasSide => _timePickerBlocked = true;
+            SimulationManager.Instance.onCalculationFinished += (trackers, wasSide) => _timePickerBlocked = false;
+        }
+
         /// <summary>
         /// Enables the editing of the pressed timedEffect / saves it when pressed again
         /// </summary>
@@ -26,6 +34,7 @@ namespace src.time.timeline {
                     Timeline.Instance.effectorTimeChanged();
                 }
                 EventTimelineUIController.Instance.setTimePickerMode(newTime => {
+                    if (_timePickerBlocked) return;
                     effectorEvent.ExecutionTime = newTime;
                     onEffectorEventTimeChanged?.Invoke(newTime);
                 }, effectorEvent);

@@ -18,4 +18,28 @@
             <Parameter name="initialColor">Yellow</Parameter>
         </ColliderBody>
     </Elements>
+    <TutorialSequence>
+        <Part id="0">
+            <CheckEvent type="GameObjectEvent" id="1" name="TimelineUIController">PickedTime</CheckEvent>
+            <HelpDisplay type="Frame" id="2">
+                <Parameter name="positionX">115</Parameter>
+                <Parameter name="positionY">0</Parameter>
+                <Parameter name="sizeX">170</Parameter>
+                <Parameter name="sizeY">1000</Parameter>
+                <Parameter name="anchorPosition">Left</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="1">
+            <CheckEvent type="ElementEvent" id="1" elementId="1">AddedEventOn/Off</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="2">
+                <Parameter name="sizeX">2</Parameter>
+                <Parameter name="sizeY">2</Parameter>
+                <Parameter name="elementId">1</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="3">
+                <Parameter name="height">150</Parameter>
+                <Parameter name="content">Welcome to the Timed!</Parameter>
+            </HelpDisplay>
+        </Part>
+    </TutorialSequence>
 </Level>

@@ -1,4 +1,6 @@
+using System;
 using src.simulation;
+using src.tutorial.check_events;
 using UnityEngine;
 
 namespace src.time.time_managers {
@@ -6,11 +8,16 @@ namespace src.time.time_managers {
     /// <summary>
     /// The Singleton TimeManager that is used when the tracked positions are played back in realtime
     /// </summary>
-    public class ReplayTimeManager : BaseTimeManager<ReplayTimeManager> {
-
+    public class ReplayTimeManager : BaseTimeManager<ReplayTimeManager>, ICheckAbleEvent {
+        
         public float TimeMultiplier { get; set; } = 1;
 
         public bool Active { get; set; }
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
         
         public void setCurrentTime(decimal newTime) {
             if (Active) return;
@@ -19,8 +26,9 @@ namespace src.time.time_managers {
             var delta = newTime - currentTime;
             currentTime = newTime;
             onNewTime?.Invoke(currentTime, delta);
+            _checkEventManager.checkEvent("SetTime");
         }
-
+        
         private void FixedUpdate() {
             if (!Active) return;
             

@@ -16,13 +16,13 @@ namespace src.level.initializing {
         private readonly Dictionary<string, string> _parameters;
         
         public ColliderBodyInitializer(Dictionary<string, string> parameters,
-            ElementType elementType, Vector2 position, float angle)
-            : base(elementType, position, angle) {
+            ElementType elementType, int id, Vector2 position, float angle)
+            : base(elementType, id, position, angle) {
             _parameters = parameters;
         }
 
         protected override void callSetupScript(GameObject currentGameObject) {
-            var colliderBody = currentGameObject.GetComponent<ColliderBody>();
+            var colliderBody = currentGameObject.GetComponent<ISetupAble>();
             InitializeHelper.initializeObject(colliderBody, _parameters);
         }
     }

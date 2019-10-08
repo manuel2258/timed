@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Level name="Save House" id="1" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
-        <Effector type="RadialGravityEffector" id="1">
+        <Effector type="RadialGravityEffector" id="0">
             <Position x="-12" y="-1"/>
             <Rotation angle="0"/>
             <Parameter name="force">5000</Parameter>
@@ -10,27 +10,27 @@
             <Parameter name="colors"/>
             <Parameter name="initialColor">Yellow</Parameter>
         </Effector>
-        <Wall id="4">
+        <Wall id="1">
             <Position x="0" y="-4"/>
             <Rotation angle="0"/>
             <Scale x="30" y="0.2"/>
         </Wall>
-        <Wall id="4">
+        <Wall id="2">
             <Position x="0" y="4"/>
             <Rotation angle="0"/>
             <Scale x="30" y="0.2"/>
         </Wall>
-        <ColliderBody id="5">
+        <ColliderBody id="3">
             <Position x="-14" y="-3"/>
             <Rotation angle="0"/>
             <Parameter name="initialColor">Yellow</Parameter>
         </ColliderBody>
-        <Wall id="6">
+        <Wall id="4">
             <Position x="15" y="0"/>
             <Rotation angle="90"/>
             <Scale x="8" y="0.2"/>
         </Wall>
-        <Wall id="6">
+        <Wall id="5">
             <Position x="-15" y="0"/>
             <Rotation angle="90"/>
             <Scale x="8" y="0.2"/>
@@ -42,4 +42,30 @@
             <Parameter name="amount">1</Parameter>
         </Trigger>
     </Elements>
+    <TutorialSequence>
+        <Part id="0">
+            <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="1">
+                <Parameter name="sizeX">2</Parameter>
+                <Parameter name="sizeY">2</Parameter>
+                <Parameter name="elementId">1</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">250</Parameter>
+                <Parameter name="content">[TutorialBasic0Part0]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="1">
+            <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="2">Closed</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="1">
+                <Parameter name="sizeX">2</Parameter>
+                <Parameter name="sizeY">2</Parameter>
+                <Parameter name="elementId">1</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">250</Parameter>
+                <Parameter name="content">[TutorialBasic0Part0]</Parameter>
+            </HelpDisplay>
+        </Part>
+    </TutorialSequence>
 </Level>

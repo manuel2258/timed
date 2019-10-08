@@ -16,8 +16,8 @@ namespace src.level.initializing {
         private readonly Dictionary<string, string> _parameters;
         
         public EffectorInitializer(EffectorType effectorType, Dictionary<string, string> parameters,
-            ElementType elementType, Vector2 position, float angle)
-            : base(elementType, position, angle) {
+            ElementType elementType, int id, Vector2 position, float angle)
+            : base(elementType, id, position, angle) {
             _effectorType = effectorType;
             _parameters = parameters;
         }
@@ -27,7 +27,7 @@ namespace src.level.initializing {
         }
 
         protected override void callSetupScript(GameObject currentGameObject) {
-            var baseEffector = currentGameObject.GetComponent<BaseEffector>();
+            var baseEffector = currentGameObject.GetComponent<ISetupAble>();
             InitializeHelper.initializeObject(baseEffector, _parameters);
         }
     }

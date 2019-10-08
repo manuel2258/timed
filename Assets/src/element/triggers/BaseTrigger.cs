@@ -1,3 +1,4 @@
+using src.level.initializing;
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
@@ -8,7 +9,7 @@ namespace src.element.triggers {
     /// <summary>
     /// The base of each Effector
     /// </summary>
-    public abstract class BaseTrigger : MonoBehaviour {
+    public abstract class BaseTrigger : MonoBehaviour, ISetupAble {
 
         protected void onSetup() {
             if (GlobalGameState.Instance.IsInGame) {
@@ -17,7 +18,7 @@ namespace src.element.triggers {
             }
         }
 
-        protected virtual void onCalculationStarted() { }
+        protected virtual void onCalculationStarted(bool wasSide) { }
         
         protected abstract void triggerUpdate(decimal currentTime, decimal deltaTime);
         

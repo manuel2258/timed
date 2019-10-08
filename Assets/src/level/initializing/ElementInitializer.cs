@@ -10,16 +10,20 @@ namespace src.level.initializing {
         private readonly Vector2 _position;
         private readonly float _angle;
 
-        public ElementInitializer(ElementType elementType, Vector2 position, float angle) {
+        public readonly int Id;
+
+        public ElementInitializer(ElementType elementType, int id, Vector2 position, float angle) {
             _elementType = elementType;
             _position = position;
             _angle = angle;
+            Id = id;
         }
 
-        public void initialize() {
+        public GameObject initialize() {
             var currentGameObject = getGameObject();
             setTransform(currentGameObject);
             callSetupScript(currentGameObject);
+            return currentGameObject;
         }
 
         protected virtual GameObject getGameObject() {
@@ -36,7 +40,7 @@ namespace src.level.initializing {
         protected virtual void setTransform(GameObject currentGameObject) {
             currentGameObject.transform.position = _position;
             currentGameObject.transform.rotation = Quaternion.Euler(0,0,_angle);
-            currentGameObject.transform.parent = LevelXmlParser.Instance.LevelRoot;
+            currentGameObject.transform.parent = LevelManager.Instance.LevelRoot;
         }
 
         protected virtual void callSetupScript(GameObject currentGameObject) { }

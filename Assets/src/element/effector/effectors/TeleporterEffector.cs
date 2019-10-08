@@ -69,8 +69,11 @@ namespace src.element.effector.effectors {
             if (_disableAble) {
                 var eventInfo = elementInfo.getEventInfoBySearchTag("on_off");
                 effectorEvents.Add(new EffectorEvent(eventInfo.icon,
-                    () => { Elements.executeVisualChange(this, 
-                        () => _currentState.enabled = !_currentState.enabled); }));
+                    () => { 
+                        Elements.executeVisualChange(this, 
+                        () => _currentState.enabled = !_currentState.enabled);
+                        checkEventManager.checkEvent("AddedEvent" + eventInfo.eventName);
+                    }));
             }
 
             foreach (var color in ParseHelper.parseEnumListFromString<ElementColor>(colors)) {
@@ -81,6 +84,7 @@ namespace src.element.effector.effectors {
                             var savedColor = color;
                             _currentState.color = savedColor;
                         });
+                        checkEventManager.checkEvent("AddedEvent" + eventInfo.eventName);
                     }));
             }
             _currentState = new TeleporterState(_initialState);
@@ -111,8 +115,7 @@ namespace src.element.effector.effectors {
             foreach (var colliderBody in Elements.filterForColorFromRaycastHits(colliders, _currentState.color)) {
                 var positionDifference = transform.position - colliderBody.transform.position;
                 var rotatedDifference = Quaternion.Euler(0, 0, _differenceAngle + transform.eulerAngles.z) * positionDifference;
-                Debug.Log($"{positionDifference} -> {rotatedDifference}");
-                
+
                 colliderBody.transform.position += _difference;
                 colliderBody.transform.position += rotatedDifference;
 

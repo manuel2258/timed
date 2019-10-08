@@ -28,7 +28,6 @@ namespace src.time.timeline {
         }
 
         public void execute() {
-            if(!IsActive) return;
             if (!_alreadyExecuted) {
                 _effectorEvent.simulationEvent.Invoke();
                 _alreadyExecuted = true;

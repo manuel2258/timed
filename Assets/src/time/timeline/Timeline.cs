@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using src.misc;
+using src.simulation;
 using src.simulation.reseting;
 using src.time.time_managers;
+using UnityEngine;
 
 namespace src.time.timeline {
     
@@ -15,8 +17,11 @@ namespace src.time.timeline {
         private List<TimedEffectorEvent> _activeEffectors = new List<TimedEffectorEvent>();
 
         public OnEffectorEventChanged onEffectorEventChanged;
+        
+        private bool _isSide;
 
         private void Start() {
+            SimulationManager.Instance.onCalculationStarted += wasSide => _isSide = wasSide;
             SimulationTimeManager.Instance.onNewTime += onNewSimulationTime;
             reset();
         }
@@ -53,7 +58,10 @@ namespace src.time.timeline {
         private void onNewSimulationTime(decimal currentTime, decimal _) {
             for(int i = _activeEffectors.Count-1; i >= 0; i--) {
                 var effector = _activeEffectors[i];
-                if (effector.ExecutionTime > currentTime)  continue;
+                if (effector.ExecutionTime > currentTime) continue;
+                if (!_isSide) {
+                    if (!effector.IsActive) continue;
+                }
                 effector.execute();
                 _activeEffectors.Remove(effector);
             }

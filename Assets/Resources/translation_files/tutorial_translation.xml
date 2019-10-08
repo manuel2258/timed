@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="TutorialBasic0Part0">
+        <Translation language="English">Welcome to Timed!
+        This Tutorial will teach you how to play Timed.
+        So don't waste anymore time, touch this field to continue ...</Translation>
+        <Translation language="German">Willkommen bei Timed!
+        Dieses Tutorial wird dir alles beibringen was du zum spielen von Timed brauchst.
+        Also verschwenden wir lieber keine weiter Zeit, berühre dieses Feld um weiter zu machen ...</Translation>
+    </Translations>
+</TranslationPack>

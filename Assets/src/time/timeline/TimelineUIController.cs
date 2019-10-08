@@ -1,7 +1,9 @@
+using System;
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
 using src.touch;
+using src.tutorial.check_events;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,24 +12,19 @@ namespace src.time.timeline {
     /// <summary>
     /// A Singleton UI Controller that visualize the CurrentTime and its advancement
     /// </summary>
-    public class TimelineUIController : TouchableRect<TimelineUIController>, IPointerDownHandler {
+    public class TimelineUIController : TouchableSingletonRect<TimelineUIController>, IPointerDownHandler, ICheckAbleEvent {
         
         public RectTransform pointer;
         public RectTransform fill;
         
         private RectTransform _rectTransform;
 
-        /// <summary>
-        /// Whether the Element is in a event time picker mode or in the normal advance mode
-        /// </summary>
-        private bool _timePickerMode;
-        
-        /// <summary>
-        /// The to call function if in timePickerMode and a input occurs
-        /// </summary>
-        private OnNewPickedTime _timePickerCallback;
-
         private bool _selectingPosition;
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
 
         protected override void Start() {
             base.Start();
@@ -46,6 +43,7 @@ namespace src.time.timeline {
                 _selectingPosition = true;
                 ReplayManager.Instance.Active = false;
                 onNewTime(pickedTime, 0);
+                _checkEventManager.checkEvent("PickedTime");
             } else {
                 if (_selectingPosition) {
                     _selectingPosition = false;

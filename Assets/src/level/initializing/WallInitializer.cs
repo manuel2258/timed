@@ -6,8 +6,8 @@ namespace src.level.initializing {
         
         private readonly Vector2 _scale;
 
-        public WallInitializer(Vector2 scale, ElementType elementType, Vector2 position, float angle) 
-            : base(elementType, position, angle) {
+        public WallInitializer(Vector2 scale, ElementType elementType, int id, Vector2 position, float angle)
+            : base(elementType, id, position, angle) {
             _scale = scale;
         }
 

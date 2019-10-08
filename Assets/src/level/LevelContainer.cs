@@ -15,7 +15,7 @@ namespace src.level {
         public int Difficulty { get; }
 
         private readonly List<ElementInitializer> _worldInitializers = new List<ElementInitializer>();
-        private readonly List<ElementInitializer> _physicInitializers = new List<ElementInitializer>();
+        private readonly Dictionary<int, GameObject> _elementIds = new Dictionary<int, GameObject>();
         private bool _alreadyFired;
 
         public LevelContainer(string name, Vector2 gravityScale, int difficulty) {
@@ -42,9 +42,16 @@ namespace src.level {
             if(_alreadyFired) return;
             
             Physics2D.gravity = GravityScale;
-            LevelXmlParser.Instance.clearAllLevelChildren();
-            _worldInitializers.ForEach(initializer => initializer.initialize());
+            LevelManager.Instance.clearAllLevelChildren();
+            _worldInitializers.ForEach(initializer => {
+                var gameObject = initializer.initialize();
+                _elementIds.Add(initializer.Id, gameObject);
+            });
             _alreadyFired = true;
+        }
+
+        public GameObject getElementFromId(int id) {
+            return _elementIds[id];
         }
     }
 }

@@ -10,6 +10,8 @@ namespace src.time.timeline {
         public Transform contentParent;
         public GameObject contentPrefab;
         public Transform nextEventPointer;
+
+        public Canvas content;
         
         private readonly Dictionary<TimedEffectorEvent, TimedEffectorEventUIController> _eventUIControllers =
             new Dictionary<TimedEffectorEvent, TimedEffectorEventUIController>();
@@ -39,6 +41,8 @@ namespace src.time.timeline {
                 _eventUIControllers.Add(effectorEvent, uiController);
                 _effectorEventTimes[i] = effectorEvent.ExecutionTime;
             }
+
+            content.enabled = effectorEvents.Count > 0;
         }
 
         public void highlightEvent(TimedEffectorEvent effectorEvent) {

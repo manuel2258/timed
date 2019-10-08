@@ -31,13 +31,15 @@ namespace src.simulation {
 
         private void Start() {
             ReplayTimeManager.Instance.onNewTime += onNewTime;
-            SimulationManager.Instance.onCalculationFinished += newTrackers => {
-                _currentTrackers = newTrackers;
+            SimulationManager.Instance.onCalculationFinished += (newTrackers, wasSide) => {
+                if(!wasSide) {
+                    _currentTrackers = newTrackers;
+                }
                 onNewTime(ReplayTimeManager.Instance.CurrentTime, 0);
                 ReplayTimeManager.Instance.setCurrentTime(_beforeTime);
                 restoreActive();
             };
-            SimulationManager.Instance.onCalculationStarted += () => {
+            SimulationManager.Instance.onCalculationStarted += (wasSide) => {
                 disableActive();
                 _beforeTime = ReplayTimeManager.Instance.CurrentTime;
                 ReplayTimeManager.Instance.setCurrentTime(0);
@@ -67,6 +69,10 @@ namespace src.simulation {
         public void skipFrames(int frames) {
             ReplayTimeManager.Instance.setCurrentTime(ReplayTimeManager.Instance.CurrentTime +
                                                       SimulationManager.SIMULATION_STEPS * frames);
+        }
+
+        public void resetTimeToStart() {
+            ReplayTimeManager.Instance.setCurrentTime(0);
         }
     }
 
