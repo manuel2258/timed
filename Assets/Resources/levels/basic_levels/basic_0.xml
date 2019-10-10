@@ -44,27 +44,38 @@
     </Elements>
     <TutorialSequence>
         <Part id="0">
-            <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="2">Touched</CheckEvent>
-            <HelpDisplay type="ElementHighlight" id="1">
-                <Parameter name="sizeX">2</Parameter>
-                <Parameter name="sizeY">2</Parameter>
-                <Parameter name="elementId">1</Parameter>
-            </HelpDisplay>
-            <HelpDisplay type="Text" id="2">
-                <Parameter name="height">250</Parameter>
+            <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="1">Touched</CheckEvent>
+            <HelpDisplay type="Text" id="1">
+                <Parameter name="height">200</Parameter>
                 <Parameter name="content">[TutorialBasic0Part0]</Parameter>
             </HelpDisplay>
         </Part>
         <Part id="1">
-            <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="2">Closed</CheckEvent>
-            <HelpDisplay type="ElementHighlight" id="1">
-                <Parameter name="sizeX">2</Parameter>
-                <Parameter name="sizeY">2</Parameter>
-                <Parameter name="elementId">1</Parameter>
+            <CheckEvent type="PartElementEvent" id="0" partId="1" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">115</Parameter>
+                <Parameter name="positionY">0</Parameter>
+                <Parameter name="sizeX">170</Parameter>
+                <Parameter name="sizeY">1000</Parameter>
+                <Parameter name="anchorPosition">Left</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">200</Parameter>
+                <Parameter name="content">[TutorialBasic0Part1]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="2">
+            <CheckEvent type="PartElementEvent" id="0" partId="1" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">115</Parameter>
+                <Parameter name="positionY">500</Parameter>
+                <Parameter name="sizeX">125</Parameter>
+                <Parameter name="sizeY">125</Parameter>
+                <Parameter name="anchorPosition">Left</Parameter>
             </HelpDisplay>
             <HelpDisplay type="Text" id="2">
                 <Parameter name="height">250</Parameter>
-                <Parameter name="content">[TutorialBasic0Part0]</Parameter>
+                <Parameter name="content">[TutorialBasic0Part2]</Parameter>
             </HelpDisplay>
         </Part>
     </TutorialSequence>

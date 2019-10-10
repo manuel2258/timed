@@ -28,7 +28,8 @@ namespace src.translation {
                     if (!Enum.TryParse(languageString, out Language language)) {
                         throw new Exception($"Could not parse {languageString} of {translation} to a Language");
                     }
-                    currentContainer.addWord(language, translation.InnerText);
+                    currentContainer.addWord(language, System.Text.RegularExpressions.Regex.Replace(
+                        translation.InnerText,@"\s+"," "));
                 }
                 wordContainers.Add(currentContainer);
             }

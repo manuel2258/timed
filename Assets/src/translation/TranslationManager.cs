@@ -3,6 +3,7 @@ using System.Linq;
 using src.misc;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace src.translation {
     
@@ -11,7 +12,8 @@ namespace src.translation {
         private const string TRANSLATION_DIRECTORY = "translation_files/";
         
         private readonly Dictionary<string, WordContainer> _tagContainers = new Dictionary<string, WordContainer>();
-        
+        private List<TMP_Text> _texts = new List<TMP_Text>();
+
         private void Start() {
             loadTranslationWords();
             changeTextsToFitTranslation(Language.English);
@@ -28,16 +30,29 @@ namespace src.translation {
         }
 
         public void changeTextsToFitTranslation(Language language) {
-            var allGameObjects = FindObjectsOfType<GameObject>();
-            var texts = (from a in allGameObjects where a.GetComponent<TMP_Text>() != null 
-                select a.GetComponent<TMP_Text>()).ToList();
+            _texts.Clear();
+            foreach (var rootGameObject in SceneManager.GetActiveScene().GetRootGameObjects()) {
+                getAllChildTexts(rootGameObject.transform);
+            }
 
-            foreach (var tmpText in texts) {
+            foreach (var tmpText in _texts) {
                 var text = tmpText.text;
                 if (text[0] != '[' || text[text.Length - 1] != ']') continue;
 
                 var wordTag = text.Substring(1, text.Length - 2);
                 tmpText.text = _tagContainers[wordTag].getTranslationByLanguage(language);
+            }
+        }
+
+        private void getAllChildTexts(Transform parent) {
+            for (int i = 0; i < parent.childCount; i++) {
+                var currentChild = parent.GetChild(i);
+                var text = currentChild.GetComponent<TMP_Text>();
+                if (text != null) {
+                    _texts.Add(text);
+                }
+
+                getAllChildTexts(currentChild);
             }
         }
         

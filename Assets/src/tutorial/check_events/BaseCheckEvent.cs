@@ -6,6 +6,8 @@ namespace src.tutorial.check_events {
 
         public string EventName { get; }
 
+        public ICheckAbleEvent CheckAbleEvent { get; private set; }
+
         protected BaseCheckEvent(string eventName) {
             EventName = eventName;
         }
@@ -13,8 +15,8 @@ namespace src.tutorial.check_events {
         public Action<string> onEventChecked;
 
         public void initialize(Transform rect, Transform world) {
-            getToCheckGameObject().GetComponent<ICheckAbleEvent>().registerEvent(EventName, 
-                () => onEventChecked.Invoke(EventName));
+            CheckAbleEvent = getToCheckGameObject().GetComponent<ICheckAbleEvent>();
+            CheckAbleEvent.registerEvent(EventName, () => onEventChecked.Invoke(EventName));
         }
 
         protected abstract GameObject getToCheckGameObject();

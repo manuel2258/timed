@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TranslationPack>
     <Translations tag="TutorialBasic0Part0">
-        <Translation language="English">Welcome to Timed!
-        This Tutorial will teach you how to play Timed.
-        So don't waste anymore time, touch this field to continue ...</Translation>
-        <Translation language="German">Willkommen bei Timed!
-        Dieses Tutorial wird dir alles beibringen was du zum spielen von Timed brauchst.
-        Also verschwenden wir lieber keine weiter Zeit, berühre dieses Feld um weiter zu machen ...</Translation>
+        <Translation language="English">
+            Welcome to Timed!
+            This Tutorial will teach you how to play Timed.
+            So don't waste anymore time, touch this field to continue ...
+        </Translation>
+        <Translation language="German">
+            Willkommen bei Timed!
+            Dieses Tutorial wird dir alles beibringen was du zum spielen von Timed brauchst.
+            Also verschwenden wir lieber keine weiter Zeit, berühre dieses Feld um weiter zu machen ...
+        </Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part1">
+        <Translation language="English">
+            This is the timeline. It is simular to a videoplayer. 
+            It does not only show the current time, but you can also use it to change the time. 
+            Touch this field to continue ...</Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part2">
+        <Translation language="English">
+            Pressing this button will result in the game to continue.
+            When doing so the icon will change and pressing it again will halt the game.
+            Start and then pause the game using the button to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
     </Translations>
 </TranslationPack>
