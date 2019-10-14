@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using src.misc;
 using src.time.time_managers;
+using src.tutorial.check_events;
 
 namespace src.simulation {
     
     /// <summary>
     /// Singleton that manages the positional replay and its flow 
     /// </summary>
-    public class ReplayManager : UnitySingleton<ReplayManager> {
+    public class ReplayManager : UnitySingleton<ReplayManager>, ICheckAbleEvent {
         
         private List<GameObjectTracker> _currentTrackers = new List<GameObjectTracker>();
 
@@ -28,6 +30,11 @@ namespace src.simulation {
         private decimal _beforeTime;
 
         private bool _beforeActiveState;
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
 
         private void Start() {
             ReplayTimeManager.Instance.onNewTime += onNewTime;
@@ -49,6 +56,7 @@ namespace src.simulation {
 
         public void toggleActive() {
             Active = !Active;
+            _checkEventManager.checkEvent("Set" + (Active ? "Active" : "NonActive"));
         }
 
         public void disableActive() {
@@ -69,10 +77,12 @@ namespace src.simulation {
         public void skipFrames(int frames) {
             ReplayTimeManager.Instance.setCurrentTime(ReplayTimeManager.Instance.CurrentTime +
                                                       SimulationManager.SIMULATION_STEPS * frames);
+            _checkEventManager.checkEvent("SkipFrame");
         }
 
         public void resetTimeToStart() {
             ReplayTimeManager.Instance.setCurrentTime(0);
+            _checkEventManager.checkEvent("TimeReset");
         }
     }
 

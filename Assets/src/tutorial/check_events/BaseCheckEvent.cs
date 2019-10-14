@@ -12,11 +12,11 @@ namespace src.tutorial.check_events {
             EventName = eventName;
         }
 
-        public Action<string> onEventChecked;
+        public Action<BaseCheckEvent> onEventChecked;
 
         public void initialize(Transform rect, Transform world) {
             CheckAbleEvent = getToCheckGameObject().GetComponent<ICheckAbleEvent>();
-            CheckAbleEvent.registerEvent(EventName, () => onEventChecked.Invoke(EventName));
+            CheckAbleEvent.registerEvent(EventName, () => onEventChecked.Invoke(this));
         }
 
         protected abstract GameObject getToCheckGameObject();

@@ -9,8 +9,8 @@ namespace src.tutorial {
     public class PartContainer {
         
         private readonly Dictionary<int, IPartElement> _partElements = new Dictionary<int, IPartElement>();
-        private readonly List<IPartElement> _checkEvents = new List<IPartElement> ();
-        private readonly List<string> _eventNames = new List<string>();
+        private readonly Dictionary<int, BaseCheckEvent> _checkEvents = new Dictionary<int, BaseCheckEvent>();
+        private readonly Stack<BaseCheckEvent> _events = new Stack<BaseCheckEvent>();
         
         public int Id { get; }
         public Action<int> onAllEventsChecked;
@@ -28,7 +28,7 @@ namespace src.tutorial {
             if (element.getElementType() == PartElementType.HelpDisplay) {
                 _partElements.Add(id, element);
             } else {
-                _checkEvents.Add(element);
+                _checkEvents.Add(id, (BaseCheckEvent)element);
             }
         }
 
@@ -44,23 +44,34 @@ namespace src.tutorial {
                 partElement.initialize(_rectParent.transform, _worldParent.transform);
             }
 
-            foreach (var partElement in _checkEvents) {
-                partElement.initialize(_rectParent.transform, _worldParent.transform);
-                var checkEvent = (BaseCheckEvent) partElement;
-                _eventNames.Add(checkEvent.EventName);
-                checkEvent.onEventChecked += eventName => {
-                    if (!_currentActiveState) return;
+            int i = _checkEvents.Count;
+            while(true){
+                if (_checkEvents.TryGetValue(i, out var checkEvent)) {
+                    checkEvent.initialize(_rectParent.transform, _worldParent.transform);
+                    _events.Push(checkEvent);
+                    checkEvent.onEventChecked += checkedEvent => {
+                        if (!_currentActiveState) return;
+                        var stackPeek = _events.Peek();
+                        if (checkedEvent != stackPeek) return;
+                        _events.Pop();
+                        if (_events.Count == 0) {
+                            onAllEventsChecked.Invoke(Id);
+                        }
+                    };
+                }
 
-                    _eventNames.Remove(eventName);
-                    if (_eventNames.Count == 0) {
-                        onAllEventsChecked.Invoke(Id);
-                    }
-                };
+                i--;
+                if (i < 0) {
+                    break;
+                }
             }
         }
 
         public GameObject getPartById(int id) {
-            return _partElements[id].getGameObject();
+            if (!_partElements.TryGetValue(id, out var part)) {
+                throw new Exception($"Could not find element {id} in part {Id}!");
+            }
+            return part.getGameObject();
         }
 
         public void setActive(bool state) {

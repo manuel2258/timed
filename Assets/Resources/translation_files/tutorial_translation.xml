@@ -27,4 +27,43 @@
         </Translation>
         <Translation language="German">XXXXXXXXXXXXXX</Translation>
     </Translations>
+    <Translations tag="TutorialBasic0Part3">
+        <Translation language="English">
+            As you might have already notices, stoping the game will popup 5 additional buttons.
+            Those can be used to finetune the time in microsteps.
+            Try them all out and when you are finished press the upper button, 
+            which will reset the time to 0, to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part4">
+        <Translation language="English">
+            Alright, that was enought about the UI for now.
+            The games goal is to get the required amount of balls into the goal.
+            The amount is different for every level and is marked by the number in its center.
+            Touch this field to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part5">
+        <Translation language="English">
+            This is the already mentioned ball, or rather ColliderBody.
+            As you might have already noticed when playing around with the video player it is 
+            effected by the normal gravity. However because of the flat ground the ColliderBody
+            won't get anywhere near the goal.
+            Touch this field to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part6">
+        <Translation language="English">
+            Thats where the so called Effectors will get handy. As the name might already tell
+            they can effect the ColliderBodys that get into their range. When a ColliderBody
+            is in their Range its core will get bigger indicating that it could interact 
+            with the in Range ColliderBody.
+            Pause the time, reset it with the Resetbutton, play it again and see how
+            the Effectors core will get bigger. Afterwards touch this field to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
 </TranslationPack>

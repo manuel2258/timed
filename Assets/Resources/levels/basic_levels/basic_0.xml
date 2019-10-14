@@ -2,7 +2,7 @@
 <Level name="Save House" id="1" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
         <Effector type="RadialGravityEffector" id="0">
-            <Position x="-12" y="-1"/>
+            <Position x="-11.5" y="-0.5"/>
             <Rotation angle="0"/>
             <Parameter name="force">5000</Parameter>
             <Parameter name="invertAble">false</Parameter>
@@ -11,32 +11,32 @@
             <Parameter name="initialColor">Yellow</Parameter>
         </Effector>
         <Wall id="1">
-            <Position x="0" y="-4"/>
+            <Position x="0" y="-3"/>
             <Rotation angle="0"/>
             <Scale x="30" y="0.2"/>
         </Wall>
         <Wall id="2">
-            <Position x="0" y="4"/>
+            <Position x="0" y="7"/>
             <Rotation angle="0"/>
             <Scale x="30" y="0.2"/>
         </Wall>
         <ColliderBody id="3">
-            <Position x="-14" y="-3"/>
+            <Position x="-14" y="4"/>
             <Rotation angle="0"/>
             <Parameter name="initialColor">Yellow</Parameter>
         </ColliderBody>
         <Wall id="4">
-            <Position x="15" y="0"/>
+            <Position x="15" y="2"/>
             <Rotation angle="90"/>
-            <Scale x="8" y="0.2"/>
+            <Scale x="10" y="0.2"/>
         </Wall>
         <Wall id="5">
-            <Position x="-15" y="0"/>
+            <Position x="-15" y="2"/>
             <Rotation angle="90"/>
-            <Scale x="8" y="0.2"/>
+            <Scale x="10" y="0.2"/>
         </Wall>
         <Trigger type="Goal" id="6">
-            <Position x="13" y="-2.8"/>
+            <Position x="13.75" y="-1.75"/>
             <Rotation angle="0"/>
             <Parameter name="color">Yellow</Parameter>
             <Parameter name="amount">1</Parameter>
@@ -65,17 +65,71 @@
             </HelpDisplay>
         </Part>
         <Part id="2">
-            <CheckEvent type="PartElementEvent" id="0" partId="1" elementId="2">Touched</CheckEvent>
-            <HelpDisplay type="Frame" id="1">
+            <CheckEvent type="GameObjectEvent" id="0" name="ReplayManager">SetActive</CheckEvent>
+            <CheckEvent type="GameObjectEvent" id="1" name="ReplayManager">SetNonActive</CheckEvent>
+            <HelpDisplay type="Frame" id="2">
                 <Parameter name="positionX">115</Parameter>
-                <Parameter name="positionY">500</Parameter>
+                <Parameter name="positionY">410</Parameter>
                 <Parameter name="sizeX">125</Parameter>
                 <Parameter name="sizeY">125</Parameter>
                 <Parameter name="anchorPosition">Left</Parameter>
             </HelpDisplay>
-            <HelpDisplay type="Text" id="2">
+            <HelpDisplay type="Text" id="3">
                 <Parameter name="height">250</Parameter>
                 <Parameter name="content">[TutorialBasic0Part2]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="3">
+            <CheckEvent type="GameObjectEvent" id="0" name="ReplayManager">SkipFrame</CheckEvent>
+            <CheckEvent type="GameObjectEvent" id="1" name="ReplayManager">TimeReset</CheckEvent>
+            <HelpDisplay type="Frame" id="2">
+                <Parameter name="positionX">295</Parameter>
+                <Parameter name="positionY">-140</Parameter>
+                <Parameter name="sizeX">140</Parameter>
+                <Parameter name="sizeY">750</Parameter>
+                <Parameter name="anchorPosition">Left</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="3">
+                <Parameter name="height">250</Parameter>
+                <Parameter name="content">[TutorialBasic0Part3]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="4">
+            <CheckEvent type="PartElementEvent" id="0" partId="4" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="1">
+                <Parameter name="sizeX">2.5</Parameter>
+                <Parameter name="sizeY">2.5</Parameter>
+                <Parameter name="elementId">6</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">250</Parameter>
+                <Parameter name="content">[TutorialBasic0Part4]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="5">
+            <CheckEvent type="PartElementEvent" id="0" partId="5" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="1">
+                <Parameter name="sizeX">1.5</Parameter>
+                <Parameter name="sizeY">1.5</Parameter>
+                <Parameter name="elementId">3</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">300</Parameter>
+                <Parameter name="content">[TutorialBasic0Part5]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="6">
+            <CheckEvent type="GameObjectEvent" id="0" name="ReplayManager">TimeReset</CheckEvent>
+            <CheckEvent type="GameObjectEvent" id="1" name="ReplayManager">SetActive</CheckEvent>
+            <CheckEvent type="PartElementEvent" id="2" partId="6" elementId="4">Touched</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="3">
+                <Parameter name="sizeX">2</Parameter>
+                <Parameter name="sizeY">2</Parameter>
+                <Parameter name="elementId">0</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="4">
+                <Parameter name="height">350</Parameter>
+                <Parameter name="content">[TutorialBasic0Part6]</Parameter>
             </HelpDisplay>
         </Part>
     </TutorialSequence>
