@@ -446,6 +446,11 @@ PrefabInstance:
       propertyPath: <TutorialRoot>k__BackingField
       value: 
       objectReference: {fileID: 1221300128}
+    - target: {fileID: 2550989267877321451, guid: b66459547023957048f175cfed26b962,
+        type: 3}
+      propertyPath: m_Name
+      value: TimedEffectorEventEditManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b66459547023957048f175cfed26b962, type: 3}
 --- !u!1001 &3201295432349818974

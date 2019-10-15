@@ -68,7 +68,10 @@ namespace src.element.effector.effectors {
                 var eventInfo = elementInfo.getEventInfoBySearchTag("on_off");
                 effectorEvents.Add(new EffectorEvent(eventInfo.icon,
                     () => { Elements.executeVisualChange(this, 
-                        () => _currentState.enabled = !_currentState.enabled); }));
+                        () => _currentState.enabled = !_currentState.enabled); 
+                        checkEventManager.checkEvent("AddedEventOn/Off");
+                    }));
+                
             }
 
             if (_invertAble) {

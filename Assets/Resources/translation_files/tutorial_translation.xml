@@ -66,4 +66,112 @@
         </Translation>
         <Translation language="German">XXXXXXXXXXXXXX</Translation>
     </Translations>
+    <Translations tag="TutorialBasic0Part7">
+        <Translation language="English">
+            You might ask yourself now why the Effector is not effecting the ColliderBody,
+            although it is in range? Thats because the Effector is not turned on yet.
+            Also you won't simply turn it on once, but rather define a timepoint at
+            which it will be turned on automaticly. Click the Effector to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part8">
+        <Translation language="English">
+            Once you clicked on a Effector its selection menu will pop up. Here you can 
+            get information about the Effector and its to define events. To get a detailed
+            description click on the questionmark. Do so and inform yourself about what
+            this effector can do. Then close the window again to continue ...
+            (Pro Tipp: You can swipe down this window so it won't bother while reading)
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part9">
+        <Translation language="English">
+            Yeah those are a lot of possible things this effector could do, however the 
+            available events are difference from level to level. For example in this level
+            you can only define the On/Off Event. The available Events are listed bellow
+            its name and pressing them will define the event at the current time. Which
+            means that now whenever you will pass over this timemark the effector will turn
+            on and pull all in range ColliderBody to its center. Reset the time again and
+            define the On/Off Event at the 0s timemark to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part10">
+        <Translation language="English">
+            Defined events will appear on the right in the Eventpanel and will also leave a 
+            white marker on Timeline on the left. They are sorted, which means that the order
+            of Timemarkers corespons to the order of Events in the Eventpanel. Clicking on a 
+            Event in the Eventpanel opens the Event-Editpanel. Click the defined On-Event in
+            the Eventpanel to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part11">
+        <Translation language="English">
+            This is the Event-Editpanel, which can be used to finetune the Executiontime, aswell
+            as completly removing it. When a the Editpanel is open, the to edit Event is selected and
+            changing the time now will result in its Executiontime to change aswell. Click this field
+            to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part12">
+        <Translation language="English">
+            The number below the delete button indicates the current Executiontime. Change it to exactly
+            2.0s to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part13">
+        <Translation language="English">
+            Great, now you can use the Resimulatebutton to see the changed time in action! Press it to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part14">
+        <Translation language="English">
+            The pink line is the new way that the ColliderBody will go. If you are okey with the choosen time,
+            which we are right now, you can reclick the selected Event to save the changed time. This will also
+            deselect the Event and therefor close the Editpanel. Clicking on another Event in the Eventpanel would
+            deselect and save the current one and then afterwards select the clicked Event. But for now simply click
+            the selected On-Event to save the changes aswell as continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part15">
+        <Translation language="English">
+            You might think now that thats all nice and good, however won't get the ColliderBody into the goal either.
+            Right now the ColliderBody is stuck inside the GravityField. While reading throught the Effectors information 
+            you might have seen that the already defined Event not only turn the Effector on, but also off. So lets
+            define another On/Off Event right after the first one to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part16">
+        <Translation language="English">
+            Now we do the same thing again. Open up the newly defined On/Off Event in the Editpanel and finetune the time 
+            to match 2.3s. Doing so will deactive the Effector when the ColliderBody is at its center and will cause
+            it to have the maxmimum amount of velocity it could have. Change its Executiontime to 2.3s and deselect
+            the Event to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part17">
+        <Translation language="English">
+            Perfect! Reset the time and press the play button to see the defined Events in Action. However note that
+            you don't have to rewatch the level everytime. When changing a Event the game will resimulate everything
+            and let you know whether the current defined Events will complete the Level. When the level is complete, the 
+            Menubutton will change and pressing it will let you go into the next level. Touch this field to continue ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+    <Translations tag="TutorialBasic0Part18">
+        <Translation language="English">
+            Congratulations! You have completed the Basic0 Tutorial! There are a few more basic levels that will 
+            each introduce new concepts and prepare you for the more advanced levels in which you are entirely on your 
+            own. So press the menu button and go into the next level to finish this tutorial ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
 </TranslationPack>

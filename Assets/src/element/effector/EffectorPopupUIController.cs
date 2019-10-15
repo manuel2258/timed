@@ -1,6 +1,8 @@
+using System;
 using src.element.effector.effectors;
 using src.element.info;
 using src.misc;
+using src.tutorial.check_events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +12,7 @@ namespace src.element.effector {
     /// <summary>
     /// A Singleton UI Controller that manages the Effector Event Selection
     /// </summary>
-    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController> {
+    public class EffectorPopupUIController : UnitySingleton<EffectorPopupUIController>, ICheckAbleEvent {
 
         private Canvas _canvas;
 
@@ -29,6 +31,11 @@ namespace src.element.effector {
         public Button closeButton;
 
         public Button helpButton;
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
 
         private void Start() {
             _canvas = GetComponent<Canvas>();
@@ -36,6 +43,7 @@ namespace src.element.effector {
             closeButton.onClick.AddListener(() => {
                 _canvas.enabled = false;
                 ElementHighlighter.Instance.deleteAllPositions();
+                _checkEventManager.checkEvent("ClosedWindow");
             });
             
         }
@@ -47,8 +55,11 @@ namespace src.element.effector {
         public void showEffector(BaseEffector effector) {
             _canvas.enabled = true;
             helpButton.onClick.RemoveAllListeners();
-            helpButton.onClick.AddListener(() => EffectorInfoUIController.Instance.toggleEffectorInfo(effector.elementInfo));
-
+            helpButton.onClick.AddListener(() => {
+                EffectorInfoUIController.Instance.toggleEffectorInfo(effector.elementInfo);
+                _checkEventManager.checkEvent("ToggledInfo");
+            });
+ 
             for (int i = 0; i < contentParent.transform.childCount; i++) {
                 Destroy(contentParent.transform.GetChild(i).gameObject);
             }

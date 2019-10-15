@@ -2,18 +2,24 @@ using System;
 using src.misc;
 using src.simulation;
 using src.time.time_managers;
+using src.tutorial.check_events;
 
 namespace src.time.timeline {
     
     /// <summary>
     /// A Singleton that manages the editing of a TimedEffectorEvents
     /// </summary>
-    public class TimedEffectorEventEditManager : UnitySingleton<TimedEffectorEventEditManager> {
+    public class TimedEffectorEventEditManager : UnitySingleton<TimedEffectorEventEditManager>, ICheckAbleEvent {
 
         public OnEffectorEventTimeChanged onEffectorEventTimeChanged;
         private TimedEffectorEvent _currentEffectorEvent;
 
         private bool _timePickerBlocked;
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
 
         private void Start() {
             SimulationManager.Instance.onCalculationStarted += wasSide => _timePickerBlocked = true;
@@ -37,11 +43,14 @@ namespace src.time.timeline {
                     if (_timePickerBlocked) return;
                     effectorEvent.ExecutionTime = newTime;
                     onEffectorEventTimeChanged?.Invoke(newTime);
+                    _checkEventManager.checkEvent("ChangedEventTime");
+                    _checkEventManager.checkEvent($"ChangedEventTimeTo{newTime:N1}");
                 }, effectorEvent);
                 ReplayManager.Instance.disableActive();
                 ReplayTimeManager.Instance.setCurrentTime(effectorEvent.ExecutionTime);
                 ReplayUIController.Instance.setActiveChangeButtonState(false);
                 EventlineUIController.Instance.highlightEvent(effectorEvent);
+                _checkEventManager.checkEvent("EditOpened");
             } else {
                 _currentEffectorEvent = null;
                 EventlineUIController.Instance.disHighlightAll();
@@ -57,6 +66,7 @@ namespace src.time.timeline {
             Timeline.Instance.effectorTimeChanged();
             ReplayManager.Instance.restoreActive();
             ReplayUIController.Instance.setActiveChangeButtonState(true);
+            _checkEventManager.checkEvent("EditClosed");
         }
 
         public void removeTimedEffectorEvent(TimedEffectorEvent effectorEvent) {

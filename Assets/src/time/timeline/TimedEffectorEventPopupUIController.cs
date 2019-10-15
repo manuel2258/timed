@@ -1,5 +1,7 @@
+using System;
 using src.misc;
 using src.simulation;
+using src.tutorial.check_events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,13 +11,18 @@ namespace src.time.timeline {
     /// <summary>
     /// A Singleton representing the meta data of a timedEvent
     /// </summary>
-    public class TimedEffectorEventPopupUIController : UnitySingleton<TimedEffectorEventPopupUIController> {
+    public class TimedEffectorEventPopupUIController : UnitySingleton<TimedEffectorEventPopupUIController>, ICheckAbleEvent {
         
         public TMP_Text effectorEventTime;
 
         public Button reSimulateButton;
         public Button removeButton;
         private Canvas _canvas;
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
 
         private void Start() {
             _canvas = GetComponent<Canvas>();
@@ -39,6 +46,7 @@ namespace src.time.timeline {
             });
             reSimulateButton.onClick.AddListener(() => {
                 SimulationManager.Instance.calculateSimulation(true);
+                _checkEventManager.checkEvent("ResimulatePressed");
             });
         }
 

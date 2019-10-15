@@ -46,7 +46,7 @@
         <Part id="0">
             <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="1">Touched</CheckEvent>
             <HelpDisplay type="Text" id="1">
-                <Parameter name="height">200</Parameter>
+                <Parameter name="height">175</Parameter>
                 <Parameter name="content">[TutorialBasic0Part0]</Parameter>
             </HelpDisplay>
         </Part>
@@ -60,7 +60,7 @@
                 <Parameter name="anchorPosition">Left</Parameter>
             </HelpDisplay>
             <HelpDisplay type="Text" id="2">
-                <Parameter name="height">200</Parameter>
+                <Parameter name="height">175</Parameter>
                 <Parameter name="content">[TutorialBasic0Part1]</Parameter>
             </HelpDisplay>
         </Part>
@@ -75,7 +75,7 @@
                 <Parameter name="anchorPosition">Left</Parameter>
             </HelpDisplay>
             <HelpDisplay type="Text" id="3">
-                <Parameter name="height">250</Parameter>
+                <Parameter name="height">225</Parameter>
                 <Parameter name="content">[TutorialBasic0Part2]</Parameter>
             </HelpDisplay>
         </Part>
@@ -90,7 +90,7 @@
                 <Parameter name="anchorPosition">Left</Parameter>
             </HelpDisplay>
             <HelpDisplay type="Text" id="3">
-                <Parameter name="height">250</Parameter>
+                <Parameter name="height">225</Parameter>
                 <Parameter name="content">[TutorialBasic0Part3]</Parameter>
             </HelpDisplay>
         </Part>
@@ -114,7 +114,7 @@
                 <Parameter name="elementId">3</Parameter>
             </HelpDisplay>
             <HelpDisplay type="Text" id="2">
-                <Parameter name="height">300</Parameter>
+                <Parameter name="height">275</Parameter>
                 <Parameter name="content">[TutorialBasic0Part5]</Parameter>
             </HelpDisplay>
         </Part>
@@ -128,8 +128,164 @@
                 <Parameter name="elementId">0</Parameter>
             </HelpDisplay>
             <HelpDisplay type="Text" id="4">
-                <Parameter name="height">350</Parameter>
+                <Parameter name="height">325</Parameter>
                 <Parameter name="content">[TutorialBasic0Part6]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="7">
+            <CheckEvent type="ElementEvent" id="0" elementId="0">Touched</CheckEvent>
+            <HelpDisplay type="ElementHighlight" id="1">
+                <Parameter name="sizeX">2</Parameter>
+                <Parameter name="sizeY">2</Parameter>
+                <Parameter name="elementId">0</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">275</Parameter>
+                <Parameter name="content">[TutorialBasic0Part7]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="8">
+            <CheckEvent type="GameObjectEvent" id="0" name="EffectorInfo">ToggledInfo</CheckEvent>
+            <CheckEvent type="GameObjectEvent" id="1" name="EffectorInfo">ToggledInfo</CheckEvent>
+            <HelpDisplay type="Frame" id="2">
+                <Parameter name="positionX">630</Parameter>
+                <Parameter name="positionY">440</Parameter>
+                <Parameter name="sizeX">825</Parameter>
+                <Parameter name="sizeY">150</Parameter>
+                <Parameter name="anchorPosition">Left</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="3">
+                <Parameter name="height">350</Parameter>
+                <Parameter name="content">[TutorialBasic0Part8]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="9">
+            <CheckEvent type="GameObjectEvent" id="0" name="ReplayManager">TimeReset</CheckEvent>
+            <CheckEvent type="ElementEvent" id="1" elementId="0">AddedEventOn/Off</CheckEvent>
+            <HelpDisplay type="Frame" id="2">
+                <Parameter name="positionX">293</Parameter>
+                <Parameter name="positionY">300</Parameter>
+                <Parameter name="sizeX">135</Parameter>
+                <Parameter name="sizeY">135</Parameter>
+                <Parameter name="anchorPosition">Left</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="3">
+                <Parameter name="height">400</Parameter>
+                <Parameter name="content">[TutorialBasic0Part9]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="10">
+            <CheckEvent type="GameObjectEvent" id="0" name="TimedEffectorEventEditManager">EditOpened</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-115</Parameter>
+                <Parameter name="positionY">425</Parameter>
+                <Parameter name="sizeX">170</Parameter>
+                <Parameter name="sizeY">150</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">300</Parameter>
+                <Parameter name="content">[TutorialBasic0Part10]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="11">
+            <CheckEvent type="PartElementEvent" id="0" partId="11" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-425</Parameter>
+                <Parameter name="positionY">380</Parameter>
+                <Parameter name="sizeX">300</Parameter>
+                <Parameter name="sizeY">250</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">250</Parameter>
+                <Parameter name="content">[TutorialBasic0Part11]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="12">
+            <CheckEvent type="GameObjectEvent" id="0" name="TimedEffectorEventEditManager">ChangedEventTimeTo2.0</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-425</Parameter>
+                <Parameter name="positionY">310</Parameter>
+                <Parameter name="sizeX">250</Parameter>
+                <Parameter name="sizeY">120</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">150</Parameter>
+                <Parameter name="content">[TutorialBasic0Part12]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="13">
+            <CheckEvent type="GameObjectEvent" id="0" name="TimeEffectorEventPopup">ResimulatePressed</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-495</Parameter>
+                <Parameter name="positionY">430</Parameter>
+                <Parameter name="sizeX">140</Parameter>
+                <Parameter name="sizeY">140</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">150</Parameter>
+                <Parameter name="content">[TutorialBasic0Part13]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="14">
+            <CheckEvent type="GameObjectEvent" id="0" name="TimedEffectorEventEditManager">EditClosed</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-112</Parameter>
+                <Parameter name="positionY">435</Parameter>
+                <Parameter name="sizeX">125</Parameter>
+                <Parameter name="sizeY">125</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">350</Parameter>
+                <Parameter name="content">[TutorialBasic0Part14]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="15">
+            <CheckEvent type="ElementEvent" id="0" elementId="0">AddedEventOn/Off</CheckEvent>
+            <HelpDisplay type="Text" id="1">
+                <Parameter name="height">350</Parameter>
+                <Parameter name="content">[TutorialBasic0Part15]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="16">
+            <CheckEvent type="GameObjectEvent" id="0" name="TimedEffectorEventEditManager">EditOpened</CheckEvent>
+            <CheckEvent type="GameObjectEvent" id="1" name="TimedEffectorEventEditManager">ChangedEventTimeTo2.3</CheckEvent>
+            <CheckEvent type="GameObjectEvent" id="2" name="TimedEffectorEventEditManager">EditClosed</CheckEvent>
+            <HelpDisplay type="Text" id="3">
+                <Parameter name="height">300</Parameter>
+                <Parameter name="content">[TutorialBasic0Part16]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="17">
+            <CheckEvent type="PartElementEvent" id="0" partId="17" elementId="2">Touched</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-315</Parameter>
+                <Parameter name="positionY">-425</Parameter>
+                <Parameter name="sizeX">135</Parameter>
+                <Parameter name="sizeY">135</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">300</Parameter>
+                <Parameter name="content">[TutorialBasic0Part17]</Parameter>
+            </HelpDisplay>
+        </Part>
+        <Part id="18">
+            <CheckEvent type="GameObjectEvent" id="0" name="EndLevel">SetActive</CheckEvent>
+            <HelpDisplay type="Frame" id="1">
+                <Parameter name="positionX">-315</Parameter>
+                <Parameter name="positionY">-425</Parameter>
+                <Parameter name="sizeX">135</Parameter>
+                <Parameter name="sizeY">135</Parameter>
+                <Parameter name="anchorPosition">Right</Parameter>
+            </HelpDisplay>
+            <HelpDisplay type="Text" id="2">
+                <Parameter name="height">300</Parameter>
+                <Parameter name="content">[TutorialBasic0Part18]</Parameter>
             </HelpDisplay>
         </Part>
     </TutorialSequence>

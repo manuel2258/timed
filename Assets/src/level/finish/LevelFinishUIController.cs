@@ -1,13 +1,14 @@
-using src.level.parsing;
+using System;
 using src.level.selection;
 using src.misc;
 using src.simulation.reseting;
+using src.tutorial.check_events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace src.level.finish {
-    public class LevelFinishUIController : UnitySingleton<LevelFinishUIController>, IResetable, IStackAbleWindow {
+    public class LevelFinishUIController : UnitySingleton<LevelFinishUIController>, IResetable, IStackAbleWindow, ICheckAbleEvent {
 
         public Canvas endLevelScreen;
         public Button endLevelButton;
@@ -19,6 +20,11 @@ namespace src.level.finish {
 
         public Sprite notFinished;
         public Sprite finished;
+        
+        private readonly CheckEventManager _checkEventManager = new CheckEventManager();
+        public void registerEvent(string eventName, Action onEventChecked) {
+            _checkEventManager.registerEvent(eventName, onEventChecked);
+        }
 
         private void Start() {
             LevelFinishManager.Instance.onLevelFinished += () => {
@@ -42,6 +48,8 @@ namespace src.level.finish {
 
         public void setActive(bool newState) {
             endLevelScreen.enabled = newState;
+            var stateString = newState? "Active" : "NonActive";
+            _checkEventManager.checkEvent($"Set{stateString}");
         }
 
         public bool isActive() {

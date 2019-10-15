@@ -38,6 +38,7 @@ namespace src.element.effector.effectors {
         private void Update() {
             if (TouchManager.Instance.isTouched(transform.position, touchHitBox)) {
                 EffectorPopupUIController.Instance.showEffector(this);
+                checkEventManager.checkEvent("Touched");
                 onTouched();
             }
         }
