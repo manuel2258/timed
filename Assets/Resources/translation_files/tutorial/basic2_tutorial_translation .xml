@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="TutorialBasic2Part0">
+        <Translation language="English">
+            Hmh this level seems familiar. However simply turing the Gravityfield on and off won't give the Colliderbody
+            enought energy to close such a huge gap. If you think back to the first level you hopefully have read through
+            the Gravityfields Eventinformations. If not do so! Also have a look at the available events of the Gravityfield.
+            This should be enought to complete this level, therefor touch this field to finish the tutorial ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+</TranslationPack>

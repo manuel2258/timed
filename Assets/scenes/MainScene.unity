@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c52d2d22b0459fbb5d1bdc1948648d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: levels/basic_levels/basic_0
+  filename: levels/basic_levels/basic_6
 --- !u!4 &1666881780
 Transform:
   m_ObjectHideFlags: 0

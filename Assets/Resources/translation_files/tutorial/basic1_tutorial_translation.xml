@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="TutorialBasic1Part0">
+        <Translation language="English">
+            Alright, now try to solve this level on your own!
+            Also another tip. Try to already define the events at right time instead of definding them at 0s and then 
+            moving them to the right spot. But thats up to you for now, click this field to finish this tutorial ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+</TranslationPack>

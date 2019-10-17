@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="TutorialBasic4Part0">
+        <Translation language="English">
+            Huh now its starting to get interresting! The aspects of colors are pretty easy in this game. Effectors can 
+            only effect Colliderbodys with the same color. There are special events to change the color of a Effector.
+            So firstly try to get the Yellow Colliderbody into the goal, then change the Gravityfields color to Blue 
+            and do the same with it aswell. Also note that the Goals color has to match the Colliderbodys color.
+            Touch this field to finish the tutorial ...
+        </Translation>
+        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+    </Translations>
+</TranslationPack>
