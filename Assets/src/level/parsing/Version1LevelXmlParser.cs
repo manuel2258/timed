@@ -1,33 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
-using Editor;
 using src.element;
 using src.element.effector;
 using src.element.triggers;
 using src.level.initializing;
-using src.misc;
 using UnityEngine;
 
 namespace src.level.parsing {
-    public static class LevelXmlParser {
-
+    public class Version1LevelXmlParser : ILevelParser {
+        
         /// <summary>
-        /// Parses the provided strings into ElementInitializers
+        /// Parses the provided strings into a LevelContainer
         /// </summary>
-        /// <param name="xmlString">The to parse XmlString</param>
-        /// <returns>The parsed ElementInitializers</returns>
+        /// <param name="levelNode">The to parse form LevelNode</param>
+        /// <returns>The ready to initialize LevelContainer</returns>
         /// <exception cref="Exception">If something could not be parsed properly</exception>
-        public static LevelContainer parseLevelFromXmlString(string xmlString) {
-            
-            // Creates a XmlDocument from the 
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(xmlString);
-            var elements = xmlDocument.SelectSingleNode("/Level/Elements");
+        public LevelContainer parseLevelFromXmlString(XmlNode levelNode) {
             
             // Parses the levels meta data and creates a level container
-            var levelNode = xmlDocument.SelectSingleNode("Level");
-            
             var levelName = ParseHelper.getAttributeValueByName(levelNode, "name");
             
             var gravityStringX = ParseHelper.getAttributeValueByName(levelNode, "gravity_x");
@@ -46,7 +37,8 @@ namespace src.level.parsing {
             }
             
             var level = new LevelContainer(levelName, new Vector2(gravityX, gravityY), difficulty);
-
+            
+            var elements = levelNode.SelectSingleNode("Elements");
             if (elements != null) {
                 // Then goes through each element
                 foreach (XmlNode element in elements.ChildNodes) {
@@ -114,7 +106,5 @@ namespace src.level.parsing {
 
             return level;
         }
-
-        
     }
 }

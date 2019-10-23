@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using src.level.initializing;
 using UnityEngine;
 
-namespace src.tutorial {
+namespace src.tutorial.help_displays {
     public class HelpDisplayInitializer : IPartElement {
 
         private readonly HelpDisplayType _helpDisplayType;

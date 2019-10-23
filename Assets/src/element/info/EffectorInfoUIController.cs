@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using src.misc;
+using src.touch;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +16,8 @@ namespace src.element.info {
 
         public Transform eventParent;
         public GameObject eventContentPrefab;
+
+        [SerializeField] private List<RectTransform> uiMask;
 
         private void Start() {
             helpCanvas.enabled = false;
@@ -38,6 +42,11 @@ namespace src.element.info {
 
         public void setActive(bool newState) {
             helpCanvas.enabled = newState;
+            if (newState) {
+                UiMaskManager.Instance.addMasks(uiMask);
+            } else {
+                UiMaskManager.Instance.removeMasks(uiMask);
+            }
         }
 
         public bool isActive() {

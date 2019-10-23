@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using src.level.selection;
 using src.misc;
 using src.simulation.reseting;
+using src.touch;
 using src.tutorial.check_events;
 using TMPro;
 using UnityEngine;
@@ -20,6 +22,8 @@ namespace src.level.finish {
 
         public Sprite notFinished;
         public Sprite finished;
+
+        public List<RectTransform> uiMask;
         
         private readonly CheckEventManager _checkEventManager = new CheckEventManager();
         public void registerEvent(string eventName, Action onEventChecked) {
@@ -50,6 +54,11 @@ namespace src.level.finish {
             endLevelScreen.enabled = newState;
             var stateString = newState? "Active" : "NonActive";
             _checkEventManager.checkEvent($"Set{stateString}");
+            if (newState) {
+                UiMaskManager.Instance.addMasks(uiMask);
+            } else {
+                UiMaskManager.Instance.removeMasks(uiMask);
+            }
         }
 
         public bool isActive() {

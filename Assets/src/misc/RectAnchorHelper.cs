@@ -10,6 +10,8 @@ namespace src.misc {
                     return new Anchor {min = new Vector2(0, 0.5f), max = new Vector2(0, 0.5f)};
                 case AnchorPosition.Right:
                     return new Anchor {min = new Vector2(1, 0.5f), max = new Vector2(1, 0.5f)};
+                case AnchorPosition.Middle:
+                    return new Anchor {min = new Vector2(0.5f, 0.5f), max = new Vector2(0.5f, 0.5f)};
                 default:
                     throw new Exception("Could not parse AnchorPosition");
             }
@@ -23,6 +25,7 @@ namespace src.misc {
 
     public enum AnchorPosition {
         Left,
+        Middle,
         Right
     }
 }

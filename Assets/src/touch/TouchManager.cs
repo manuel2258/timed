@@ -39,34 +39,37 @@ namespace src.touch {
             for (int i = 0; i < MAX_FRAMES; i++) {
                 _currentTouches.Add(new Frame());
             }
+            UiMaskManager.Instance.addPersistentMask(cameraMovementArea);
         }
 
-        private void Update() {
+        public void update() {
             var frame = new Frame();
-            if (!blocked) {
-                // Checks if on mobile or editor
-                if (Input.touchSupported || overrideTouchSupported) {
-                    // If mobile go through each registered touch
-                    for (int i = 0; i < Input.touchCount; i++) {
-                        var currentTouch = Input.GetTouch(i);
-                        // And simply adds it to the frame
-                        frame.addTouch(new Touch {
-                            worldPosition = CameraManager.Camera.ScreenToWorldPoint(currentTouch.position),
-                            screenPosition = currentTouch.position,
-                            inCameraArea = isPositionInsideCameraMovementArea(currentTouch.position),
-                        });
-                    }
-                } else {
-                    // If in the Editor simply check for mouseInput and then adds it as well
-                    if (Input.GetMouseButton(0)) {
-                        frame.addTouch(new Touch {
-                            worldPosition = CameraManager.Camera.ScreenToWorldPoint(Input.mousePosition),
-                            screenPosition = Input.mousePosition,
-                            inCameraArea = isPositionInsideCameraMovementArea(Input.mousePosition),
-                        });
-                    }
+            // Checks if on mobile or editor
+            if (Input.touchSupported || overrideTouchSupported) {
+                // If mobile go through each registered touch
+                for (int i = 0; i < Input.touchCount; i++) {
+                    var currentTouch = Input.GetTouch(i);
+                    // And simply adds it to the frame
+                    frame.addTouch(new Touch {
+                        worldPosition = CameraManager.Camera.ScreenToWorldPoint(currentTouch.position),
+                        screenPosition = currentTouch.position,
+                        inCameraArea = isPositionInsideCameraMovementArea(currentTouch.position),
+                        inputType = InputType.Touch,
+                        originalTouch = currentTouch,
+                    });
+                }
+            } else {
+                // If in the Editor simply check for mouseInput and then adds it as well
+                if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) {
+                    frame.addTouch(new Touch {
+                        worldPosition = CameraManager.Camera.ScreenToWorldPoint(Input.mousePosition),
+                        screenPosition = Input.mousePosition,
+                        inCameraArea = isPositionInsideCameraMovementArea(Input.mousePosition),
+                        inputType = InputType.Mouse,
+                    });
                 }
             }
+
 
             // Inserts the frame into the front
             _currentTouches.Insert(0, frame);
@@ -99,8 +102,14 @@ namespace src.touch {
         }
 
         private bool isPositionInsideCameraMovementArea(Vector2 position) {
+            if (blocked) return false;
             return RectTransformUtility.RectangleContainsScreenPoint(cameraMovementArea, position,
                 CameraManager.Camera);
+        }
+
+        public bool currentTouchIsInsideUiMask(int id) {
+            return !UiMaskManager.Instance.HasMask || 
+                   UiMaskManager.Instance.touchIsInMask(_currentTouches[0].Touches[id].screenPosition);
         }
     }
 
@@ -138,5 +147,14 @@ namespace src.touch {
 
         // If the touch was in the CameraMoveArea
         public bool inCameraArea;
+
+        public InputType inputType;
+        
+        public UnityEngine.Touch originalTouch;
+    }
+
+    public enum InputType {
+        Touch,
+        Mouse
     }
 }

@@ -1,18 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
-using src.level.parsing;
+using src.tutorial;
 using src.tutorial.check_events;
+using src.tutorial.help_displays;
+using src.tutorial.ui_masks;
 
-
-namespace src.tutorial {
-    public static class TutorialXmlParser {
-        public static TutorialContainer parseTutorialFromXmlString(string xmlString) {
-
-            // Creates a XmlDocument from the 
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(xmlString);
-            var parts = xmlDocument.SelectSingleNode("/Level/TutorialSequence");
+namespace src.level.parsing {
+    public class Version1TutorialXmlParser : ITutorialParser  {
+        public TutorialContainer parseTutorialFromXmlString(XmlNode xmlDocument) {
+            
+            var parts = xmlDocument.SelectSingleNode("TutorialSequence");
 
             var tutorialContainer = new TutorialContainer();
 
@@ -29,6 +27,7 @@ namespace src.tutorial {
 
                     var checkEvents = part.SelectNodes("CheckEvent");
                     var helpDisplays = part.SelectNodes("HelpDisplay");
+                    var uiMasks = part.SelectNodes("TutorialUiMask");
 
                     if (checkEvents != null) {
                         foreach (XmlNode checkEvent in checkEvents) {
@@ -86,6 +85,24 @@ namespace src.tutorial {
                             }
                             
                             partContainer.addElement(new HelpDisplayInitializer(helpDisplayType, parameters), id);
+                        }
+                    }
+                    
+                    if (uiMasks != null) {
+                        foreach (XmlNode uiMask in uiMasks) {
+                            var idString = ParseHelper.getAttributeValueByName(uiMask, "id");
+                            if (!int.TryParse(idString, out var id)) {
+                                throw new Exception($"Could not parse id: {idString}");
+                            }
+
+                            var parameters = new Dictionary<string, string>();
+                            var parameterNodes = uiMask.SelectNodes("Parameter");
+                            foreach (XmlNode parameterNode in parameterNodes) {
+                                var attributeName = parameterNode.Attributes[0].Value;
+                                parameters.Add(attributeName, parameterNode.InnerText);
+                            }
+                            
+                            partContainer.addElement(new TutorialUiMaskInitializer(parameters), id);
                         }
                     }
                 }

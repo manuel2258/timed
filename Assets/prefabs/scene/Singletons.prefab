@@ -193,6 +193,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68d715299f7d533d8dfcdacc22f9317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1596674888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596674889}
+  - component: {fileID: 1596674890}
+  m_Layer: 0
+  m_Name: UiMaskManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596674889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596674888}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5014592534901394230}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596674890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596674888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12c32db7d9b47f9bc6a3527fcb10706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1760469684
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +285,7 @@ MonoBehaviour:
   elementHighlight: {fileID: 2731496548585015547, guid: eb02d297a1404330f8245ec8de354483,
     type: 3}
   text: {fileID: 8784104488446812723, guid: 2562ec8cef68c6c469b61f9f5a6bd19d, type: 3}
+  uiMask: {fileID: 7583910049895798133, guid: 62883e7233879effaab846fbdb51ad70, type: 3}
 --- !u!1 &2104421676
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +591,7 @@ GameObject:
   - component: {fileID: 2550989267877321460}
   - component: {fileID: 2550989267877321461}
   m_Layer: 0
-  m_Name: TimedEffectorEventManager
+  m_Name: TimedEffectorEventEditManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1136,6 +1180,7 @@ Transform:
   - {fileID: 2104421677}
   - {fileID: 1760469685}
   - {fileID: 1463202961}
+  - {fileID: 1596674889}
   m_Father: {fileID: 2550989267879149392}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

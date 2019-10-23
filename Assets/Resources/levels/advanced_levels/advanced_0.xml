@@ -1,58 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level name="Double Trouble" id="8" difficulty="5" gravity_x="0" gravity_y="-9.81">
-    <Elements>
-        <Effector type="RadialGravityEffector" id="1">
-            <Position x="0" y="0"/>
-            <Rotation angle="0"/>
-            <Parameter name="force">5000</Parameter>
-            <Parameter name="invertAble">true</Parameter>
-            <Parameter name="disableAble">true</Parameter>
-            <Parameter name="colors"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </Effector>
-        <Effector type="RadialGravityEffector" id="1">
-            <Position x="12" y="4"/>
-            <Rotation angle="0"/>
-            <Parameter name="force">5000</Parameter>
-            <Parameter name="invertAble">true</Parameter>
-            <Parameter name="disableAble">true</Parameter>
-            <Parameter name="colors"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </Effector>
-        <Effector type="RadialGravityEffector" id="1">
-            <Position x="-12" y="4"/>
-            <Rotation angle="0"/>
-            <Parameter name="force">5000</Parameter>
-            <Parameter name="invertAble">true</Parameter>
-            <Parameter name="disableAble">true</Parameter>
-            <Parameter name="colors"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </Effector>
-        <ColliderBody id="5">
-            <Position x="5" y="5"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </ColliderBody>
-        <ColliderBody id="5">
-            <Position x="-5" y="5"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </ColliderBody>
-        <Trigger type="Goal" id="6">
-            <Position x="0" y="10"/>
-            <Rotation angle="0"/>
-            <Parameter name="color">Yellow</Parameter>
-            <Parameter name="amount">2</Parameter>
-        </Trigger>
-        <Wall id="6">
-            <Position x="-7.5" y="0"/>
-            <Rotation angle="-30"/>
-            <Scale x="10" y="0.2"/>
-        </Wall>
-        <Wall id="6">
-            <Position x="7.5" y="0"/>
-            <Rotation angle="30"/>
-            <Scale x="10" y="0.2"/>
-        </Wall>
-    </Elements>
-</Level>
+<LevelFile levelHash="" version="1">
+    <Level name="Double Trouble" difficulty="5" gravity_x="0" gravity_y="-9.81">
+        <Elements>
+            <Effector type="RadialGravityEffector" id="1">
+                <Position x="0" y="0"/>
+                <Rotation angle="0"/>
+                <Parameter name="force">5000</Parameter>
+                <Parameter name="invertAble">true</Parameter>
+                <Parameter name="disableAble">true</Parameter>
+                <Parameter name="colors"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </Effector>
+            <Effector type="RadialGravityEffector" id="2">
+                <Position x="12" y="4"/>
+                <Rotation angle="0"/>
+                <Parameter name="force">5000</Parameter>
+                <Parameter name="invertAble">true</Parameter>
+                <Parameter name="disableAble">true</Parameter>
+                <Parameter name="colors"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </Effector>
+            <Effector type="RadialGravityEffector" id="3">
+                <Position x="-12" y="4"/>
+                <Rotation angle="0"/>
+                <Parameter name="force">5000</Parameter>
+                <Parameter name="invertAble">true</Parameter>
+                <Parameter name="disableAble">true</Parameter>
+                <Parameter name="colors"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </Effector>
+            <ColliderBody id="4">
+                <Position x="5" y="5"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </ColliderBody>
+            <ColliderBody id="5">
+                <Position x="-5" y="5"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </ColliderBody>
+            <Trigger type="Goal" id="6">
+                <Position x="0" y="10"/>
+                <Rotation angle="0"/>
+                <Parameter name="color">Yellow</Parameter>
+                <Parameter name="amount">2</Parameter>
+            </Trigger>
+            <Wall id="7">
+                <Position x="-7.5" y="0"/>
+                <Rotation angle="-30"/>
+                <Scale x="10" y="0.2"/>
+            </Wall>
+            <Wall id="8">
+                <Position x="7.5" y="0"/>
+                <Rotation angle="30"/>
+                <Scale x="10" y="0.2"/>
+            </Wall>
+        </Elements>
+    </Level>
+</LevelFile>

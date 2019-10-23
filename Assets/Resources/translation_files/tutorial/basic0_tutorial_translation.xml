@@ -61,8 +61,8 @@
             they can effect the ColliderBodys that get into their range. When a ColliderBody
             is in their Range its core will get bigger indicating that it could interact 
             with the in Range ColliderBody.
-            Pause the time, reset it with the Resetbutton, play it again and see how
-            the Effectors core will get bigger. Afterwards touch this field to continue ...
+            Reset the time with the Resetbutton, play it again and see how the Effectors core will 
+            get bigger. Afterwards press pause and touch this field to continue ...
         </Translation>
         <Translation language="German">XXXXXXXXXXXXXX</Translation>
     </Translations>
@@ -151,7 +151,7 @@
     <Translations tag="TutorialBasic0Part16">
         <Translation language="English">
             Now we do the same thing again. Open up the newly defined On/Off Event in the Editpanel and finetune the time 
-            to match 2.3s. Doing so will deactive the Effector when the ColliderBody is at its center and will cause
+            to match 2.3s. Doing so will deactivate the Effector when the ColliderBody is at its center and will cause
             it to have the maxmimum amount of velocity it could have. Change its Executiontime to 2.3s and deselect
             the Event to continue ...
         </Translation>

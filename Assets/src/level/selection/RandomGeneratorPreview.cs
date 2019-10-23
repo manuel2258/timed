@@ -1,10 +1,5 @@
-using src.level.generator.levels;
-using src.level.parsing;
-using TMPro;
-using UnityEngine;
-
 namespace src.level.selection {
-    public class RandomGeneratorPreview : MonoBehaviour {
+   /* public class RandomGeneratorPreview : MonoBehaviour {
 
         private string _generatedLevel;
         private int _difficulty;
@@ -19,7 +14,9 @@ namespace src.level.selection {
         public void generateAndPreviewLevel() {
             LevelManager.Instance.LevelRoot.transform.localScale = Vector3.one;
             _generatedLevel = new LevelGenerator().CreateLevel(Random.Range(int.MinValue, int.MaxValue), _difficulty * 2);
-            LevelXmlParser.parseLevelFromXmlString(_generatedLevel).initializeLevel();
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(_generatedLevel);
+            Version1LevelXmlParser.parseLevelFromXmlString(xmlDocument).initializeLevel();
             LevelManager.Instance.LevelRoot.transform.localScale /= 2;
         }
 
@@ -36,5 +33,5 @@ namespace src.level.selection {
             _difficulty = Mathf.Clamp(_difficulty, 1, 5);
             difficultyDisplay.text = _difficulty.ToString();
         }
-    }
+    }*/
 }

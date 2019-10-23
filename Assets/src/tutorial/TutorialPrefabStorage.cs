@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Editor;
 using src.misc;
+using src.tutorial.help_displays;
 using UnityEngine;
 
 namespace src.tutorial {
@@ -13,6 +14,8 @@ namespace src.tutorial {
         [SerializeField] private GameObject elementHighlight;
         [SerializeField] private GameObject text;
         
+        [SerializeField] private GameObject uiMask;
+
         private readonly Dictionary<HelpDisplayType, GameObject> _helpDisplayPrefabs = 
             new Dictionary<HelpDisplayType, GameObject>();
 
@@ -24,6 +27,10 @@ namespace src.tutorial {
 
         public GameObject getHelpDisplayByType(HelpDisplayType type) {
             return Instantiate(_helpDisplayPrefabs[type]);
+        }
+
+        public GameObject getUiMask() {
+            return Instantiate(uiMask);
         }
     }
 }

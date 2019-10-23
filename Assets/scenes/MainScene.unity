@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c52d2d22b0459fbb5d1bdc1948648d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: levels/basic_levels/basic_6
+  filename: levels/basic_levels/basic_9
 --- !u!4 &1666881780
 Transform:
   m_ObjectHideFlags: 0
@@ -446,11 +446,6 @@ PrefabInstance:
       propertyPath: <TutorialRoot>k__BackingField
       value: 
       objectReference: {fileID: 1221300128}
-    - target: {fileID: 2550989267877321451, guid: b66459547023957048f175cfed26b962,
-        type: 3}
-      propertyPath: m_Name
-      value: TimedEffectorEventEditManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b66459547023957048f175cfed26b962, type: 3}
 --- !u!1001 &3201295432349818974
@@ -593,7 +588,7 @@ PrefabInstance:
     - target: {fileID: 3201295433418571388, guid: 43ca60101e5e58bafbfbb385b901f9cd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 3201295433418571388, guid: 43ca60101e5e58bafbfbb385b901f9cd,
         type: 3}
@@ -745,5 +740,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 455608153}
+    - target: {fileID: 851501842, guid: 43ca60101e5e58bafbfbb385b901f9cd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 860
+      objectReference: {fileID: 0}
+    - target: {fileID: 851501842, guid: 43ca60101e5e58bafbfbb385b901f9cd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43ca60101e5e58bafbfbb385b901f9cd, type: 3}

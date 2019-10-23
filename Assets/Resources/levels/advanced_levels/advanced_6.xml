@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level name="American Sniper" id="9" difficulty="4" gravity_x="0" gravity_y="-9.81">
-    <Elements>
-        <Wall id="6">
-            <Position x="-30" y="-3"/>
-            <Rotation angle="-20"/>
-            <Scale x="30" y="0.2"/>
-        </Wall>
-        <Effector type="RadialGravityEffector" id="1">
-            <Position x="-12" y="-8"/>
-            <Rotation angle="0"/>
-            <Parameter name="force">7000</Parameter>
-            <Parameter name="invertAble">true</Parameter>
-            <Parameter name="disableAble">true</Parameter>
-            <Parameter name="colors"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </Effector>
-        <ColliderBody id="5">
-            <Position x="-30" y="-2"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </ColliderBody>
-        <ColliderBody id="5">
-            <Position x="-43" y="3"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </ColliderBody>
-        <ColliderBody id="5">
-            <Position x="-13" y="-11"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </ColliderBody>
-        <Trigger type="Goal" id="6">
-            <Position x="20" y="-5"/>
-            <Rotation angle="0"/>
-            <Parameter name="color">Yellow</Parameter>
-            <Parameter name="amount">1</Parameter>
-        </Trigger>
-        <Trigger type="Goal" id="6">
-            <Position x="20" y="15"/>
-            <Rotation angle="0"/>
-            <Parameter name="color">Yellow</Parameter>
-            <Parameter name="amount">1</Parameter>
-        </Trigger>
-        <Trigger type="Goal" id="6">
-            <Position x="20" y="5"/>
-            <Rotation angle="0"/>
-            <Parameter name="color">Yellow</Parameter>
-            <Parameter name="amount">1</Parameter>
-        </Trigger>
-    </Elements>
-</Level>
+<LevelFile levelHash="" version="1">
+    <Level name="American Sniper" difficulty="4" gravity_x="0" gravity_y="-9.81">
+        <Elements>
+            <Wall id="1">
+                <Position x="-30" y="-3"/>
+                <Rotation angle="-20"/>
+                <Scale x="30" y="0.2"/>
+            </Wall>
+            <Effector type="RadialGravityEffector" id="2">
+                <Position x="-12" y="-8"/>
+                <Rotation angle="0"/>
+                <Parameter name="force">7000</Parameter>
+                <Parameter name="invertAble">true</Parameter>
+                <Parameter name="disableAble">true</Parameter>
+                <Parameter name="colors"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </Effector>
+            <ColliderBody id="3">
+                <Position x="-30" y="-2"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </ColliderBody>
+            <ColliderBody id="4">
+                <Position x="-43" y="3"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </ColliderBody>
+            <ColliderBody id="5">
+                <Position x="-13" y="-11"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </ColliderBody>
+            <Trigger type="Goal" id="6">
+                <Position x="20" y="-5"/>
+                <Rotation angle="0"/>
+                <Parameter name="color">Yellow</Parameter>
+                <Parameter name="amount">1</Parameter>
+            </Trigger>
+            <Trigger type="Goal" id="7">
+                <Position x="20" y="15"/>
+                <Rotation angle="0"/>
+                <Parameter name="color">Yellow</Parameter>
+                <Parameter name="amount">1</Parameter>
+            </Trigger>
+            <Trigger type="Goal" id="8">
+                <Position x="20" y="5"/>
+                <Rotation angle="0"/>
+                <Parameter name="color">Yellow</Parameter>
+                <Parameter name="amount">1</Parameter>
+            </Trigger>
+        </Elements>
+    </Level>
+</LevelFile>

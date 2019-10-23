@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.level;
+using src.touch;
 using src.tutorial.check_events;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -11,8 +12,12 @@ namespace src.tutorial {
         private readonly Dictionary<int, IPartElement> _partElements = new Dictionary<int, IPartElement>();
         private readonly Dictionary<int, BaseCheckEvent> _checkEvents = new Dictionary<int, BaseCheckEvent>();
         private readonly Stack<BaseCheckEvent> _events = new Stack<BaseCheckEvent>();
+
+        private readonly List<IPartElement> _masks = new List<IPartElement>();
+        private readonly List<RectTransform> _uiMasks = new List<RectTransform>();
         
         public int Id { get; }
+        public bool IsBlocking { get; private set; }
         public Action<int> onAllEventsChecked;
 
         private GameObject _rectParent;
@@ -27,8 +32,11 @@ namespace src.tutorial {
         public void addElement(IPartElement element, int id) {
             if (element.getElementType() == PartElementType.HelpDisplay) {
                 _partElements.Add(id, element);
-            } else {
+            } else if (element.getElementType() == PartElementType.CheckEvent) {
                 _checkEvents.Add(id, (BaseCheckEvent)element);
+            }
+            else if (element.getElementType() == PartElementType.TutorialUiMask) {
+                _masks.Add(element);
             }
         }
 
@@ -42,6 +50,11 @@ namespace src.tutorial {
             foreach (var keyValue in _partElements) {
                 var partElement = keyValue.Value;
                 partElement.initialize(_rectParent.transform, _worldParent.transform);
+            }
+            
+            foreach (var blocker in _masks) {
+                blocker.initialize(_rectParent.transform, _worldParent.transform);
+                _uiMasks.Add(blocker.getGameObject().GetComponent<RectTransform>());
             }
 
             int i = _checkEvents.Count;
@@ -78,6 +91,11 @@ namespace src.tutorial {
             _rectParent.SetActive(state);
             _worldParent.SetActive(state);
             _currentActiveState = state;
+            if (state) {
+                UiMaskManager.Instance.addMasks(_uiMasks);
+            } else {
+                UiMaskManager.Instance.removeMasks(_uiMasks);
+            }
         }
     }
 
@@ -89,6 +107,7 @@ namespace src.tutorial {
 
     public enum PartElementType {
         CheckEvent,
-        HelpDisplay
+        HelpDisplay,
+        TutorialUiMask,
     }
 }

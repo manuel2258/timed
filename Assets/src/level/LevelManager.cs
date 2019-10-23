@@ -1,3 +1,5 @@
+using System;
+using System.Xml;
 using Editor;
 using src.level.parsing;
 using src.misc;
@@ -17,14 +19,30 @@ namespace src.level {
 
         private void Start() {
             if (GlobalGameState.Instance.IsInGame) {
-                CurrentLevel = LevelXmlParser.parseLevelFromXmlString(LevelXmlPayload.Instance.levelXml);
-                CurrentTutorial = TutorialXmlParser.parseTutorialFromXmlString(LevelXmlPayload.Instance.levelXml);
-                CurrentLevel.initializeLevel();
-                CurrentTutorial.initializeTutorial();
-                CurrentTutorial.onTutorialFinished += () => Debug.Log("TutorialFinished");
+                loadXmlFromPayload();
             }
         }
-        
+
+        public void loadXmlFromPayload() {
+            // Creates a XmlDocument from the 
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(LevelXmlPayload.Instance.levelXml);
+            var levelFile = xmlDocument.SelectSingleNode("LevelFile");
+            if (!SecurityChecker.validateXmlLevel(levelFile)) return;
+
+            var versionString = ParseHelper.getAttributeValueByName(levelFile, "version");
+            if (!int.TryParse(versionString, out var version)) {
+                throw new Exception("Could not parse a valid Versionnumber from: " + versionString);
+            }
+
+            var levelXml = levelFile.SelectSingleNode("Level");
+            CurrentLevel = ParserFactory.getLevelParserByVersion(version).parseLevelFromXmlString(levelXml);
+            CurrentTutorial = ParserFactory.getTutorialParserByVersion(version).parseTutorialFromXmlString(levelXml);
+            CurrentLevel.initializeLevel();
+            CurrentTutorial.initializeTutorial();
+            CurrentTutorial.onTutorialFinished += () => Debug.Log("TutorialFinished");
+        }
+
         public void clearAllLevelChildren() {
             for (int i = 0; i < LevelRoot.childCount; i++) {
                 Destroy(LevelRoot.GetChild(i).gameObject);

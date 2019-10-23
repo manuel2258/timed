@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level name="Portal" id="9" difficulty="1" gravity_x="0" gravity_y="-9.81">
-    <Elements>
-        <Effector type="TeleporterEffector" id="1">
-            <Position x="-1" y="0"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialEnabled">true</Parameter>
-            <Parameter name="disableAble">false</Parameter>
-            <Parameter name="colors"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-            <Parameter name="differenceX">2</Parameter>
-            <Parameter name="differenceY">0</Parameter>
-            <Parameter name="differenceAngle">0</Parameter>
-        </Effector>
-        <Effector type="RadialGravityEffector" id="1">
-            <Position x="-8" y="-1"/>
-            <Rotation angle="0"/>
-            <Parameter name="force">5000</Parameter>
-            <Parameter name="invertAble">true</Parameter>
-            <Parameter name="disableAble">true</Parameter>
-            <Parameter name="colors"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </Effector>
-        <ColliderBody id="5">
-            <Position x="-11" y="-3"/>
-            <Rotation angle="0"/>
-            <Parameter name="initialColor">Yellow</Parameter>
-        </ColliderBody>
-        <Wall id="6">
-            <Position x="0" y="10"/>
-            <Rotation angle="90"/>
-            <Scale x="40" y="0.2"/>
-        </Wall>
-        <Trigger type="Goal" id="6">
-            <Position x="5" y="0"/>
-            <Rotation angle="0"/>
-            <Parameter name="color">Yellow</Parameter>
-            <Parameter name="amount">1</Parameter>
-        </Trigger>
-    </Elements>
-</Level>
+<LevelFile levelHash="CcrDJ7qL/srgZuEtVWzWKx8cwiUo1AHnA4cMe19bLj4=" version="1">
+    <Level name="Portal" difficulty="1" gravity_x="0" gravity_y="-9.81">
+        <Elements>
+            <Effector type="TeleporterEffector" id="1">
+                <Position x="-1" y="0"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialEnabled">true</Parameter>
+                <Parameter name="disableAble">false</Parameter>
+                <Parameter name="colors"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+                <Parameter name="differenceX">2</Parameter>
+                <Parameter name="differenceY">0</Parameter>
+                <Parameter name="differenceAngle">0</Parameter>
+            </Effector>
+            <Effector type="RadialGravityEffector" id="2">
+                <Position x="-8" y="-1"/>
+                <Rotation angle="0"/>
+                <Parameter name="force">5000</Parameter>
+                <Parameter name="invertAble">true</Parameter>
+                <Parameter name="disableAble">true</Parameter>
+                <Parameter name="colors"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </Effector>
+            <ColliderBody id="3">
+                <Position x="-11" y="-3"/>
+                <Rotation angle="0"/>
+                <Parameter name="initialColor">Yellow</Parameter>
+            </ColliderBody>
+            <Wall id="4">
+                <Position x="0" y="10"/>
+                <Rotation angle="90"/>
+                <Scale x="40" y="0.2"/>
+            </Wall>
+            <Trigger type="Goal" id="5">
+                <Position x="5" y="0"/>
+                <Rotation angle="0"/>
+                <Parameter name="color">Yellow</Parameter>
+                <Parameter name="amount">1</Parameter>
+            </Trigger>
+        </Elements>
+    </Level>
+</LevelFile>
