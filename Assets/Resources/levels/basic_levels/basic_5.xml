@@ -1,47 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LevelFile levelHash="W6fxCryq855P8nDwk+MnA/H7QwqF7Xt/EcBeg2gdqbE=" version="1">
-    <Level name="A new toy?" difficulty="2" gravity_x="0" gravity_y="-9.81">
-        <Elements>
-            <Effector type="RadialGravityEffector" id="0">
-                <Position x="-8" y="-1"/>
-                <Rotation angle="0"/>
-                <Parameter name="force">5000</Parameter>
-                <Parameter name="invertAble">true</Parameter>
-                <Parameter name="disableAble">true</Parameter>
-                <Parameter name="colors"/>
-                <Parameter name="initialColor">Yellow</Parameter>
-            </Effector>
-            <Effector type="ColorChangerEffector" id="1">
-                <Position x="0" y="5"/>
-                <Rotation angle="180"/>
-                <Parameter name="colors"/>
-                <Parameter name="initialColor">Blue</Parameter>
-            </Effector>
-            <ColliderBody id="2">
-                <Position x="-14" y="0"/>
-                <Rotation angle="0"/>
-                <Parameter name="initialColor">Yellow</Parameter>
-            </ColliderBody>
-            <Wall id="3">
-                <Position x="-12.5" y="-2.5"/>
-                <Rotation angle="-45"/>
-                <Scale x="7" y="0.2"/>
-            </Wall>
-            <Trigger type="Goal" id="4">
-                <Position x="10" y="0"/>
-                <Rotation angle="0"/>
-                <Parameter name="color">Blue</Parameter>
-                <Parameter name="amount">1</Parameter>
-            </Trigger>
-        </Elements>
-        <TutorialSequence>
-            <Part id="0">
-                <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="1">Touched</CheckEvent>
-                <HelpDisplay type="Text" id="1">
-                    <Parameter name="height">300</Parameter>
-                    <Parameter name="content">[TutorialBasic5Part0]</Parameter>
-                </HelpDisplay>
-            </Part>
-        </TutorialSequence>
-    </Level>
+  <Level name="A new toy?" difficulty="2" gravity_x="0" gravity_y="-9.81">
+    <Elements>
+      <Effector type="RadialGravityEffector" id="0">
+        <Position x="-8" y="-1" />
+        <Rotation angle="0" />
+        <Parameter name="force">5000</Parameter>
+        <Parameter name="invertAble">true</Parameter>
+        <Parameter name="disableAble">true</Parameter>
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Yellow</Parameter>
+      </Effector>
+      <Effector type="ColorChangerEffector" id="1">
+        <Position x="0" y="5" />
+        <Rotation angle="180" />
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Blue</Parameter>
+      </Effector>
+      <ColliderBody id="2">
+        <Position x="-14" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="initialColor">Yellow</Parameter>
+      </ColliderBody>
+      <Wall id="3">
+        <Position x="-12.5" y="-2.5" />
+        <Rotation angle="-45" />
+        <Scale x="7" y="0.2" />
+      </Wall>
+      <Trigger type="Goal" id="4">
+        <Position x="10" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="color">Blue</Parameter>
+        <Parameter name="amount">1</Parameter>
+      </Trigger>
+    </Elements>
+    <TutorialSequence>
+      <Part id="0">
+        <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="1">Touched</CheckEvent>
+        <HelpDisplay type="Text" id="1">
+          <Parameter name="height">300</Parameter>
+          <Parameter name="content">[TutorialBasic5Part0]</Parameter>
+        </HelpDisplay>
+      </Part>
+    </TutorialSequence>
+  </Level>
 </LevelFile>

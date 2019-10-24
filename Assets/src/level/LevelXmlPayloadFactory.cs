@@ -16,7 +16,7 @@ namespace src.level {
             var payload = generateNewLevelXmlPayload();
             payload.levelXml = text.text;
         }
-        
+
         /// <summary>
         /// Generates a new LevelXmlPayload from a string
         /// </summary>

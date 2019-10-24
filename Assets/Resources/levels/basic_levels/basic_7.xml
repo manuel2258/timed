@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LevelFile levelHash="qf1VkcB8LkAzxwDpOsUOmA0HDpFCayBw+1DM4LG/ic0=" version="1">
-    <Level name="Space" difficulty="1" gravity_x="0" gravity_y="0">
-        <Elements>
-            <Effector type="RadialGravityEffector" id="1">
-                <Position x="-5" y="0"/>
-                <Rotation angle="0"/>
-                <Parameter name="force">1000</Parameter>
-                <Parameter name="invertAble">true</Parameter>
-                <Parameter name="disableAble">true</Parameter>
-                <Parameter name="colors"/>
-                <Parameter name="initialColor">Yellow</Parameter>
-            </Effector>
-            <ColliderBody id="2">
-                <Position x="-8" y="0"/>
-                <Rotation angle="0"/>
-                <Parameter name="initialColor">Yellow</Parameter>
-            </ColliderBody>
-            <Trigger type="Goal" id="3">
-                <Position x="10" y="0"/>
-                <Rotation angle="0"/>
-                <Parameter name="color">Yellow</Parameter>
-                <Parameter name="amount">1</Parameter>
-            </Trigger>
-        </Elements>
-    </Level>
+  <Level name="Space" difficulty="1" gravity_x="0" gravity_y="0">
+    <Elements>
+      <Effector type="RadialGravityEffector" id="1">
+        <Position x="-5" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="force">1000</Parameter>
+        <Parameter name="invertAble">true</Parameter>
+        <Parameter name="disableAble">true</Parameter>
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Yellow</Parameter>
+      </Effector>
+      <ColliderBody id="2">
+        <Position x="-8" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="initialColor">Yellow</Parameter>
+      </ColliderBody>
+      <Trigger type="Goal" id="3">
+        <Position x="10" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="color">Yellow</Parameter>
+        <Parameter name="amount">1</Parameter>
+      </Trigger>
+    </Elements>
+  </Level>
 </LevelFile>
