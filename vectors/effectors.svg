@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.1590347"
-     inkscape:cx="-8562.8686"
-     inkscape:cy="1105.4572"
+     inkscape:zoom="0.44981806"
+     inkscape:cx="-12037.874"
+     inkscape:cy="2150.6744"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -809,5 +809,21 @@
        inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/teleporter/body.png"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4751-3"
+       d="m -3158.2738,-272.46447 -134.7518,-20.865 135.9302,-21.0476"
+       style="fill:none;fill-opacity:1;stroke:#c9c9c9;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/ranges.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/manuel/Projects/timed/Assets/graphics/elements/effectors/radial/ranges.png"
+       style="fill:none;fill-opacity:1;stroke:#c9c9c9;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -3122.9605,-272.46447 134.7518,-20.865 -135.9302,-21.0476"
+       id="path1088"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

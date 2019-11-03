@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="qf1VkcB8LkAzxwDpOsUOmA0HDpFCayBw+1DM4LG/ic0=" version="1">
+<LevelFile levelHash="B9KTgW1CI343TD1NtOh51tK/doIssmIjW+RxgxS5p1o=" version="1">
   <Level name="Space" difficulty="1" gravity_x="0" gravity_y="0">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
@@ -10,6 +10,7 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">4</Parameter>
       </Effector>
       <ColliderBody id="2">
         <Position x="-8" y="0" />
@@ -23,5 +24,20 @@
         <Parameter name="amount">1</Parameter>
       </Trigger>
     </Elements>
+    <TutorialSequence>
+      <Part id="0">
+        <CheckEvent type="GameObjectEvent" id="0" name="EndLevel">SetActive</CheckEvent>
+        <HelpDisplay type="Frame" id="1">
+          <Parameter name="positionX">-100</Parameter>
+          <Parameter name="positionY">-450</Parameter>
+          <Parameter name="sizeX">135</Parameter>
+          <Parameter name="sizeY">135</Parameter>
+          <Parameter name="anchorPosition">Right</Parameter>
+        </HelpDisplay>
+        <HelpDisplay type="Text" id="2">
+          <Parameter name="content">TutorialBasic7Part0</Parameter>
+        </HelpDisplay>
+      </Part>
+    </TutorialSequence>
   </Level>
 </LevelFile>

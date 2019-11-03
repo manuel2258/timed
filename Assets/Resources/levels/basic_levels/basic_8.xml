@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="SY8ld/RHVLzBzdf5eU11b2nkbVtuEa0UZ6YGkeRTlhM=" version="1">
+<LevelFile levelHash="vmhRpLvI4bV9Ke3z2hXFY0vWDqWtMm8lnsQHglVfUro=" version="1">
   <Level name="Broken Gravity" difficulty="1" gravity_x="6" gravity_y="6">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
@@ -10,9 +10,10 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">8</Parameter>
       </Effector>
       <ColliderBody id="2">
-        <Position x="-8" y="2" />
+        <Position x="-12" y="2" />
         <Rotation angle="0" />
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>

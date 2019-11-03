@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8510508630971940786}
   - component: {fileID: 7055329151908438179}
   - component: {fileID: 1006463570793026730}
+  - component: {fileID: 5242739120932951488}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5242739120932951488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992263016967536964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c731a2f03145389591f99a2f518f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationTag: 
 --- !u!1 &8784104488446812723
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0857f76db05f458a8a27414796ea4fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1006463570793026730}
+  translateAbleText: {fileID: 5242739120932951488}
 --- !u!223 &4395373131672911253
 Canvas:
   m_ObjectHideFlags: 0
@@ -266,7 +280,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

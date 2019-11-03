@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="sZESTLDwuu5WgJh8B33B4umYuEkqk3JDfzzHjAsnKYM=" version="1">
+<LevelFile levelHash="NyC2JVLbs7oFLFy09GudIylMWj/BPz6IkH6DEyc1Dck=" version="1">
   <Level name="Multithreading" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
-        <Position x="-8" y="-1" />
+        <Position x="-7" y="0" />
         <Rotation angle="0" />
-        <Parameter name="force">5000</Parameter>
+        <Parameter name="force">4000</Parameter>
         <Parameter name="invertAble">true</Parameter>
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">6</Parameter>
       </Effector>
       <ColliderBody id="1">
         <Position x="-14" y="0" />

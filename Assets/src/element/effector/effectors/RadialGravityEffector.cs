@@ -9,7 +9,7 @@ using UnityEngine;
 namespace src.element.effector.effectors {
     public class RadialGravityEffector : BaseEffector, IResetable, IVisualStateAble {
 
-        private float _radius = 4;
+        
 
         class RadialGravityState : VisualState {
             public float force;
@@ -33,35 +33,35 @@ namespace src.element.effector.effectors {
 
         private bool _invertAble = true;
         private bool _disableAble = true;
+        private float _radius;
 
         public SpriteGlowEffect mainBody;
 
         public List<SpriteGlowEffect> colorChangeAbles;
+        public List<SpriteRenderer> range;
 
-        public GameObject forceSpriteParent;
-        public GameObject push;
-        public GameObject pull;
+        public Sprite off;
+        public Sprite pull;
+        public Sprite push;
 
-        public void setup(string force, string invertAble, string disableAble,
-            string colors, string initialColor) {
+        public Transform rangeChildren;
+
+        private readonly ArgumentParser _argumentParser = new ArgumentParser("RadialGravityEffector");
+
+        public void setup(string force, string invertAble, string disableAble, string colors, string initialColor, string radius) {
             _initialState = new RadialGravityState {enabled = false};
-            
             elementInfo.buildInfos();
 
-            if (!float.TryParse(force, out _initialState.force)) {
-                throw new Exception("RadialGravityEffector: Could not parse force argument -> " + force);
-            }
+            _initialState.force = _argumentParser.TryParse<float>(force, float.TryParse);
+            _invertAble = _argumentParser.TryParse<bool>(invertAble, bool.TryParse);
+            _disableAble = _argumentParser.TryParse<bool>(disableAble, bool.TryParse);
+            _initialState.color = _argumentParser.TryParse<ElementColor>(initialColor, Enum.TryParse);
+            _radius = _argumentParser.TryParse<float>(radius, float.TryParse);
             
-            if (!bool.TryParse(invertAble, out _invertAble)) {
-                throw new Exception("RadialGravityEffector: Could not parse invertAble argument -> " + invertAble);
-            }
-            
-            if (!bool.TryParse(disableAble, out _disableAble)) {
-                throw new Exception("RadialGravityEffector: Could not parse disableAble argument -> " + disableAble);
-            }
-
-            if (!Enum.TryParse(initialColor, out _initialState.color)) {
-                throw new Exception("RadialGravityEffector: Could not parse initialColor argument -> " + initialColor);
+            BoundaryBuilder.Instance.buildCircle(rangeChildren, _radius);
+            for (int i = 0; i < rangeChildren.childCount; i++) {
+                colorChangeAbles.Add(rangeChildren.GetChild(i).GetComponent<SpriteGlowEffect>());
+                range.Add(rangeChildren.GetChild(i).GetComponent<SpriteRenderer>());
             }
 
             if (_disableAble) {
@@ -71,7 +71,6 @@ namespace src.element.effector.effectors {
                         () => _currentState.enabled = !_currentState.enabled); 
                         checkEventManager.checkEvent("AddedEventOn/Off");
                     }));
-                
             }
 
             if (_invertAble) {
@@ -101,12 +100,14 @@ namespace src.element.effector.effectors {
 
         public void setVisualsByState(VisualState state) {
             var gravityState = (RadialGravityState) state;
-            forceSpriteParent.SetActive(gravityState.enabled);
-            
+
             var positiveSign = gravityState.force >= 0;
-            pull.SetActive(positiveSign);
-            push.SetActive(!positiveSign);
-            
+            if (!gravityState.enabled) {
+                range.ForEach(sprite => sprite.sprite = off);
+            } else {
+                range.ForEach(sprite => sprite.sprite = positiveSign? pull : push);
+            }
+
             var color = ElementColors.getColorValue(gravityState.color);
             colorChangeAbles.ForEach(spriteRenderer => spriteRenderer.GlowColor = color);
 
@@ -118,14 +119,15 @@ namespace src.element.effector.effectors {
         protected override void effectorUpdate(decimal currentTime, decimal deltaTime) {
             var colliderBodyInside = false;
             var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
-            foreach (var colliderBody in  Elements.filterForColorFromColliders(colliders, _currentState.color)) {
+            foreach (var colliderBody in Elements.filterForColorFromColliders(colliders, _currentState.color)) {
                 colliderBodyInside = true;
                 if (!_currentState.enabled) continue;
                 var diff = transform.position - colliderBody.transform.position;
-                if (diff.magnitude > 0.25) {
-                    var force = (-_currentState.force / 20 * diff.magnitude + _currentState.force) * (float)deltaTime;
-                    colliderBody.Rigidbody.AddForce(force * diff.normalized);
-                }
+                var force = (_radius - diff.magnitude) / _radius;
+                if (force <= 0f) continue;
+                force = Mathf.Sqrt(force);
+                force *= _currentState.force * (float) deltaTime;
+                colliderBody.Rigidbody.AddForce(force * diff.normalized);
             }
 
             if (colliderBodyInside != _currentState.colliderBodyInside) {

@@ -17,6 +17,8 @@ namespace src.level {
         public LevelContainer CurrentLevel { get; private set; }
         public TutorialContainer CurrentTutorial { get; private set; }
 
+        [SerializeField] private bool overrideHashCheck;
+
         private void Start() {
             if (GlobalGameState.Instance.IsInGame) {
                 loadXmlFromPayload();
@@ -28,7 +30,11 @@ namespace src.level {
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(LevelXmlPayload.Instance.levelXml);
             var levelFile = xmlDocument.SelectSingleNode("LevelFile");
-            if (!SecurityChecker.validateXmlLevel(levelFile)) return;
+            var hashMatching = SecurityChecker.validateXmlLevel(levelFile);
+            if (!hashMatching) {
+                Debug.LogError("Level hashes are not matching!");
+            }
+            if (!(hashMatching || overrideHashCheck)) return;
 
             var versionString = ParseHelper.getAttributeValueByName(levelFile, "version");
             if (!int.TryParse(versionString, out var version)) {
@@ -40,7 +46,6 @@ namespace src.level {
             CurrentTutorial = ParserFactory.getTutorialParserByVersion(version).parseTutorialFromXmlString(levelXml);
             CurrentLevel.initializeLevel();
             CurrentTutorial.initializeTutorial();
-            CurrentTutorial.onTutorialFinished += () => Debug.Log("TutorialFinished");
         }
 
         public void clearAllLevelChildren() {

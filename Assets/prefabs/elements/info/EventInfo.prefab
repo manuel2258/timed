@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 6004501700233031794}
   - component: {fileID: 6004501700233031796}
   - component: {fileID: 6004501700233031795}
+  - component: {fileID: 3585600710869967769}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -232,6 +233,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3585600710869967769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004501700233031793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c731a2f03145389591f99a2f518f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationTag: 
 --- !u!1 &6004501700887243484
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +257,7 @@ GameObject:
   - component: {fileID: 6004501700887243485}
   - component: {fileID: 6004501700887243487}
   - component: {fileID: 6004501700887243486}
+  - component: {fileID: 1098457347748782290}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -390,6 +405,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1098457347748782290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004501700887243484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c731a2f03145389591f99a2f518f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationTag: 
 --- !u!1 &6004501701337133632
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8cb63842474c44badd0fcf820f635f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: {fileID: 6004501700887243486}
-  eventDescription: {fileID: 6004501700233031795}
+  eventName: {fileID: 1098457347748782290}
+  eventDescription: {fileID: 3585600710869967769}
   eventIcon: {fileID: 6004501699481014688}

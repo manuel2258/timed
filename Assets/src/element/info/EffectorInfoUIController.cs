@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using src.misc;
 using src.touch;
-using TMPro;
+using src.translation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +10,8 @@ namespace src.element.info {
 
         public Canvas helpCanvas;
 
-        public TMP_Text elementName;
-        public TMP_Text elementDescription;
+        public TranslateAbleTMPText elementName;
+        public TranslateAbleTMPText elementDescription;
         public Image elementIcon;
 
         public Transform eventParent;
@@ -25,8 +25,10 @@ namespace src.element.info {
 
         public void toggleEffectorInfo(ElementInfo elementInfo) {
             UIWindowStack.Instance.toggleWindow(typeof(EffectorInfoUIController));
-            elementName.text = elementInfo.elementName;
-            elementDescription.text = elementInfo.helpText;
+            elementName.translationTag = elementInfo.elementName;
+            elementDescription.translationTag = elementInfo.helpText;
+            elementName.translateText();
+            elementDescription.translateText();
             elementIcon.sprite = elementInfo.icon;
 
             for (int i = 0; i < eventParent.childCount; i++) {

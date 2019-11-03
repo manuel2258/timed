@@ -6,6 +6,11 @@
             Also another tip. Try to already define the events at right time instead of defining them at 0s and then 
             moving them to the right spot. But that's up to you for now, click this field to finish this tutorial ...
         </Translation>
-        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+        <Translation language="German">
+            So, jetzt bist du an der Reihe, versuche dieses Level aleine zu schaffen!
+            Noch ein letzer Tipp, versuche die Events direkt an der richtigen Stelle zu definieren anstatt diese bei 0s 
+            zu definieren und dann anschließend zu verschieben. Aber naja, das liegt im Endeffekt bei dir, also drücke
+            auf dieses Feld um das Tutotrial zu beenden ...
+        </Translation>
     </Translations>
 </TranslationPack>

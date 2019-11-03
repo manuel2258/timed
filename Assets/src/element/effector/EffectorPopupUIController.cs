@@ -2,8 +2,8 @@ using System;
 using src.element.effector.effectors;
 using src.element.info;
 using src.misc;
+using src.translation;
 using src.tutorial.check_events;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +26,7 @@ namespace src.element.effector {
         /// </summary>
         public GameObject contentPrefab;
         
-        public TMP_Text effectorNameText;
+        public TranslateAbleTMPText effectorNameText;
 
         public Button closeButton;
 
@@ -74,7 +74,8 @@ namespace src.element.effector {
             contentParentAnchoredPosition.y = -contentParent.sizeDelta.y / 2;
             contentParent.anchoredPosition = contentParentAnchoredPosition;
 
-            effectorNameText.text = effector.elementInfo.elementName;
+            effectorNameText.translationTag = effector.elementInfo.elementName;
+            effectorNameText.translateText();
         }
     }
 }

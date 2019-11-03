@@ -1,15 +1,13 @@
 using System;
 using src.level.initializing;
 using src.touch;
+using src.translation;
 using src.tutorial.check_events;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace src.tutorial.help_displays {
     public class TextHelpDisplay : TouchableRect, ISetupAble, IPointerDownHandler, ICheckAbleEvent {
-
-        public static TextHelpDisplay Instance;
 
         private const float MAX_SPEED = 15;
 
@@ -24,34 +22,31 @@ namespace src.tutorial.help_displays {
         private float _closedY;
         private float _openedY;
         
-        public TMP_Text text;
+        public TranslateAbleTMPText translateAbleText;
         
         private readonly CheckEventManager _checkEventManager = new CheckEventManager();
         public void registerEvent(string eventName, Action onEventChecked) {
             _checkEventManager.registerEvent(eventName, onEventChecked);
         }
         
-        public void setup(string height, string content) {
+        public void setup(string content) {
             _rectTransform = transform as RectTransform;
-            
-            if (!float.TryParse(height, out var sizeY)) {
-                throw new Exception("FrameHelpDisplay: Could not parse height argument -> " + height);
-            }
             _rectTransform.sizeDelta = Vector2.zero;
-            _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, sizeY);
-            
-            _openedY = 50 + sizeY / 2;
-            _closedY = 50 - sizeY / 2;
-            
-            _rectTransform.anchoredPosition = new Vector3(_rectTransform.anchoredPosition.x, _openedY);
-            
             _rectTransform.localScale = Vector3.one;
 
-            text.text = content;
+            translateAbleText.onTextChanged += scaleText;
+            translateAbleText.translationTag = content;
+            translateAbleText.translateText();
         }
-        
-        private void OnEnable() {
-            Instance = this;
+
+        private void scaleText() {
+            var text = translateAbleText.Text;
+            var prefSize = text.GetPreferredValues();
+            prefSize.y += 50;
+            _openedY = 50 + prefSize.y / 2;
+            _closedY = 50 - prefSize.y / 2;
+            _rectTransform.anchoredPosition = new Vector3(_rectTransform.anchoredPosition.x, _openedY);
+            _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, prefSize.y);
         }
 
         protected override void Update() {

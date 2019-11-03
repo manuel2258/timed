@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="RadialGravityFieldName">
+        <Translation language="English">Radial Gravity Field</Translation>
+        <Translation language="German">Radiales Gravitationsfeld</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldText">
+        <Translation language="English">A Field that either pulls ColliderBodys to its core or pushes them away.</Translation>
+        <Translation language="German">Ein Feld welches entweder Körper zu sich zieht, oder von sich wegdrückt.</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldOnOffName">
+        <Translation language="English">On/Off</Translation>
+        <Translation language="German">An/Aus</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldOnOffText">
+        <Translation language="English">Toggles the active state of the Radial Gravity Field, therefor either turning it on or off.</Translation>
+        <Translation language="German">Schaltet den aktiven Status des Radialen Gravitationsfelds um, daher schaltet diesen entweder an oder aus.</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldInvertForceName">
+        <Translation language="English">Invert Force</Translation>
+        <Translation language="German">Kraftumkehrung</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldInvertForceText">
+        <Translation language="English">Changes the direction of the applied force, therefor either make it pull or push.</Translation>
+        <Translation language="German">Ändert die Richtung der ausgehenden Kraft.</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldColorChangeYellowName">
+        <Translation language="English">Color Change Yellow</Translation>
+        <Translation language="German">Farbänderung Gelb</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldColorChangeYellowText">
+        <Translation language="English">Changes the active color to yellow, which will result in the field only effecting yellow ColliderBodys.</Translation>
+        <Translation language="German">Ändert die aktive Farbe zu Gelb, weshalb dieser Effektor nur einen Effekt auf gelbe Körper hat.</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldColorChangeBlueName">
+        <Translation language="English">Color Change Blue</Translation>
+        <Translation language="German">Farbänderung Blau</Translation>
+    </Translations>
+    <Translations tag="RadialGravityFieldColorChangeBlueText">
+        <Translation language="English">Changes the active color to blue, which will result in the field only effecting blue ColliderBodys.</Translation>
+        <Translation language="German">Ändert die aktive Farbe zu Blau, weshalb dieser Effektor nur einen Effekt auf blaue Körper hat.</Translation>
+    </Translations>
+</TranslationPack>

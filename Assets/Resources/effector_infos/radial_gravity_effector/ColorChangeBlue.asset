@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -9042408239259986315, guid: 6efb966f492e852fca0df5bdbb023acf, type: 3}
   searchTag: color_change_blue
-  eventName: Color Change Blue
-  helpText: Changes the active color to blue, which will result in the field only
-    effecting blue objects.
+  eventName: RadialGravityFieldColorChangeBlueName
+  helpText: RadialGravityFieldColorChangeBlueText

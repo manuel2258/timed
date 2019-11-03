@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="CcrDJ7qL/srgZuEtVWzWKx8cwiUo1AHnA4cMe19bLj4=" version="1">
+<LevelFile levelHash="5mu96VdAK7cqPzREVh+563fdGoOH5t1DL6i2C6dCTV8=" version="1">
   <Level name="Portal" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
       <Effector type="TeleporterEffector" id="1">
@@ -21,6 +21,7 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">4</Parameter>
       </Effector>
       <ColliderBody id="3">
         <Position x="-11" y="-3" />

@@ -25,7 +25,7 @@ namespace src.tutorial {
                 if (_currentId < _parts.Count) {
                     _parts[_currentId].setActive(true);
                 } else {
-                    onTutorialFinished.Invoke();
+                    onTutorialFinished?.Invoke();
                 }
             };
         }

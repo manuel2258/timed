@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 4352410312053424958, guid: 6efb966f492e852fca0df5bdbb023acf, type: 3}
   searchTag: color_change_yellow
-  eventName: Color Change Yellow
-  helpText: Changes the active color to yellow, which will result in the field only
-    effecting yellow objects.
+  eventName: RadialGravityFieldColorChangeYellowName
+  helpText: RadialGravityFieldColorChangeYellowText

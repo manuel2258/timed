@@ -8,6 +8,13 @@
             and do the same with it aswell. Also note that the Goals color has to match the Colliderbodys color.
             Touch this field to finish the tutorial ...
         </Translation>
-        <Translation language="German">XXXXXXXXXXXXXX</Translation>
+        <Translation language="German">
+            Huh, nun wird es wenigstens mal ein wenig interresant. Der Aspekt von Farben ist an sich recht einfach.
+            Effektoren haben nur auf gleichfarbige Körper einen Effekt. Zudem gibt es spezielle Events welche die 
+            Farbe der Effektoren ändern können. Also musst du in diesem Level vorerst versuchen den gelben Körpen
+            ins Ziel zu bringen, die Farbe des Effektors auf blau ändern und dann das selbe mit dem blauen Körper zu machen.
+            Zudem sollte auch klar sein, das ein Ziel nur Körper mit der gleichen Farbe akzeptiert.
+            Berühre dieses Feld um das Tutorial zu beenden ...
+        </Translation>
     </Translations>
 </TranslationPack>

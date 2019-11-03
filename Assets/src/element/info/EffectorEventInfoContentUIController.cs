@@ -1,16 +1,18 @@
-using TMPro;
+using src.translation;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace src.element.info {
     public class EffectorEventInfoContentUIController : MonoBehaviour {
-        public TMP_Text eventName;
-        public TMP_Text eventDescription;
+        public TranslateAbleTMPText eventName;
+        public TranslateAbleTMPText eventDescription;
         public Image eventIcon;
         
         public void setup(ElementEventInfo eventInfo) {
-            eventName.text = eventInfo.eventName;
-            eventDescription.text = eventInfo.helpText;
+            eventName.translationTag = eventInfo.eventName;
+            eventDescription.translationTag = eventInfo.helpText;
+            eventName.translateText();
+            eventDescription.translateText();
             eventIcon.sprite = eventInfo.icon;
         }
     }

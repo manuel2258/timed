@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="htkFkb4Av7kNpPtX9fjzCxkE4VxdEsJT/mr72y0Fy+k=" version="1">
+<LevelFile levelHash="pS1R11AMIVaShhDOfckwAKXYbp+vl34axqx0Iw1ia4U=" version="1">
   <Level name="Save House" difficulty="1" gravity_x="0" gravity_y="-9.81">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
@@ -10,6 +10,7 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">4</Parameter>
       </Effector>
       <Wall id="1">
         <Position x="0" y="-3" />
@@ -47,8 +48,7 @@
       <Part id="0">
         <CheckEvent type="PartElementEvent" id="0" partId="0" elementId="1">Touched</CheckEvent>
         <HelpDisplay type="Text" id="1">
-          <Parameter name="height">175</Parameter>
-          <Parameter name="content">[TutorialBasic0Part0]</Parameter>
+          <Parameter name="content">TutorialBasic0Part0</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="2">
           <Parameter name="positionX">0</Parameter>
@@ -68,8 +68,7 @@
           <Parameter name="anchorPosition">Left</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">175</Parameter>
-          <Parameter name="content">[TutorialBasic0Part1]</Parameter>
+          <Parameter name="content">TutorialBasic0Part1</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">0</Parameter>
@@ -90,8 +89,7 @@
           <Parameter name="anchorPosition">Left</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="3">
-          <Parameter name="height">225</Parameter>
-          <Parameter name="content">[TutorialBasic0Part2]</Parameter>
+          <Parameter name="content">TutorialBasic0Part2</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="4">
           <Parameter name="positionX">115</Parameter>
@@ -112,8 +110,7 @@
           <Parameter name="anchorPosition">Left</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="3">
-          <Parameter name="height">225</Parameter>
-          <Parameter name="content">[TutorialBasic0Part3]</Parameter>
+          <Parameter name="content">TutorialBasic0Part3</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="4">
           <Parameter name="positionX">295</Parameter>
@@ -131,8 +128,7 @@
           <Parameter name="elementId">6</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">250</Parameter>
-          <Parameter name="content">[TutorialBasic0Part4]</Parameter>
+          <Parameter name="content">TutorialBasic0Part4</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">0</Parameter>
@@ -150,8 +146,7 @@
           <Parameter name="elementId">3</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">275</Parameter>
-          <Parameter name="content">[TutorialBasic0Part5]</Parameter>
+          <Parameter name="content">TutorialBasic0Part5</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">0</Parameter>
@@ -172,8 +167,7 @@
           <Parameter name="elementId">0</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="4">
-          <Parameter name="height">325</Parameter>
-          <Parameter name="content">[TutorialBasic0Part6]</Parameter>
+          <Parameter name="content">TutorialBasic0Part6</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="4">
           <Parameter name="positionX">200</Parameter>
@@ -191,8 +185,7 @@
           <Parameter name="elementId">0</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">275</Parameter>
-          <Parameter name="content">[TutorialBasic0Part7]</Parameter>
+          <Parameter name="content">TutorialBasic0Part7</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">0</Parameter>
@@ -213,8 +206,7 @@
           <Parameter name="anchorPosition">Left</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="3">
-          <Parameter name="height">350</Parameter>
-          <Parameter name="content">[TutorialBasic0Part8]</Parameter>
+          <Parameter name="content">TutorialBasic0Part8</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">840</Parameter>
@@ -235,8 +227,7 @@
           <Parameter name="anchorPosition">Left</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="3">
-          <Parameter name="height">400</Parameter>
-          <Parameter name="content">[TutorialBasic0Part9]</Parameter>
+          <Parameter name="content">TutorialBasic0Part9</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">293</Parameter>
@@ -263,8 +254,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">300</Parameter>
-          <Parameter name="content">[TutorialBasic0Part10]</Parameter>
+          <Parameter name="content">TutorialBasic0Part10</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">-115</Parameter>
@@ -284,8 +274,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">250</Parameter>
-          <Parameter name="content">[TutorialBasic0Part11]</Parameter>
+          <Parameter name="content">TutorialBasic0Part11</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">0</Parameter>
@@ -305,8 +294,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">150</Parameter>
-          <Parameter name="content">[TutorialBasic0Part12]</Parameter>
+          <Parameter name="content">TutorialBasic0Part12</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">200</Parameter>
@@ -326,8 +314,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">150</Parameter>
-          <Parameter name="content">[TutorialBasic0Part13]</Parameter>
+          <Parameter name="content">TutorialBasic0Part13</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">-495</Parameter>
@@ -347,8 +334,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">350</Parameter>
-          <Parameter name="content">[TutorialBasic0Part14]</Parameter>
+          <Parameter name="content">TutorialBasic0Part14</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="3">
           <Parameter name="positionX">-112</Parameter>
@@ -361,8 +347,7 @@
       <Part id="15">
         <CheckEvent type="ElementEvent" id="0" elementId="0">AddedEventOn/Off</CheckEvent>
         <HelpDisplay type="Text" id="1">
-          <Parameter name="height">350</Parameter>
-          <Parameter name="content">[TutorialBasic0Part15]</Parameter>
+          <Parameter name="content">TutorialBasic0Part15</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="2">
           <Parameter name="positionX">293</Parameter>
@@ -377,8 +362,7 @@
         <CheckEvent type="GameObjectEvent" id="1" name="TimedEffectorEventEditManager">ChangedEventTimeTo2.3</CheckEvent>
         <CheckEvent type="GameObjectEvent" id="2" name="TimedEffectorEventEditManager">EditClosed</CheckEvent>
         <HelpDisplay type="Text" id="3">
-          <Parameter name="height">300</Parameter>
-          <Parameter name="content">[TutorialBasic0Part16]</Parameter>
+          <Parameter name="content">TutorialBasic0Part16</Parameter>
         </HelpDisplay>
       </Part>
       <Part id="17">
@@ -391,8 +375,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">300</Parameter>
-          <Parameter name="content">[TutorialBasic0Part17]</Parameter>
+          <Parameter name="content">TutorialBasic0Part17</Parameter>
         </HelpDisplay>
       </Part>
       <Part id="18">
@@ -405,8 +388,7 @@
           <Parameter name="anchorPosition">Right</Parameter>
         </HelpDisplay>
         <HelpDisplay type="Text" id="2">
-          <Parameter name="height">300</Parameter>
-          <Parameter name="content">[TutorialBasic0Part18]</Parameter>
+          <Parameter name="content">TutorialBasic0Part18</Parameter>
         </HelpDisplay>
       </Part>
     </TutorialSequence>
