@@ -17,19 +17,11 @@ namespace src.level.selection {
         
         [field: SerializeField, LabelOverride("Difficulty")]
         public int Difficulty { get; private set; }
-        
-        [field: SerializeField, LabelOverride("PackType")]
-        public PackType PackType { get; private set; }
-        
+
         [SerializeField] private List<TextAsset> levels;
         
         public int LevelCount => levels.Count;
 
         public string this[int index] => levels[index].text;
-    }
-
-    public enum PackType {
-        Levels,
-        Random
     }
 }

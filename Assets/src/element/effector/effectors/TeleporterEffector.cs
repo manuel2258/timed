@@ -8,9 +8,7 @@ using UnityEngine;
 
 namespace src.element.effector.effectors {
     public class TeleporterEffector : BaseEffector, IResetable, IVisualStateAble {
-
-        private float _length = 4;
-
+        
         class TeleporterState : VisualState {
             public bool enabled;
             public ElementColor color;
@@ -29,42 +27,28 @@ namespace src.element.effector.effectors {
         private Vector3 _difference;
         private float _differenceAngle;
         private bool _disableAble = true;
+        private float _length;
 
         [SerializeField] private Transform outputTransform;
-
+        [SerializeField] private List<Transform> gates;
         public List<SpriteGlowEffect> colorChangeAbles;
 
         public void setup(string disableAble, string initialEnabled, string colors, string initialColor, 
-            string differenceX, string differenceY, string differenceAngle) {
+            string differenceX, string differenceY, string differenceAngle, string length) {
             _initialState = new TeleporterState {enabled = false};
-            
             elementInfo.buildInfos();
-            
-            if (!bool.TryParse(disableAble, out _disableAble)) {
-                throw new Exception("RadialGravityEffector: Could not parse disableAble argument -> " + disableAble);
-            }
-            
-            if (!bool.TryParse(initialEnabled, out _initialState.enabled)) {
-                throw new Exception("RadialGravityEffector: Could not parse initialEnabled argument -> " + initialEnabled);
-            }
+            var argumentParser = new ArgumentParser("ColorChanger");
 
-            if (!Enum.TryParse(initialColor, out _initialState.color)) {
-                throw new Exception("RadialGravityEffector: Could not parse initialColor argument -> " + initialColor);
-            }
-            
-            _difference = new Vector2(0, 0);
+            _disableAble = argumentParser.TryParse<bool>(disableAble, bool.TryParse);
+            _initialState.enabled = argumentParser.TryParse<bool>(initialEnabled, bool.TryParse);
+            _initialState.color = argumentParser.TryParse<ElementColor>(initialColor, Enum.TryParse);
 
-            if (!float.TryParse(differenceX, out _difference.x)) {
-                throw new Exception("RadialGravityEffector: Could not parse differenceX argument -> " + differenceX);
-            }
-            
-            if (!float.TryParse(differenceY, out _difference.y)) {
-                throw new Exception("RadialGravityEffector: Could not parse differenceY argument -> " + differenceY);
-            }
-            
-            if (!float.TryParse(differenceAngle, out _differenceAngle)) {
-                throw new Exception("RadialGravityEffector: Could not parse differenceAngle argument -> " + differenceAngle);
-            }
+            _difference = new Vector2(0, 0) {
+                x = argumentParser.TryParse<float>(differenceX, float.TryParse),
+                y = argumentParser.TryParse<float>(differenceY, float.TryParse)
+            };
+            _differenceAngle = argumentParser.TryParse<float>(differenceAngle, float.TryParse);
+            _length = argumentParser.TryParse<float>(length, float.TryParse);
 
             if (_disableAble) {
                 var eventInfo = elementInfo.getEventInfoBySearchTag("on_off");
@@ -91,8 +75,8 @@ namespace src.element.effector.effectors {
             
             outputTransform.position = transform.position + _difference;
             outputTransform.localRotation = Quaternion.Euler(0, 0, _differenceAngle);
-
-            //_differenceAngle += transform.eulerAngles.z;
+            
+            gates.ForEach(gateTransform => gateTransform.localScale = new Vector2(gateTransform.localScale.x,_length));
 
             setVisualsByState(_currentState);
         }
@@ -116,8 +100,8 @@ namespace src.element.effector.effectors {
                 var positionDifference = transform.position - colliderBody.transform.position;
                 var rotatedDifference = Quaternion.Euler(0, 0, _differenceAngle + transform.eulerAngles.z) * positionDifference;
 
-                colliderBody.transform.position += _difference;
-                colliderBody.transform.position += rotatedDifference;
+                colliderBody.transform.position = transform.position + _difference;
+                colliderBody.transform.position -= rotatedDifference;
 
                 colliderBody.Rigidbody.velocity = Quaternion.Euler(0, 0, _differenceAngle) * colliderBody.Rigidbody.velocity;
             }

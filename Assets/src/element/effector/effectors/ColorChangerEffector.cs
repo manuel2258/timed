@@ -8,9 +8,7 @@ using UnityEngine;
 
 namespace src.element.effector.effectors {
     public class ColorChangerEffector : BaseEffector, IResetable, IVisualStateAble {
-
-        private float _length = 4;
-
+        
         class ColorChangerState : VisualState {
             public ElementColor color;
 
@@ -25,20 +23,19 @@ namespace src.element.effector.effectors {
         private ColorChangerState _currentState;
 
         public List<SpriteGlowEffect> colorChangeAbles;
-
-        public GameObject gate;
-
-        public Sprite debug;
+        private float _length;
         
-        public void setup(string colors, string initialColor) {
-            _initialState = new ColorChangerState();
+        public Transform gate;
 
-            if (!Enum.TryParse(initialColor, out _initialState.color)) {
-                throw new Exception("RadialGravityEffector: Could not parse initialColor argument -> " + initialColor);
-            }
+        public void setup(string colors, string initialColor, string length) {
+            var argumentParser = new ArgumentParser("ColorChanger");
+
+            _initialState = new ColorChangerState {color = argumentParser.TryParse<ElementColor>(initialColor, Enum.TryParse)};
+            _length = argumentParser.TryParse<float>(length, float.TryParse);
 
             foreach (var color in ParseHelper.parseEnumListFromString<ElementColor>(colors)) {
-                effectorEvents.Add(new EffectorEvent(debug,
+                var eventInfo = elementInfo.getEventInfoBySearchTag("color_change_" + color.ToString().ToLower());
+                effectorEvents.Add(new EffectorEvent(eventInfo.icon,
                     () => {
                         Elements.executeVisualChange(this, () => {
                             var savedColor = color;
@@ -46,7 +43,9 @@ namespace src.element.effector.effectors {
                         });
                     }));
             }
-
+            gate.localPosition = new Vector3(0, _length / 2);
+            gate.localScale = new Vector3(gate.localScale.x, _length);
+            
             _currentState = new ColorChangerState(_initialState);
             setVisualsByState(_currentState);
         }

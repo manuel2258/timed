@@ -8,9 +8,7 @@ using UnityEngine;
 
 namespace src.element.effector.effectors {
     public class RadialGravityEffector : BaseEffector, IResetable, IVisualStateAble {
-
         
-
         class RadialGravityState : VisualState {
             public float force;
             public bool enabled;
@@ -45,18 +43,17 @@ namespace src.element.effector.effectors {
         public Sprite push;
 
         public Transform rangeChildren;
-
-        private readonly ArgumentParser _argumentParser = new ArgumentParser("RadialGravityEffector");
+        
 
         public void setup(string force, string invertAble, string disableAble, string colors, string initialColor, string radius) {
             _initialState = new RadialGravityState {enabled = false};
             elementInfo.buildInfos();
-
-            _initialState.force = _argumentParser.TryParse<float>(force, float.TryParse);
-            _invertAble = _argumentParser.TryParse<bool>(invertAble, bool.TryParse);
-            _disableAble = _argumentParser.TryParse<bool>(disableAble, bool.TryParse);
-            _initialState.color = _argumentParser.TryParse<ElementColor>(initialColor, Enum.TryParse);
-            _radius = _argumentParser.TryParse<float>(radius, float.TryParse);
+            var argumentParser = new ArgumentParser("RadialGravityEffector");
+            _initialState.force = argumentParser.TryParse<float>(force, float.TryParse);
+            _invertAble = argumentParser.TryParse<bool>(invertAble, bool.TryParse);
+            _disableAble = argumentParser.TryParse<bool>(disableAble, bool.TryParse);
+            _initialState.color = argumentParser.TryParse<ElementColor>(initialColor, Enum.TryParse);
+            _radius = argumentParser.TryParse<float>(radius, float.TryParse);
             
             BoundaryBuilder.Instance.buildCircle(rangeChildren, _radius);
             for (int i = 0; i < rangeChildren.childCount; i++) {

@@ -2590,7 +2590,6 @@ MonoBehaviour:
   levelPacks:
   - {fileID: 11400000, guid: 89474bacc3a13d4658e8f2b39e53128c, type: 2}
   - {fileID: 11400000, guid: 14ecf5a9bfc447009cddde4580068793, type: 2}
-  - {fileID: 11400000, guid: aeaaf10c646e9f16eb79725eba06f3a7, type: 2}
 --- !u!4 &1910458612
 Transform:
   m_ObjectHideFlags: 0

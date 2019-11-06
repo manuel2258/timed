@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192570539}
-  - component: {fileID: 1192570538}
+  - component: {fileID: 219167444}
   m_Layer: 0
   m_Name: TranslationManager
   m_TagString: Untagged
@@ -75,7 +75,7 @@ Transform:
   m_Father: {fileID: 6897843787910468126}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1192570538
+--- !u!114 &219167444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

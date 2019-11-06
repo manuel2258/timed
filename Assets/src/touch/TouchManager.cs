@@ -39,7 +39,10 @@ namespace src.touch {
             for (int i = 0; i < MAX_FRAMES; i++) {
                 _currentTouches.Add(new Frame());
             }
-            UiMaskManager.Instance.addPersistentMask(cameraMovementArea);
+
+            if (cameraMovementArea != null) {
+                UiMaskManager.Instance.addPersistentMask(cameraMovementArea);
+            }
         }
 
         public void update() {

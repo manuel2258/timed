@@ -12,6 +12,7 @@
         <Parameter name="differenceX">2</Parameter>
         <Parameter name="differenceY">0</Parameter>
         <Parameter name="differenceAngle">0</Parameter>
+        <Parameter name="length">6</Parameter>
       </Effector>
       <Effector type="RadialGravityEffector" id="2">
         <Position x="-8" y="-1" />

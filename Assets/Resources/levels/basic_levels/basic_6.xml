@@ -23,10 +23,11 @@
         <Parameter name="radius">3</Parameter>
       </Effector>
       <Effector type="ColorChangerEffector" id="2">
-        <Position x="0" y="9" />
-        <Rotation angle="0" />
-        <Parameter name="colors" />
+        <Position x="0" y="7"/>
+        <Rotation angle="-45"/>
+        <Parameter name="colors"/>
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="length">6</Parameter>
       </Effector>
       <ColliderBody id="3">
         <Position x="-14" y="0" />

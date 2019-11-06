@@ -25,6 +25,7 @@
         <Rotation angle="90" />
         <Parameter name="colors" />
         <Parameter name="initialColor">Blue</Parameter>
+        <Parameter name="length">4</Parameter>
       </Effector>
       <ColliderBody id="4">
         <Position x="0" y="0" />

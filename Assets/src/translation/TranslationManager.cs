@@ -13,6 +13,7 @@ namespace src.translation {
 
         private Language _currentLanguage = Language.German;
 
+        
         public Language CurrentLanguage {
             get => _currentLanguage;
             set {

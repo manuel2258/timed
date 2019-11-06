@@ -17,8 +17,14 @@ namespace src.element.effector.effectors {
     /// </summary>
     public abstract class BaseEffector : MonoBehaviour, ISetupAble, ICheckAbleEvent {
         
+        /// <summary>
+        /// The touch hitbox radius
+        /// </summary>
         public float touchHitBox = .5f;
 
+        /// <summary>
+        /// The effectors ElementInfo
+        /// </summary>
         public ElementInfo elementInfo;
 
         protected readonly List<EffectorEvent> effectorEvents = new List<EffectorEvent>();

@@ -12,9 +12,17 @@ namespace src.translation {
 
         public Action onTextChanged;
 
+        public bool translateOnStart;
+
         private void Awake() {
             Text = GetComponent<TMP_Text>();
             TranslationManager.Instance.onLanguageChanged += translateText;
+        }
+
+        private void Start() {
+            if (translateOnStart) {
+                translateText();
+            }
         }
 
         public void translateText() {

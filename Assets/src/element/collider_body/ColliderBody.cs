@@ -1,5 +1,6 @@
 using System;
 using SpriteGlow;
+using src.element.effector;
 using src.element.effector.effectors;
 using src.level.initializing;
 using src.misc;
@@ -9,10 +10,20 @@ using src.time.time_managers;
 using UnityEngine;
 
 namespace src.element.collider_body {
+    
+    /// <summary>
+    /// Main Mono Class for Initializing and Managing a single ColliderBody
+    /// </summary>
     public class ColliderBody : MonoBehaviour, IResetable, IVisualStateAble, ISetupAble {
 
+        /// <summary>
+        /// Simple constant that caps the max possible velocity
+        /// </summary>
         private const float MAX_VELOCITY = 35;
         
+        /// <summary>
+        /// The visual state of the ColliderBody
+        /// </summary>
         class ColliderBodyState : VisualState {
             public ElementColor color;
 
@@ -23,18 +34,34 @@ namespace src.element.collider_body {
             }
         }
 
+        /// <summary>
+        /// The start position
+        /// </summary>
         private Vector2 _initialPosition;
+        
+        /// <summary>
+        /// The start rotation
+        /// </summary>
         private Quaternion _initialRotation;
 
+        /// <summary>
+        /// The state the ColliderBody has after the setup function
+        /// </summary>
         private ColliderBodyState _initialState;
+        
+        /// <summary>
+        /// The current state used while Simulating
+        /// </summary>
         private ColliderBodyState _currentState;
-
+        
         public Rigidbody2D Rigidbody { get; private set; }
 
+        [Tooltip("The SpriteGlowEffect of the velocity arrow")]
         [SerializeField] private SpriteGlowEffect velocityGlow;
+        [Tooltip("The RotationGameObject of the velocity arrow")]
         [SerializeField] private GameObject velocityRotation;
-
-        public SpriteGlowEffect colorMask;
+        [Tooltip("The ColliderBodys body")]
+        [SerializeField] private SpriteGlowEffect bodyGlow;
 
         public ElementColor Color {
             get => _currentState.color;
@@ -43,11 +70,14 @@ namespace src.element.collider_body {
             }
         }
 
+        /// <summary>
+        /// Setup function called via Reflection
+        /// </summary>
+        /// <param name="initialColor">The start color</param>
+        /// <exception cref="Exception"></exception>
         public void setup(string initialColor) {
-            if (!Enum.TryParse(initialColor, out ElementColor parsedColor)) {
-                throw new Exception("ColliderBody: Could not parse initialColor argument -> " + initialColor);
-            }
-            _currentState = new ColliderBodyState {color = parsedColor};
+            var argumentParser = new ArgumentParser("ColliderBody");
+            _currentState = new ColliderBodyState {color = argumentParser.TryParse<ElementColor>(initialColor, Enum.TryParse)};
             _initialState = new ColliderBodyState(_currentState);
 
             _initialPosition = transform.position;
@@ -69,16 +99,25 @@ namespace src.element.collider_body {
             }
         }
 
+        /// <summary>
+        /// Sets the visual state (position/rotation/velocity) of the ColliderBody
+        /// </summary>
+        /// <param name="position">The to display position</param>
+        /// <param name="rotation">The to display rotation</param>
+        /// <param name="velocity">The to display velocity</param>
         public void setVisualPosition(Vector3 position, Quaternion rotation, Vector2 velocity) {
             transform.rotation = _initialRotation;
             transform.position = position;
-            colorMask.transform.rotation = rotation;
+            bodyGlow.transform.rotation = rotation;
             velocityGlow.GlowBrightness = velocity.magnitude / 5;
             velocityRotation.transform.localScale = Vector3.one * velocity.magnitude / 10;
             var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
             velocityRotation.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
+        /// <summary>
+        /// Resets the ColliderBody to its initial state
+        /// </summary>
         public void reset() {
             transform.position = _initialPosition;
             transform.rotation = _initialRotation;
@@ -87,9 +126,13 @@ namespace src.element.collider_body {
             Rigidbody.angularVelocity = 0;
         }
 
+        /// <summary>
+        /// Displays the current ColliderBodys state
+        /// </summary>
+        /// <param name="state"></param>
         public void setVisualsByState(VisualState state) {
             var color = ElementColors.getColorValue(((ColliderBodyState) state).color);
-            colorMask.GlowColor = color;
+            bodyGlow.GlowColor = color;
             velocityGlow.GlowColor = color;
         }
 

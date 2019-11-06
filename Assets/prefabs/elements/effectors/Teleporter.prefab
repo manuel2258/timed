@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 467882429841814492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 2463919441871652247}
   m_RootOrder: 1
@@ -69,12 +69,12 @@ SpriteRenderer:
   m_SortingLayerID: 1702162137
   m_SortingLayer: 2
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 8f2b629e7e25a61558a93b2a32115a4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b359331b263979d3cb9c03a8f7415140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
-  m_Size: {x: 0.15, y: 4}
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 1, g: 1, b: 1, a: 1}
-  glowBrightness: 3
+  glowBrightness: 2.5
   outlineWidth: 1
   alphaThreshold: 1
   drawOutside: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 1, g: 0, b: 1, a: 1}
-  glowBrightness: 2.96
+  glowBrightness: 3
   outlineWidth: 1
   alphaThreshold: 1
   drawOutside: 0
@@ -245,6 +245,9 @@ MonoBehaviour:
   touchHitBox: 0.5
   elementInfo: {fileID: 11400000, guid: ad97aae6527aa80f7a2627d1b3f0e7c0, type: 2}
   outputTransform: {fileID: 2463919441871652247}
+  gates:
+  - {fileID: 6775215463940945556}
+  - {fileID: 8163469514679292716}
   colorChangeAbles:
   - {fileID: 3382626758132213074}
   - {fileID: 7020791521495390786}
@@ -258,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6775215463299115883}
   - component: {fileID: 6775215463299115880}
-  - component: {fileID: 7709318269656039295}
+  - component: {fileID: 6591254141418599112}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -328,7 +331,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7709318269656039295
+--- !u!114 &6591254141418599112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 1, g: 0, b: 1, a: 1}
-  glowBrightness: 2.96
+  glowBrightness: 3
   outlineWidth: 1
   alphaThreshold: 1
   drawOutside: 0
@@ -373,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 6775215463940945559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 6775215462720005910}
   m_RootOrder: 1
@@ -415,12 +418,12 @@ SpriteRenderer:
   m_SortingLayerID: 1702162137
   m_SortingLayer: 2
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 8f2b629e7e25a61558a93b2a32115a4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b359331b263979d3cb9c03a8f7415140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
-  m_Size: {x: 0.15, y: 4}
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -439,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 1, g: 1, b: 1, a: 1}
-  glowBrightness: 3
+  glowBrightness: 2.5
   outlineWidth: 1
   alphaThreshold: 1
   drawOutside: 0

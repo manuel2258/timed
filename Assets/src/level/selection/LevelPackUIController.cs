@@ -9,7 +9,6 @@ namespace src.level.selection {
 
         [SerializeField] private GameObject layoutPrefab;
         [SerializeField] private GameObject levelButtonPrefab;
-        [SerializeField] private GameObject randomGeneratorPrefab;
 
         [SerializeField] private TMP_Text packName;
 
@@ -20,23 +19,20 @@ namespace src.level.selection {
         private void Start() {
             _levelPacks = LevelSelectionManager.Instance.LevelPacks;
             foreach (var levelPack in _levelPacks) {
-                if (levelPack.PackType == PackType.Levels) {
-                    var newParent = Instantiate(layoutPrefab, transform);
-                    for (int i = 0; i < levelPack.LevelCount; i++) {
-                        var newButton = Instantiate(levelButtonPrefab, newParent.transform);
-                        var id = i;
-                        var pack = levelPack;
-                        newButton.GetComponent<Button>().onClick.AddListener(() => {
-                            LevelSelectionManager.Instance.loadIndexFromPack(pack, id);
-                        });
-                        newButton.transform.GetChild(0).GetComponent<TMP_Text>().text = id.ToString();
-                    }
-
-                    newParent.SetActive(false);
-                } else {
-                    Instantiate(randomGeneratorPrefab, transform);
+                var newParent = Instantiate(layoutPrefab, transform);
+                for (int i = 0; i < levelPack.LevelCount; i++) {
+                    var newButton = Instantiate(levelButtonPrefab, newParent.transform);
+                    var id = i;
+                    var pack = levelPack;
+                    newButton.GetComponent<Button>().onClick.AddListener(() => {
+                        LevelSelectionManager.Instance.loadIndexFromPack(pack, id);
+                    });
+                    newButton.transform.GetChild(0).GetComponent<TMP_Text>().text = id.ToString();
                 }
+
+                newParent.SetActive(false);
             }
+
             selectOtherPack(0);
         }
 
