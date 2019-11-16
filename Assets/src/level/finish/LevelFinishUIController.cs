@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using src.level.selection;
 using src.misc;
 using src.simulation.reseting;
@@ -24,22 +25,42 @@ namespace src.level.finish {
         public Sprite finished;
 
         public List<RectTransform> uiMask;
+
+        public DifficultyUIController difficultyUIController;
+        public DifficultyUIController scoreUIController;
+        public TMP_Text scoreText;
         
+
         private readonly CheckEventManager _checkEventManager = new CheckEventManager();
         public void registerEvent(string eventName, Action onEventChecked) {
             _checkEventManager.registerEvent(eventName, onEventChecked);
         }
 
         private void Start() {
-            LevelFinishManager.Instance.onLevelFinished += () => {
-                endLevelButton.image.sprite = finished;
+            LevelFinishManager.Instance.onLevelFinished += (score, real) => {
+                var highScore = LevelProgressManager.Instance.HighScore;
+                if (real) {
+                    endLevelButton.image.sprite = finished;
+                    scoreText.text = highScore != -1 ? $"{highScore} -> {score}" : score.ToString();
+                } else {
+                    scoreText.text = score.ToString();
+                }
+
                 finishedCanvas.enabled = true;
+                
+                var levelHeader = LevelManager.Instance.CurrentLevel.LevelHeader;
+
+                if (score < highScore) {
+                    score = highScore;
+                }
+                int stars = 1 + levelHeader.Scores.Count(levelHeaderScore => score > levelHeaderScore);
+                scoreUIController.displayDifficulty(stars);
             };
             endLevelButton.onClick.AddListener(() => UIWindowStack.Instance.toggleWindow(typeof(LevelFinishUIController)));
             
             var currentLevel = LevelManager.Instance.CurrentLevel;
-            levelName.text = currentLevel.Name;
-            DifficultyUIController.Instance.displayDifficulty(currentLevel.Difficulty);
+            levelName.text = currentLevel.LevelHeader.Name;
+            difficultyUIController.displayDifficulty(currentLevel.LevelHeader.Difficulty);
             GravityScaleUIController.Instance.displayGravity(currentLevel.GravityScale);
 
             if (LevelSelectionManager.Instance != null) {
@@ -67,7 +88,7 @@ namespace src.level.finish {
 
         public void reset() {
             endLevelButton.image.sprite = notFinished;
-            finishedCanvas.enabled = false;
+            //finishedCanvas.enabled = false;
         }
     }
 }

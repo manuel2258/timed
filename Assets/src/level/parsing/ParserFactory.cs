@@ -32,6 +32,8 @@ namespace src.level.parsing {
         /// <returns>The ready to initialize LevelContainer</returns>
         /// <exception cref="Exception">If something could not be parsed properly</exception>
         LevelContainer parseLevelFromXmlString(XmlNode levelNode);
+        
+        LevelHeader parseLevelHeadFromXmlString(XmlNode levelNode);
     }
 
     public interface ITutorialParser {

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="NyC2JVLbs7oFLFy09GudIylMWj/BPz6IkH6DEyc1Dck=" version="1">
-  <Level name="Multithreading" difficulty="1" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="AOWGeQcePtSIGkmm36ufgroEmycFAmiM/L7fuVZftlU=" version="1">
+  <Level name="Multithreading" difficulty="1" gravity_x="0" gravity_y="-9.81" guid="5b9a3a54-9d74-4533-a0ab-3c6eb8ff3496" three_star_score="650" two_star_score="350">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
         <Position x="-7" y="0" />
         <Rotation angle="0" />
-        <Parameter name="force">4000</Parameter>
+        <Parameter name="force">6000</Parameter>
         <Parameter name="invertAble">true</Parameter>
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />

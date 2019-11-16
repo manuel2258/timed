@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="vmhRpLvI4bV9Ke3z2hXFY0vWDqWtMm8lnsQHglVfUro=" version="1">
-  <Level name="Broken Gravity" difficulty="1" gravity_x="6" gravity_y="6">
+<LevelFile levelHash="lTk3HxyyUvxFfK0Rz0W7PHy4YCMrpODrDI+mykI7pTw=" version="1">
+  <Level name="Broken Gravity" difficulty="1" gravity_x="6" gravity_y="6" guid="a2faca2b-c06b-48b3-94d7-534f7abc293a" three_star_score="950" two_star_score="800">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
         <Position x="-5" y="0" />

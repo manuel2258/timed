@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace src.tutorial.help_displays {
     public class TextHelpDisplay : TouchableRect, ISetupAble, IPointerDownHandler, ICheckAbleEvent {
 
-        private const float MAX_SPEED = 15;
+        private const float MAX_SPEED = 100;
 
         private RectTransform _rectTransform;
 
@@ -69,7 +69,7 @@ namespace src.tutorial.help_displays {
 
             if (_transforming) {
                 _rectTransform.anchoredPosition = Vector2.MoveTowards(_rectTransform.anchoredPosition,
-                    new Vector2(_rectTransform.anchoredPosition.x, _direction > 0 ? _openedY : _closedY), MAX_SPEED);
+                    new Vector2(_rectTransform.anchoredPosition.x, _direction > 0 ? _openedY : _closedY), MAX_SPEED * Time.deltaTime);
                 if ((_rectTransform.anchoredPosition.y > _openedY - 1 && _rectTransform.anchoredPosition.y < _openedY + 1) ||
                     (_rectTransform.anchoredPosition.y > _closedY - 1 && _rectTransform.anchoredPosition.y < _closedY + 1)) {
                     _transforming = false;

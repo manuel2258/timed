@@ -21,14 +21,10 @@ namespace src.level.selection {
             DontDestroyOnLoad(gameObject);
         }
 
-        public void loadIndexFromPack(LevelPack levelPack, int index) {
-            if (!levelPacks.Contains(levelPack)) {
-                throw new Exception("Could not find the requested levelPack!");
-            }
-
-            _lastLoadedPack = levelPack;
-            _lastIndex = index;
-            LevelXmlPayloadFactory.generateFromString(levelPack[index]);
+        public void loadFromSelectable(SelectableLevel selectableLevel) {
+            _lastLoadedPack = selectableLevel.LevelPack;
+            _lastIndex = selectableLevel.Index;
+            LevelXmlPayloadFactory.generateFromString(selectableLevel.LevelXml);
             SceneManager.LoadScene("MainScene");
         }
 
@@ -47,7 +43,7 @@ namespace src.level.selection {
                 throw new Exception("Could not find a next level!");
             }
             _lastIndex++;
-            loadIndexFromPack(_lastLoadedPack, _lastIndex);
+            loadFromSelectable(_lastLoadedPack[_lastIndex]);
         }
     }
 }

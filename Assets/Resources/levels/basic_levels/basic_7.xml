@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="B9KTgW1CI343TD1NtOh51tK/doIssmIjW+RxgxS5p1o=" version="1">
-  <Level name="Space" difficulty="1" gravity_x="0" gravity_y="0">
+<LevelFile levelHash="VxWljllwGOayvx4ycHYPjdLiOgtAf2gdFMngxa27ZsU=" version="1">
+  <Level name="Space" difficulty="1" gravity_x="0" gravity_y="0" guid="dce79a66-b0ec-42f5-a601-195cf7601650" three_star_score="900" two_star_score="800">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
         <Position x="-5" y="0" />

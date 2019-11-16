@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="IP09uCso8RXpHh6ukbAwyPeaNQdGQSTmCKzFcCQqrKw=" version="1">
-  <Level name="Big Air" difficulty="1" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="aFB263CSrSx3Vtxj/cqBg5rNyKVdsH+2FY6gfbrRFpc=" version="1">
+  <Level name="Big Air" difficulty="1" gravity_x="0" gravity_y="-9.81" guid="520fe59c-d2b8-4565-b89b-72413f56afcc" three_star_score="800" two_star_score="500">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
         <Position x="-8" y="-1" />

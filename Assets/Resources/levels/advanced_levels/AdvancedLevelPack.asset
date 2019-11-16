@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PackName>k__BackingField: Advanced
   <Difficulty>k__BackingField: 1
-  <PackType>k__BackingField: 0
   levels:
   - {fileID: 4900000, guid: b07b6e2da6c64e228822995edf9fac57, type: 3}
   - {fileID: 4900000, guid: cc360865ca05418889f12d77f98ad38d, type: 3}
@@ -23,3 +22,4 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 4e4e7936609847809584b1d202b25fef, type: 3}
   - {fileID: 4900000, guid: 209b6506fcdf4d199e001f83116138ed, type: 3}
   - {fileID: 4900000, guid: e38c10eef78841f78fe63dc7ee3e690d, type: 3}
+  - {fileID: 4900000, guid: 9eb221ed10e5423cb95c052402ae4ae9, type: 3}

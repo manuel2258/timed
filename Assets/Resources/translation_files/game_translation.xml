@@ -4,4 +4,20 @@
         <Translation language="English">Play</Translation>
         <Translation language="German">Spielen</Translation>
     </Translations>
+    <Translations tag="EndLevelGravityLabel">
+        <Translation language="English">Gravity</Translation>
+        <Translation language="German">Gravitation</Translation>
+    </Translations>
+    <Translations tag="EndLevelDifficultyLabel">
+        <Translation language="English">Difficulty</Translation>
+        <Translation language="German">Schwierigkeit</Translation>
+    </Translations>
+    <Translations tag="EndLevelScoreLabel">
+        <Translation language="English">Score</Translation>
+        <Translation language="German">Punktezahl</Translation>
+    </Translations>
+    <Translations tag="EndLevelNextLevelButton">
+        <Translation language="English">Next Level</Translation>
+        <Translation language="German">Nächstes Level</Translation>
+    </Translations>
 </TranslationPack>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="3Q3YPzEH0n4vKv1X2mgSkYcsTqlOUEmjQ3rqpBGRxZc=" version="1">
-  <Level name="Wave" difficulty="2" gravity_x="0" gravity_y="-4">
+<LevelFile levelHash="N+ayZd+Hg2ACi8Csu1ir3yEaMNx+BD8hy+K73bN0M88=" version="1">
+  <Level name="Wave" difficulty="5" gravity_x="0" gravity_y="-9.81" guid="b2676632-db79-40f4-ab79-e2cf4a761ae7" three_star_score="100" two_star_score="50">
     <Elements>
       <Effector type="TeleporterEffector" id="1">
         <Position x="-10" y="0" />
@@ -12,6 +12,7 @@
         <Parameter name="differenceX">5</Parameter>
         <Parameter name="differenceY">0</Parameter>
         <Parameter name="differenceAngle">90</Parameter>
+        <Parameter name="length">4</Parameter>
       </Effector>
       <Effector type="TeleporterEffector" id="2">
         <Position x="-10" y="-2.5" />
@@ -23,6 +24,7 @@
         <Parameter name="differenceX">5</Parameter>
         <Parameter name="differenceY">5</Parameter>
         <Parameter name="differenceAngle">90</Parameter>
+        <Parameter name="length">4</Parameter>
       </Effector>
       <Wall id="3">
         <Position x="-7.5" y="0" />
@@ -44,6 +46,7 @@
         <Parameter name="differenceX">5</Parameter>
         <Parameter name="differenceY">0</Parameter>
         <Parameter name="differenceAngle">90</Parameter>
+        <Parameter name="length">4</Parameter>
       </Effector>
       <Effector type="TeleporterEffector" id="6">
         <Position x="10" y="-2.5" />
@@ -55,6 +58,7 @@
         <Parameter name="differenceX">5</Parameter>
         <Parameter name="differenceY">5</Parameter>
         <Parameter name="differenceAngle">90</Parameter>
+        <Parameter name="length">4</Parameter>
       </Effector>
       <Effector type="RadialGravityEffector" id="7">
         <Position x="-20" y="0" />
@@ -64,6 +68,7 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors">Yellow|Blue</Parameter>
         <Parameter name="initialColor">Blue</Parameter>
+        <Parameter name="radius">6</Parameter>
       </Effector>
       <Effector type="RadialGravityEffector" id="8">
         <Position x="2.5" y="0" />
@@ -73,9 +78,10 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors">Yellow|Blue</Parameter>
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">8</Parameter>
       </Effector>
       <ColliderBody id="9">
-        <Position x="-23" y="5" />
+        <Position x="-18" y="3" />
         <Rotation angle="0" />
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>

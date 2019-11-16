@@ -1,8 +1,7 @@
-using src.misc;
 using UnityEngine;
 
 namespace src.level.finish {
-    public class DifficultyUIController : UnitySingleton<DifficultyUIController> {
+    public class DifficultyUIController : MonoBehaviour {
 
         public Transform starParent;
 

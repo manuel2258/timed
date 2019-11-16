@@ -2,19 +2,24 @@
 <TranslationPack>
     <Translations tag="TutorialBasic7Part0">
         <Translation language="English">
-            Hmh this seems easy ... Yeah it actually is. However there is a small catch, there is no gravity in this level.
-            Each level can have a different gravity direction and magnitute. If you want to find out the levels gravity
-            then open the menu. Bellow the levels name is a small arrow and number indicating the current gravity.
-            However for this level there won't be an arrow as it does not have a gravity, simply a number 0 indicating
-            the magnitute.
+            Hmh, this seems easy ... Yeah it actually is. 
+            However there is a small hurdle. 
+            There is no gravity in this level.
+            Each level can have a different gravity direction and magnitude. 
+            If you want to find out about the levels gravity open the menu. 
+            Below the name is a small arrow and a number indicating the current gravity.
+            However, for this level there won't be an arrow as it does not have any gravity.
             Open the menu to finish the tutorial ...
         </Translation>
         <Translation language="German">
-            Hmh das sieht recht einfach aus ... Ist es auch! Es gibt nur eine kleine neue Sache und zwar gibt es in diesem 
-            Level keine Gravitation. Jedes Level kann eine unterschiedliche Gravitationsrichtung und Stärke haben.
-            Um diese herauszufinden musst du das Menü öffnen. Unter dem Levelname befindet sich ein kleiner Pfeil und
-            eine Zahl welche diese angeben. Da die Gravitation in diesem Level nicht vorhanden ist, gibt es auch keinen
-            Pfeil, jeglich eine Zahl 0 die die stärke ausdrückt.
+            Hmh, das sieht erstmal einfach aus ... Ist es auch! 
+            Es gibt nur eine kleine Hürde. 
+            Es gibt keine Gravitation. 
+            Jedes Level kann eine unterschiedliche Gravitationsrichtung und Stärke haben.
+            Um diese herauszufinden musst du das Menü öffnen. 
+            Unter dem Levelnamen befindet sich ein kleiner Pfeil und eine Zahl. 
+            Da die Gravitation in diesem Level nicht vorhanden ist, gibt es keinen
+            Pfeil, nur eine Zahl 0, bemisst die Stärke.
             Öffne das Menü um das Tutorial zu beenden ...
         </Translation>
     </Translations>

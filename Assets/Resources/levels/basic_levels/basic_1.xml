@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="+xeZDqenoqWzrAFsZwiAP/rB7VgsYc2krV0LRKR6wMQ=" version="1">
-  <Level name="Freefall" difficulty="1" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="8kGjp71t9HNS4CTcYSNyL1YIpKpu6sbjwnM6UNtPqew=" version="1">
+  <Level name="Freefall" difficulty="1" gravity_x="0" gravity_y="-9.81" guid="d3dba018-c550-4229-bf83-2dcb3287cf3d" three_star_score="800" two_star_score="500">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
         <Position x="-8" y="-1" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="uCh8t4ARUuq6jfyd5u+u2T8+7AzWgFoPHvVmcp039f4=" version="1">
-  <Level name="A new toy?" difficulty="2" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="0yJbLqa3YsTXgDhfUWZyjXCEuq7gVQYzRa6klN6I5Qc=" version="1">
+  <Level name="A new toy?" difficulty="2" gravity_x="0" gravity_y="-9.81" guid="2c891155-7ac0-4c5c-8975-813b6f48f848" three_star_score="900" two_star_score="700">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
         <Position x="-8" y="1" />

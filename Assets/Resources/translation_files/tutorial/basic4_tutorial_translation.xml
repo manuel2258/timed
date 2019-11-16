@@ -2,18 +2,21 @@
 <TranslationPack>
     <Translations tag="TutorialBasic4Part0">
         <Translation language="English">
-            Huh now its starting to get interresting! The aspects of colors are pretty easy in this game. Effectors can 
-            only effect Colliderbodys with the same color. There are special events to change the color of a Effector.
-            So firstly try to get the Yellow Colliderbody into the goal, then change the Gravityfields color to Blue 
-            and do the same with it aswell. Also note that the Goals color has to match the Colliderbodys color.
+            Sheesh, now its starting to get interesting! The aspects of colors are pretty easy in this game. 
+            Effectors can only affect Colliderbodys with the same color. 
+            There are events to change the color of an Effector.
+            Firstly try to get the Yellow Colliderbody into the goal, then change the Gravityfield´s color to blue 
+            and get the blue Colliderbody into the goal. 
+            Also, note that the goal´s color has to match the Colliderbody´s color.
             Touch this field to finish the tutorial ...
         </Translation>
         <Translation language="German">
-            Huh, nun wird es wenigstens mal ein wenig interresant. Der Aspekt von Farben ist an sich recht einfach.
-            Effektoren haben nur auf gleichfarbige Körper einen Effekt. Zudem gibt es spezielle Events welche die 
-            Farbe der Effektoren ändern können. Also musst du in diesem Level vorerst versuchen den gelben Körpen
-            ins Ziel zu bringen, die Farbe des Effektors auf blau ändern und dann das selbe mit dem blauen Körper zu machen.
-            Zudem sollte auch klar sein, das ein Ziel nur Körper mit der gleichen Farbe akzeptiert.
+            Sheesh, nun wird es anspruchsvoll. Die Farben werden nun entscheidend.
+            Effektoren haben nur auf gleichfarbige Körper einen Effekt. 
+            Zudem gibt es Events, welche die Farbe der Effektoren ändern. 
+            Also musst du in diesem Level zunächst versuchen, den gelben Körper ins Ziel zu bringen.
+            Dann solltest du die Farbe des Effektors auf blau ändern, um den blauen Körper ins Ziel zu bringen.
+            Zudem akzeptiert ein Ziel nur Körper der gleichen Farbe.
             Berühre dieses Feld um das Tutorial zu beenden ...
         </Translation>
     </Translations>

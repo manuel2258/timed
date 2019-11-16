@@ -3,14 +3,18 @@
     <Translations tag="TutorialBasic1Part0">
         <Translation language="English">
             Alright, now try to solve this level on your own!
-            Also another tip. Try to already define the events at right time instead of defining them at 0s and then 
-            moving them to the right spot. But that's up to you for now, click this field to finish this tutorial ...
+            Also another clue: 
+            Try to already define the events at right time, instead of defining them at 0s and then moving them.
+            Have fun, I´ll keep my fingers crossed! 
+            Click this field to finish the tutorial ...
         </Translation>
         <Translation language="German">
-            So, jetzt bist du an der Reihe, versuche dieses Level aleine zu schaffen!
-            Noch ein letzer Tipp, versuche die Events direkt an der richtigen Stelle zu definieren anstatt diese bei 0s 
-            zu definieren und dann anschließend zu verschieben. Aber naja, das liegt im Endeffekt bei dir, also drücke
-            auf dieses Feld um das Tutotrial zu beenden ...
+            So, jetzt bist du an der Reihe, versuche dieses Level allein zu schaffen!
+            Noch ein letzer Hinweis:
+            Versuche die Events direkt an der richtigen Stelle zu definieren, anstatt diese bei 0s 
+            zu setzen und dann anschließend erst zu verschieben. 
+            Ich drücke dir die Daumen!
+            Tippe auf dieses Feld um das Tutorial zu beenden ...
         </Translation>
     </Translations>
 </TranslationPack>

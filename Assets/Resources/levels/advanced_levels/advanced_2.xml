@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="DA/dQuWVT4MrwgX1eppxESelUHnRstaYAp1OJVJzYqk=" version="1">
-  <Level name="Half Pipe" difficulty="3" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="GGE4RAiYft16fIa4vjjwbInzPdZPeg5jUxgkYD+5tvo=" version="1">
+  <Level name="Half Pipe" difficulty="2" gravity_x="0" gravity_y="-9.81" guid="46446fc9-420b-4bd3-98bf-1cd7c36ff63f" three_star_score="300" two_star_score="100">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
         <Position x="-3" y="0" />
         <Rotation angle="0" />
-        <Parameter name="force">2000</Parameter>
+        <Parameter name="force">3000</Parameter>
         <Parameter name="invertAble">true</Parameter>
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">8</Parameter>
       </Effector>
       <Effector type="RadialGravityEffector" id="2">
         <Position x="3" y="0" />
@@ -19,16 +20,17 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Blue</Parameter>
+        <Parameter name="radius">8</Parameter>
       </Effector>
       <Effector type="ColorChangerEffector" id="3">
-        <Position x="12" y="10" />
+        <Position x="11.5" y="10" />
         <Rotation angle="90" />
         <Parameter name="colors" />
         <Parameter name="initialColor">Blue</Parameter>
-        <Parameter name="length">4</Parameter>
+        <Parameter name="length">2</Parameter>
       </Effector>
       <ColliderBody id="4">
-        <Position x="0" y="0" />
+        <Position x="4" y="0.5" />
         <Rotation angle="0" />
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>

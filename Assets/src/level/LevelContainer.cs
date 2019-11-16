@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using src.level.initializing;
-using src.level.parsing;
 using UnityEngine;
 
 namespace src.level {
@@ -10,18 +9,16 @@ namespace src.level {
     /// </summary>
     public class LevelContainer {
         
-        public string Name { get; }
+        public LevelHeader LevelHeader { get; }
         public Vector2 GravityScale { get; }
-        public int Difficulty { get; }
 
         private readonly List<ElementInitializer> _worldInitializers = new List<ElementInitializer>();
         private readonly Dictionary<int, GameObject> _elementIds = new Dictionary<int, GameObject>();
         private bool _alreadyFired;
 
-        public LevelContainer(string name, Vector2 gravityScale, int difficulty) {
-            Name = name;
+        public LevelContainer(LevelHeader levelHeader, Vector2 gravityScale) {
+            LevelHeader = levelHeader;
             GravityScale = gravityScale;
-            Difficulty = difficulty;
         }
 
         /// <summary>

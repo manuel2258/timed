@@ -1,14 +1,12 @@
 using System.Collections.Generic;
-using Editor;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace src.level.selection {
     public class LevelPackUIController : MonoBehaviour {
 
         [SerializeField] private GameObject layoutPrefab;
-        [SerializeField] private GameObject levelButtonPrefab;
+        [SerializeField] private GameObject levelPreviewPrefab;
 
         [SerializeField] private TMP_Text packName;
 
@@ -21,18 +19,12 @@ namespace src.level.selection {
             foreach (var levelPack in _levelPacks) {
                 var newParent = Instantiate(layoutPrefab, transform);
                 for (int i = 0; i < levelPack.LevelCount; i++) {
-                    var newButton = Instantiate(levelButtonPrefab, newParent.transform);
-                    var id = i;
-                    var pack = levelPack;
-                    newButton.GetComponent<Button>().onClick.AddListener(() => {
-                        LevelSelectionManager.Instance.loadIndexFromPack(pack, id);
-                    });
-                    newButton.transform.GetChild(0).GetComponent<TMP_Text>().text = id.ToString();
+                    var newLevelPreview = Instantiate(levelPreviewPrefab, newParent.transform.GetChild(0).GetChild(0));
+                    levelPack.loadLevelsFromAssets();
+                    newLevelPreview.GetComponent<LevelPreviewUIController>().setup(levelPack[i]);
                 }
-
                 newParent.SetActive(false);
             }
-
             selectOtherPack(0);
         }
 

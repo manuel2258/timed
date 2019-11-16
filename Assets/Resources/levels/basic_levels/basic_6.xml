@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="q+fR2upbqJ2EaHdI1UBj/wILDKqlBWIzKy1bVHYs8Oc=" version="1">
-  <Level name="High Dreams" difficulty="3" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="Vd0aRa4x6P0xV/O3/xDrbD5E1JePMS5jPiGslslwSs8=" version="1">
+  <Level name="High Dreams" difficulty="3" gravity_x="0" gravity_y="-9.81" guid="53a6caa3-1588-4936-a8ce-d0dc99b7ce09" three_star_score="800" two_star_score="500">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
         <Position x="-9" y="-1" />
@@ -23,9 +23,9 @@
         <Parameter name="radius">3</Parameter>
       </Effector>
       <Effector type="ColorChangerEffector" id="2">
-        <Position x="0" y="7"/>
-        <Rotation angle="-45"/>
-        <Parameter name="colors"/>
+        <Position x="0" y="7" />
+        <Rotation angle="-45" />
+        <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
         <Parameter name="length">6</Parameter>
       </Effector>

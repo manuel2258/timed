@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="1EJNFgkeu7hnjwWgjJmz6wD3rE0n2KHtbUbxazire/U=" version="1">
-  <Level name="Particle Accelerator" difficulty="1" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="2kd1lEtzawPryg1me8SpPsKMK2vVhRvitQ3hTuvZF8Y=" version="1">
+  <Level name="Particle Accelerator" difficulty="2" gravity_x="0" gravity_y="-9.81" guid="c72105ca-85b1-42bb-8d14-6aada4ab867d" three_star_score="750" two_star_score="600">
     <Elements>
       <Effector type="TeleporterEffector" id="1">
         <Position x="-7.5" y="1.4" />
@@ -17,14 +17,15 @@
       <Effector type="RadialGravityEffector" id="2">
         <Position x="-15" y="0" />
         <Rotation angle="0" />
-        <Parameter name="force">3000</Parameter>
+        <Parameter name="force">2000</Parameter>
         <Parameter name="invertAble">true</Parameter>
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">6</Parameter>
       </Effector>
       <ColliderBody id="3">
-        <Position x="-18" y="-1" />
+        <Position x="-20" y="-1" />
         <Rotation angle="0" />
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>

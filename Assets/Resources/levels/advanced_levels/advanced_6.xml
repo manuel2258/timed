@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="5Txwe0sRKopOlCoMLdz+nyGbWqWqCOecnNHHXn3ZDZk=" version="1">
-  <Level name="American Sniper" difficulty="4" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="L82t3jAR/MVM8BbduuMpIwyNvxW5Xt29ODculjYB0b4=" version="1">
+  <Level name="American Sniper" difficulty="4" gravity_x="0" gravity_y="-9.81" guid="bd7ea660-03e0-4c68-9957-ab8c9476b38a" three_star_score="150" two_star_score="50">
     <Elements>
       <Wall id="1">
         <Position x="-30" y="-3" />
@@ -10,11 +10,12 @@
       <Effector type="RadialGravityEffector" id="2">
         <Position x="-12" y="-8" />
         <Rotation angle="0" />
-        <Parameter name="force">7000</Parameter>
+        <Parameter name="force">9000</Parameter>
         <Parameter name="invertAble">true</Parameter>
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">6</Parameter>
       </Effector>
       <ColliderBody id="3">
         <Position x="-30" y="-2" />
@@ -27,7 +28,7 @@
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>
       <ColliderBody id="5">
-        <Position x="-13" y="-11" />
+        <Position x="-15" y="-13" />
         <Rotation angle="0" />
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>

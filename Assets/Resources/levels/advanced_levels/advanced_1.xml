@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="7OFgWhY+qWem0I52IZCa2HQlq+GuZum3jYl1yhAaPes=" version="1">
-  <Level name="Life Saver" difficulty="3" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="ZOmZGhDVOMiOO0N1YFoyeSI5bxy6I7+0IsquYSdD2Ow=" version="1">
+  <Level name="Life Saver" difficulty="3" gravity_x="0" gravity_y="-9.81" guid="12166ba5-b8bf-439e-a6c6-13ea32f40e42" three_star_score="850" two_star_score="800">
     <Elements>
       <Effector type="RadialGravityEffector" id="1">
         <Position x="-5" y="3" />
@@ -10,6 +10,7 @@
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">4</Parameter>
       </Effector>
       <ColliderBody id="2">
         <Position x="-10" y="5" />

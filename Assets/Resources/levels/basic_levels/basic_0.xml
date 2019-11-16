@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="pS1R11AMIVaShhDOfckwAKXYbp+vl34axqx0Iw1ia4U=" version="1">
-  <Level name="Save House" difficulty="1" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="9YZcAmMn4N628VM6VTZ4EJ3m9mvVlebcaI9q2O1kGlI=" version="1">
+  <Level name="Save House" difficulty="1" gravity_x="0" gravity_y="-9.81" guid="789eb9e0-ca99-419f-80fe-5920897e6282" three_star_score="500" two_star_score="450">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
         <Position x="-11.5" y="-0.5" />
@@ -159,14 +159,12 @@
       <Part id="6">
         <CheckEvent type="GameObjectEvent" id="0" name="ReplayManager">TimeReset</CheckEvent>
         <CheckEvent type="GameObjectEvent" id="1" name="ReplayManager">SetActive</CheckEvent>
-        <CheckEvent type="GameObjectEvent" id="5" name="ReplayManager">SetNonActive</CheckEvent>
-        <CheckEvent type="PartElementEvent" id="2" partId="6" elementId="4">Touched</CheckEvent>
-        <HelpDisplay type="ElementHighlight" id="3">
+        <HelpDisplay type="ElementHighlight" id="2">
           <Parameter name="sizeX">2</Parameter>
           <Parameter name="sizeY">2</Parameter>
           <Parameter name="elementId">0</Parameter>
         </HelpDisplay>
-        <HelpDisplay type="Text" id="4">
+        <HelpDisplay type="Text" id="3">
           <Parameter name="content">TutorialBasic0Part6</Parameter>
         </HelpDisplay>
         <TutorialUiMask id="4">

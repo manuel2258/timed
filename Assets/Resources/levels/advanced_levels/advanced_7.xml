@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LevelFile levelHash="rLR/uu32df2FwqWHksoSCdyCk1muXNGPucypia31y7s=" version="1">
+  <Level name="Trinity Force" difficulty="4" gravity_x="0" gravity_y="-0" guid="bd7ea660-03e0-4c68-9957-ab8c9476b38a" three_star_score="550" two_star_score="300">
+    <Elements>
+      <Effector type="RadialGravityEffector" id="1">
+        <Position x="0" y="5" />
+        <Rotation angle="0" />
+        <Parameter name="force">5000</Parameter>
+        <Parameter name="invertAble">true</Parameter>
+        <Parameter name="disableAble">true</Parameter>
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">7</Parameter>
+      </Effector>
+      <Effector type="RadialGravityEffector" id="2">
+        <Position x="-4.33" y="-2.5" />
+        <Rotation angle="0" />
+        <Parameter name="force">5000</Parameter>
+        <Parameter name="invertAble">true</Parameter>
+        <Parameter name="disableAble">true</Parameter>
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">7</Parameter>
+      </Effector>
+      <Effector type="RadialGravityEffector" id="3">
+        <Position x="4.33" y="-2.5" />
+        <Rotation angle="0" />
+        <Parameter name="force">5000</Parameter>
+        <Parameter name="invertAble">true</Parameter>
+        <Parameter name="disableAble">true</Parameter>
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">7</Parameter>
+      </Effector>
+      <Effector type="RadialGravityEffector" id="4">
+        <Position x="0" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="force">10000</Parameter>
+        <Parameter name="invertAble">false</Parameter>
+        <Parameter name="disableAble">true</Parameter>
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">15</Parameter>
+      </Effector>
+      <ColliderBody id="5">
+        <Position x="0" y="0" />
+        <Rotation angle="0" />
+        <Parameter name="initialColor">Yellow</Parameter>
+      </ColliderBody>
+      <Trigger type="Goal" id="6">
+        <Position x="-12.12" y="6" />
+        <Rotation angle="0" />
+        <Parameter name="color">Yellow</Parameter>
+        <Parameter name="amount">1</Parameter>
+      </Trigger>
+      <Trigger type="Goal" id="7">
+        <Position x="12.12" y="6" />
+        <Rotation angle="0" />
+        <Parameter name="color">Yellow</Parameter>
+        <Parameter name="amount">1</Parameter>
+      </Trigger>
+      <Trigger type="Goal" id="8">
+        <Position x="0" y="-14" />
+        <Rotation angle="0" />
+        <Parameter name="color">Yellow</Parameter>
+        <Parameter name="amount">1</Parameter>
+      </Trigger>
+    </Elements>
+  </Level>
+</LevelFile>

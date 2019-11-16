@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee2a698c44f4a8684f4246ddb7483f9, type: 3}
   m_Name: BasicLevelPack
   m_EditorClassIdentifier: 
-  <PackName>k__BackingField: Basic
+  <PackName>k__BackingField: Tutorial
   <Difficulty>k__BackingField: 0
-  <PackType>k__BackingField: 0
   levels:
   - {fileID: 4900000, guid: 967388543db9469a944d65446a01df1a, type: 3}
   - {fileID: 4900000, guid: e07126bdd14e4ed9be5bc5df83ffbf71, type: 3}

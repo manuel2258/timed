@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="rTLcmIDyzFUhBVgLe70WTdTl0Sy1MhUt4fC4MsvbUf8=" version="1">
-  <Level name="Deflection" difficulty="2" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="x6A1P16HYsR8Njt4t9qtIh5IUIUSjB9oQkuprYb0tBg=" version="1">
+  <Level name="Weird Gravity" difficulty="3" gravity_x="-4" gravity_y="-10" guid="21809f9d-4736-4ff3-bc8f-f3200183b60d" three_star_score="500" two_star_score="350">
     <Elements>
       <Effector type="TeleporterEffector" id="1">
-        <Position x="0" y="-5" />
+        <Position x="0" y="-7" />
         <Rotation angle="-45" />
         <Parameter name="disableAble">false</Parameter>
         <Parameter name="initialEnabled">true</Parameter>
@@ -11,28 +11,37 @@
         <Parameter name="initialColor">Yellow</Parameter>
         <Parameter name="differenceX">-20</Parameter>
         <Parameter name="differenceY">10</Parameter>
-        <Parameter name="differenceAngle">45</Parameter>
+        <Parameter name="differenceAngle">70</Parameter>
+        <Parameter name="length">4</Parameter>
       </Effector>
       <Effector type="RadialGravityEffector" id="2">
         <Position x="-10" y="0" />
         <Rotation angle="0" />
-        <Parameter name="force">3000</Parameter>
+        <Parameter name="force">2500</Parameter>
         <Parameter name="invertAble">true</Parameter>
         <Parameter name="disableAble">true</Parameter>
         <Parameter name="colors" />
         <Parameter name="initialColor">Yellow</Parameter>
+        <Parameter name="radius">15</Parameter>
       </Effector>
       <ColliderBody id="3">
-        <Position x="-13" y="-1" />
+        <Position x="-20" y="-5" />
         <Rotation angle="0" />
         <Parameter name="initialColor">Yellow</Parameter>
       </ColliderBody>
       <Trigger type="Goal" id="4">
         <Position x="15" y="0" />
         <Rotation angle="0" />
-        <Parameter name="color">Yellow</Parameter>
+        <Parameter name="color">Blue</Parameter>
         <Parameter name="amount">1</Parameter>
       </Trigger>
+      <Effector type="ColorChangerEffector" id="5">
+        <Position x="-17" y="2" />
+        <Rotation angle="25" />
+        <Parameter name="colors" />
+        <Parameter name="initialColor">Blue</Parameter>
+        <Parameter name="length">5</Parameter>
+      </Effector>
     </Elements>
   </Level>
 </LevelFile>

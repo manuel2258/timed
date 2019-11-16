@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LevelFile levelHash="PcRe/nmpLKWCBZxfzwMas10+KpXOlB+DXOwSUeAvzXc=" version="1">
-  <Level name="Way to many colors" difficulty="1" gravity_x="0" gravity_y="-9.81">
+<LevelFile levelHash="g5qQEdXj9jJb0388iaFH8fILee6+xEi+HQnvsw+mDL4=" version="1">
+  <Level name="Way to many colors" difficulty="1" gravity_x="0" gravity_y="-9.81" guid="e3d4d31d-7c73-4c64-ae3d-3738dbcdfca0" three_star_score="600" two_star_score="400">
     <Elements>
       <Effector type="RadialGravityEffector" id="0">
         <Position x="-7.5" y="-3" />

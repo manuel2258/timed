@@ -2,17 +2,22 @@
 <TranslationPack>
     <Translations tag="TutorialBasic2Part0">
         <Translation language="English">
-            Hmh this level seems familiar. However simply turning the Gravityfield on and off won't give the Colliderbody
-            enough energy to close such a huge gap. If you think back to the first level you hopefully have read through
-            the Gravityfields Eventinformations. If not do so! Also have a look at the available events of the Gravityfield.
-            This should be enought to complete this level, therefor touch this field to finish the tutorial ...
+            Hmh this level seems familiar. 
+            However, simply turning the Gravityfield on and off won't give the Colliderbody
+            enough energy to close such a huge gap. 
+            In the first level you hopefully have read through the Gravityfield´s Eventinformation. 
+            If not do so now! 
+            Also have a look at the available events of the Gravityfield.
+            This should be enought to complete this level, now touch this field to finish the tutorial ...
         </Translation>
         <Translation language="German">
-            Hmh, dieses Level sieht recht bekannt aus. Jedoch wird diesmal das einfache an und ausmachen des 
-            Gravitationsfelds nicht genug Energie bereitstellen um solch eine große Schlucht zu überwinden. Wenn du
-            an das erste Tutorial zurück denkst, hast du hoffentlich die Beschreibung des Gravitationsfelds durchgelesen!
-            Wenn nicht hole das nach. Wenn du dir jetzt noch die verfügbaren Events anschaust sollte dieses Level kein 
-            Problem mehr sein, daher drücke dieses Feld um da Tutorial zu beenden ...
+            Hmh, dieses Level sieht bekannt aus. 
+            Doch diesmal wird das einfache An- und Ausschalten des 
+            Gravitationsfelds nicht genug Energie bereitstellen, um solch eine große Schlucht zu überwinden. 
+            Hoffentlich hast du im ersten Level die Beschreibung des Gravitationsfelds durchgelesen!
+            Kein Stress, ansonsten schaue jetzt nochmal nach. 
+            Wenn du dir  auch noch die verfügbaren Events anschaust, sollte dieses Level kein 
+            Problem sein, daher drücke dieses Feld um da Tutorial zu beenden ...
         </Translation>
     </Translations>
 </TranslationPack>

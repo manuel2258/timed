@@ -18,9 +18,6 @@ namespace src.level.parsing {
         /// <exception cref="Exception">If something could not be parsed properly</exception>
         public LevelContainer parseLevelFromXmlString(XmlNode levelNode) {
             
-            // Parses the levels meta data and creates a level container
-            var levelName = ParseHelper.getAttributeValueByName(levelNode, "name");
-            
             var gravityStringX = ParseHelper.getAttributeValueByName(levelNode, "gravity_x");
             if (!float.TryParse(gravityStringX, out var gravityX)) {
                 throw new Exception("Could not parse gravityScaleX argument: " + gravityStringX);
@@ -30,13 +27,8 @@ namespace src.level.parsing {
             if (!float.TryParse(gravityStringY, out var gravityY)) {
                 throw new Exception("Could not parse gravityScaleY argument: " + gravityStringY);
             }
-            
-            var difficultyString = ParseHelper.getAttributeValueByName(levelNode, "difficulty");
-            if (!int.TryParse(difficultyString, out var difficulty)) {
-                throw new Exception("Could not parse difficulty argument: " + difficulty);
-            }
-            
-            var level = new LevelContainer(levelName, new Vector2(gravityX, gravityY), difficulty);
+
+            var level = new LevelContainer(parseLevelHeadFromXmlString(levelNode), new Vector2(gravityX, gravityY));
             
             var elements = levelNode.SelectSingleNode("Elements");
             if (elements != null) {
@@ -105,6 +97,28 @@ namespace src.level.parsing {
             }
 
             return level;
+        }
+
+        public LevelHeader parseLevelHeadFromXmlString(XmlNode levelNode) {
+            var levelName = ParseHelper.getAttributeValueByName(levelNode, "name");
+            var levelGuid = ParseHelper.getAttributeValueByName(levelNode, "guid");
+
+            var difficultyString = ParseHelper.getAttributeValueByName(levelNode, "difficulty");
+            if (!int.TryParse(difficultyString, out var difficulty)) {
+                throw new Exception("Could not parse difficulty argument: " + difficulty);
+            }
+            
+            var threeStarsString = ParseHelper.getAttributeValueByName(levelNode, "three_star_score");
+            if (!int.TryParse(threeStarsString, out var threeStars)) {
+                throw new Exception("Could not parse difficulty argument: " + difficulty);
+            }
+            
+            var twoStarsString = ParseHelper.getAttributeValueByName(levelNode, "two_star_score");
+            if (!int.TryParse(twoStarsString, out var twoStars)) {
+                throw new Exception("Could not parse difficulty argument: " + difficulty);
+            }
+            
+            return new LevelHeader(levelName, levelGuid, difficulty, new [] {twoStars, threeStars});
         }
     }
 }

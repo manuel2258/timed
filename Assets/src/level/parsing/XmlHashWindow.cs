@@ -1,10 +1,6 @@
-using System.Xml;
-using UnityEditor;
-using UnityEngine;
-
 namespace src.level.parsing {
     
-    public class XmlHashWindow : EditorWindow {
+    /*public class XmlHashWindow : EditorWindow {
         private string _currentXmlPath;
 
         private string _displayedXmlPath;
@@ -13,8 +9,7 @@ namespace src.level.parsing {
         private string _currentHash;
         private string _newHash;
         private XmlDocument _currentXmlDocument;
-
-        // Add menu item named "My Window" to the Window menu
+        
         [MenuItem("Window/XmlHashWindow")]
         public static void ShowWindow() {
             GetWindow(typeof(XmlHashWindow));
@@ -48,5 +43,5 @@ namespace src.level.parsing {
                 _displayInfo = false;
             }
         }
-    }
+    }*/
 }
