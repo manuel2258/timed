@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using src.element.collider_body;
 using src.element.effector.effectors;
 using src.time.timeline;
@@ -55,14 +53,38 @@ namespace src.element {
         /// <summary>
         /// Filters a Stream of RayCastHits for ColliderBodys with the right color
         /// </summary>
-        /// <param name="colliders">The to filter Collider2Ds</param>
+        /// <param name="raycastHits">The to filter Collider2Ds</param>
         /// <param name="color">The to filter for ElementColor</param>
         /// <returns>The Filter ColliderBodySteam</returns>
-        public static IEnumerable<ColliderBody> filterForColorFromRaycastHits(IEnumerable<RaycastHit2D> colliders, ElementColor color) {
-            return colliders.Where(raycast => raycast.collider != null)
-                .Select(collider => collider.collider.GetComponent<ColliderBody>())
-                .Where(colliderBody => colliderBody != null)
-                .Where(colliderBody => colliderBody.Color == color);
+        public static ColliderBody[] filterForColorFromRaycastHits(RaycastHit2D[] raycastHits, ElementColor color) {
+            // Bitmask of to return ColliderBodys
+            int mask = 0;
+            int counter = 0;
+            
+            // Array of all casted ColliderBodys
+            var allColliderBodys = new ColliderBody[raycastHits.Length];
+            for (var i = 0; i < raycastHits.Length; i++) {
+                var currentRaycastHit = raycastHits[i];
+                var colliderBody = currentRaycastHit.collider.GetComponent<ColliderBody>();
+                allColliderBodys[i] = colliderBody;
+                if(colliderBody == null) continue;
+                if(colliderBody.Color != color) continue;
+                counter++;
+                
+                // If colliderbody has right color enable it bits at position i
+                mask |= 1 << i;
+            }
+
+            var returnColliders = new ColliderBody[counter];
+            counter = 0;
+            for (var i = 0; i < raycastHits.Length; i++) {
+                // Check if bit is enabled
+                if ((mask & 1 << i) == 0) continue;
+                returnColliders[counter] = allColliderBodys[i];
+                counter++;
+            }
+
+            return returnColliders;
         }
     }
 }
