@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace src.element {
     public enum ElementColor {
-        _first_,
         Yellow,
-        Blue,
-        _last_,
+        Blue
     }
 
     /// <summary>
