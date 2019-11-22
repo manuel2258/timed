@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.misc;
+using src.setting;
 using UnityEngine;
 
 namespace src.translation {
@@ -26,6 +27,10 @@ namespace src.translation {
 
         private void Awake() {
             loadTranslationWords();
+        }
+
+        private void Start() {
+            SettingManager.Instance.GeneralSettings.Language.getValue(language => CurrentLanguage = language);
         }
 
         public void loadTranslationWords() {
