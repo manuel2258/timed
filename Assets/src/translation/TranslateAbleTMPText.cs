@@ -30,7 +30,7 @@ namespace src.translation {
                 Text.text = TranslationManager.Instance.getTranslatedStringByTag(translationTag);
             } catch (Exception) {
                 Text.text = translationTag;
-                Debug.Log($"Could not find translation for Tag: {translationTag}");
+                Debug.Log($"Could not find translation for Tag: {translationTag} in Object: {name}");
             }
             onTextChanged?.Invoke();
         }

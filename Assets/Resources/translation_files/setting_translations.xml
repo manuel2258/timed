@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslationPack>
+    <Translations tag="SettingGroupGeneral">
+        <Translation language="English">General Settings</Translation>
+        <Translation language="German">Generelle Einstellungen</Translation>
+    </Translations>
+    <Translations tag="SettingGeneralLanguage">
+        <Translation language="English">Language</Translation>
+        <Translation language="German">Sprache</Translation>
+    </Translations>
+</TranslationPack>
